@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfTestApp.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:prism="http://prismlibrary.com/"
+		prism:ViewModelLocator.AutoWireViewModel="True"
+		Title="{Binding Title}" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+	<Grid x:Name="BaseGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<ToolBar x:Name="MainToolBar" Height="25"/>
+		<StatusBar x:Name="MainStatus" Grid.Row="2" Height="25"/>
+		<Grid x:Name="ClientGrid" Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto" MinWidth="3"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<ContentControl x:Name="NaviTree" prism:RegionManager.RegionName="NaviTree" Grid.Column="0" Width="150"></ContentControl>
+			<GridSplitter Grid.Column="1" Width="3"/>
+			<ContentControl x:Name="EditorArea" prism:RegionManager.RegionName="EditorArea" Grid.Column="2"></ContentControl>
+		</Grid>
+	</Grid>
+</Window>
