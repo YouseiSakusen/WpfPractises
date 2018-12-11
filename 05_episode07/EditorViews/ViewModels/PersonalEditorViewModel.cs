@@ -23,7 +23,22 @@ namespace WpfTestApp.ViewModels
 		/// <summary>
 		/// コンストラクタ。
 		/// </summary>
-		public PersonalEditorViewModel() { }
+		public PersonalEditorViewModel()
+		{
+			
+		}
+
+		private void initProperties()
+		{
+			this.Name = this.personInfo.ToReactivePropertyAsSynchronized(x => x.Name)
+							.AddTo(this.disposables);
+
+			this.ClassNumber = this.personInfo.ToReactivePropertyAsSynchronized(x => x.ClassNumber)
+								.AddTo(this.disposables);
+
+			this.Sex = this.personInfo.ToReactivePropertyAsSynchronized(x => x.Sex)
+						.AddTo(this.disposables);
+		}
 
 		private PersonalInformation personInfo = new PersonalInformation();
 		private System.Reactive.Disposables.CompositeDisposable disposables = 
@@ -34,22 +49,7 @@ namespace WpfTestApp.ViewModels
 		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
 		{
 			this.personInfo = navigationContext.Parameters["TargetData"] as PersonalInformation;
-
-			this.Name = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.Name)
-				.AddTo(this.disposables);
-
-			this.ClassNumber = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.ClassNumber)
-				.AddTo(this.disposables);
-
-			this.Sex = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.Sex)
-				.AddTo(this.disposables);
-
-			this.RaisePropertyChanged(nameof(this.Name));
-			this.RaisePropertyChanged(nameof(this.ClassNumber));
-			this.RaisePropertyChanged(nameof(this.Sex));
+			this.initProperties();
 		}
 
 		/// <summary>表示するViewを判別します。</summary>

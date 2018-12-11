@@ -30,11 +30,6 @@
 				<HierarchicalDataTemplate DataType="{x:Type nt:TreeViewItemViewModel}"
 										  ItemsSource="{Binding Children}">
 					<StackPanel Orientation="Horizontal" Margin="0,3">
-						<StackPanel.ContextMenu>
-							<ContextMenu>
-								<MenuItem Header="新規データの追加(_A)" Command="{Binding AddNewData}" />
-							</ContextMenu>
-						</StackPanel.ContextMenu>
 						<Image Source="{Binding ItemImage.Value}" Width="25" Height="25" />
 						<TextBlock Text="{Binding ItemText.Value}" VerticalAlignment="Center" Padding="5,0" />
 					</StackPanel>
