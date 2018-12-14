@@ -32,7 +32,7 @@
 					<StackPanel Orientation="Horizontal" Margin="0,3">
 						<StackPanel.ContextMenu>
 							<ContextMenu>
-								<MenuItem Header="新規データの追加(_A)" Command="{Binding AddNewData}" />
+								<MenuItem Header="新規データの追加(_A)" Command="{Binding AddNewDataCommand}" />
 							</ContextMenu>
 						</StackPanel.ContextMenu>
 						<Image Source="{Binding ItemImage.Value}" Width="25" Height="25" />

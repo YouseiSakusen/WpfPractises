@@ -29,6 +29,12 @@ namespace WpfTestApp.ViewModels
 		/// <summary>TreeViewItemが選択されているかを取得・設定します。</summary>
 		public ReactivePropertySlim<bool> IsSelected { get; set; }
 
+		/// <summary>カテゴリノードかどうかを取得・設定します。</summary>
+		private ReactivePropertySlim<bool> IsCategory { get; set; }
+
+		/// <summary>新規データ追加コマンド</summary>
+		public ReactiveCommand AddNewDataCommand { get; }
+
 		/// <summary>ReactivePropertyのDispose用リスト</summary>
 		private System.Reactive.Disposables.CompositeDisposable disposables
 			= new System.Reactive.Disposables.CompositeDisposable();
@@ -87,6 +93,17 @@ namespace WpfTestApp.ViewModels
 			this.IsExpanded = new ReactivePropertySlim<bool>(true)
 				.AddTo(this.disposables);
 			this.IsSelected = new ReactivePropertySlim<bool>(false)
+				.AddTo(this.disposables);
+			this.IsCategory = new ReactivePropertySlim<bool>(this.SourceData != null && this.SourceData is string)
+				.AddTo(this.disposables);
+
+			this.AddNewDataCommand = new List<IObservable<bool>>()
+				{
+					this.IsCategory,
+					this.IsSelected
+				}
+				.CombineLatestValuesAreAllTrue()
+				.ToReactiveCommand()
 				.AddTo(this.disposables);
 		}
 
