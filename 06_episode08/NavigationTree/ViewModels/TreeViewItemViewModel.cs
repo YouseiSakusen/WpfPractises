@@ -11,6 +11,8 @@ namespace WpfTestApp.ViewModels
 {
 	public class TreeViewItemViewModel : BindableBase, IDisposable
 	{
+		#region "プロパティ"
+
 		/// <summary>TreeViewItemのテキストを取得します。</summary>
 		public ReadOnlyReactivePropertySlim<string> ItemText { get; }
 
@@ -39,10 +41,28 @@ namespace WpfTestApp.ViewModels
 		private System.Reactive.Disposables.CompositeDisposable disposables
 			= new System.Reactive.Disposables.CompositeDisposable();
 
+		/// <summary>親のViewModel。</summary>
+		private NavigationTreeViewModel parent = null;
+
+		/// <summary>ツリーノードのカテゴリ。</summary>
+		private TreeNodeCategoryType nodeCategory = TreeNodeCategoryType.NoCategory;
+
+		#endregion
+
+		/// <summary>Childrenプロパティに新規Itemを追加します。</summary>
+		private void addNewItem()
+		{
+
+		}
+
+		#region "コンストラクタ"
+
 		/// <summary>コンストラクタ</summary>
 		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
-		public TreeViewItemViewModel(object treeItem)
+		/// <param name="parentViewModel">このViewModelの親を表すNavigationTreeViewModel。</param>
+		public TreeViewItemViewModel(object treeItem, NavigationTreeViewModel parentViewModel)
 		{
+			this.parent = parentViewModel;
 			this.Children = new ReactiveCollection<TreeViewItemViewModel>()
 				.AddTo(this.disposables);
 
@@ -105,7 +125,21 @@ namespace WpfTestApp.ViewModels
 				.CombineLatestValuesAreAllTrue()
 				.ToReactiveCommand()
 				.AddTo(this.disposables);
+			this.AddNewDataCommand.Subscribe(() => this.addNewItem());
 		}
+
+		/// <summary>コンストラクタ。</summary>
+		/// <summary>コンストラクタ</summary>
+		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
+		/// <param name="parentViewModel">このViewModelの親を表すNavigationTreeViewModel。</param>
+		/// <param name="categoryType">カテゴリの種類を表す列挙型の内の1つ。。</param>
+		public TreeViewItemViewModel(string treeItem, NavigationTreeViewModel parentViewModel, TreeNodeCategoryType categoryType)
+			: this(treeItem, parentViewModel)
+		{
+			this.nodeCategory = categoryType;
+		}
+
+		#endregion
 
 		/// <summary>オブジェクトを破棄します。</summary>
 		void IDisposable.Dispose() { this.disposables.Dispose(); }

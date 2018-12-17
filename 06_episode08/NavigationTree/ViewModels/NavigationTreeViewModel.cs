@@ -11,6 +11,8 @@ namespace WpfTestApp.ViewModels
 {
 	public class NavigationTreeViewModel : BindableBase, IDisposable
 	{
+		#region "プロパティ"
+
 		/// <summary>TreeViewItem を取得します。</summary>
 		public ReadOnlyReactiveCollection<TreeViewItemViewModel> TreeNodes { get; }
 
@@ -20,35 +22,13 @@ namespace WpfTestApp.ViewModels
 		/// <summary>UserControlのLoadedイベントハンドラ。</summary>
 		public ReactiveCommand Loaded { get; }
 
-		private WpfTestAppData appData = null;
-		private TreeViewItemViewModel rootNode = null;
-		private Prism.Regions.IRegionManager regionManager = null;
-		/// <summary>ReactivePropertyのDispose用リスト</summary>
-		private System.Reactive.Disposables.CompositeDisposable disposables
-			= new System.Reactive.Disposables.CompositeDisposable();
+		#endregion
 
-		/// <summary>コンストラクタ。</summary>
-		/// <param name="data">アプリのデータオブジェクト（Unity からインジェクション）</param>
-		/// <param name="rm">IRegionManager（Unity からインジェクション）</param>
-		public NavigationTreeViewModel(WpfTestAppData data, Prism.Regions.IRegionManager rm)
+		internal TreeViewItemViewModel createNewChild(TreeNodeCategoryType categoryType)
 		{
-			this.appData = data;
-			this.regionManager = rm;
 
-			this.rootNode = TreeViewItemCreator.Create(this.appData);
-			var col = new System.Collections.ObjectModel.ObservableCollection<TreeViewItemViewModel>();
 
-			col.Add(this.rootNode);
-			this.TreeNodes = col.ToReadOnlyReactiveCollection()
-				.AddTo(this.disposables);
-
-			this.SelectedItemChanged = new ReactiveCommand<System.Windows.RoutedPropertyChangedEventArgs<object>>()
-				.AddTo(this.disposables);
-			this.SelectedItemChanged.Subscribe(e => this.nodeChanged(e));
-
-			this.Loaded = new ReactiveCommand()
-				.AddTo(this.disposables);
-			this.Loaded.Subscribe(() => this.rootNode.IsSelected.Value = true);
+			return null;
 		}
 
 		/// <summary>SelectedItemChangedイベントハンドラ。</summary>
@@ -78,6 +58,37 @@ namespace WpfTestApp.ViewModels
 			param.Add("TargetData", current.SourceData);
 
 			this.regionManager.RequestNavigate("EditorArea", viewName, param);
+		}
+
+		private WpfTestAppData appData = null;
+		private TreeViewItemViewModel rootNode = null;
+		private Prism.Regions.IRegionManager regionManager = null;
+		/// <summary>ReactivePropertyのDispose用リスト</summary>
+		private System.Reactive.Disposables.CompositeDisposable disposables
+			= new System.Reactive.Disposables.CompositeDisposable();
+
+		/// <summary>コンストラクタ。</summary>
+		/// <param name="data">アプリのデータオブジェクト（Unity からインジェクション）</param>
+		/// <param name="rm">IRegionManager（Unity からインジェクション）</param>
+		public NavigationTreeViewModel(WpfTestAppData data, Prism.Regions.IRegionManager rm)
+		{
+			this.appData = data;
+			this.regionManager = rm;
+
+			this.rootNode = TreeViewItemCreator.Create(this.appData, this);
+			var col = new System.Collections.ObjectModel.ObservableCollection<TreeViewItemViewModel>();
+
+			col.Add(this.rootNode);
+			this.TreeNodes = col.ToReadOnlyReactiveCollection()
+				.AddTo(this.disposables);
+
+			this.SelectedItemChanged = new ReactiveCommand<System.Windows.RoutedPropertyChangedEventArgs<object>>()
+				.AddTo(this.disposables);
+			this.SelectedItemChanged.Subscribe(e => this.nodeChanged(e));
+
+			this.Loaded = new ReactiveCommand()
+				.AddTo(this.disposables);
+			this.Loaded.Subscribe(() => this.rootNode.IsSelected.Value = true);
 		}
 
 		void IDisposable.Dispose() { this.disposables.Dispose(); }

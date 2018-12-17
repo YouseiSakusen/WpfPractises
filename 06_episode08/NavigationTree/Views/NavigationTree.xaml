@@ -32,11 +32,13 @@
 					<StackPanel Orientation="Horizontal" Margin="0,3">
 						<StackPanel.ContextMenu>
 							<ContextMenu>
-								<MenuItem Header="新規データの追加(_A)" Command="{Binding AddNewDataCommand}" />
+								<MenuItem Header="新規データの追加(_A)"
+										  Command="{Binding AddNewDataCommand}" />
 							</ContextMenu>
 						</StackPanel.ContextMenu>
 						<Image Source="{Binding ItemImage.Value}" Width="25" Height="25" />
-						<TextBlock Text="{Binding ItemText.Value}" VerticalAlignment="Center" Padding="5,0" />
+						<TextBlock Text="{Binding ItemText.Value}"
+								   VerticalAlignment="Center" Padding="5,0" />
 					</StackPanel>
 				</HierarchicalDataTemplate>
 			</TreeView.ItemTemplate>

@@ -96,7 +96,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.1.0.431&#xD;" />
     <PackageReference Include="ReactiveProperty">
-      <Version>5.3.0</Version>
+      <Version>5.3.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
