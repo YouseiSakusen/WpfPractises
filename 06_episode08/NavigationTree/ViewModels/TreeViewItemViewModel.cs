@@ -31,6 +31,16 @@ namespace WpfTestApp.ViewModels
 		/// <summary>TreeViewItemが選択されているかを取得・設定します。</summary>
 		public ReactivePropertySlim<bool> IsSelected { get; set; }
 
+		#endregion
+
+		/// <summary>Childrenプロパティに新規Itemを追加します。</summary>
+		private void addNewItem()
+		{
+
+		}
+
+		#region "コンストラクタ"
+
 		/// <summary>カテゴリノードかどうかを取得・設定します。</summary>
 		private ReactivePropertySlim<bool> IsCategory { get; set; }
 
@@ -46,16 +56,6 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>ツリーノードのカテゴリ。</summary>
 		private TreeNodeCategoryType nodeCategory = TreeNodeCategoryType.NoCategory;
-
-		#endregion
-
-		/// <summary>Childrenプロパティに新規Itemを追加します。</summary>
-		private void addNewItem()
-		{
-
-		}
-
-		#region "コンストラクタ"
 
 		/// <summary>コンストラクタ</summary>
 		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
@@ -133,7 +133,9 @@ namespace WpfTestApp.ViewModels
 		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
 		/// <param name="parentViewModel">このViewModelの親を表すNavigationTreeViewModel。</param>
 		/// <param name="categoryType">カテゴリの種類を表す列挙型の内の1つ。。</param>
-		public TreeViewItemViewModel(string treeItem, NavigationTreeViewModel parentViewModel, TreeNodeCategoryType categoryType)
+		public TreeViewItemViewModel(string treeItem, 
+									 NavigationTreeViewModel parentViewModel,
+									 TreeNodeCategoryType categoryType)
 			: this(treeItem, parentViewModel)
 		{
 			this.nodeCategory = categoryType;

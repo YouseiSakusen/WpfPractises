@@ -24,11 +24,25 @@ namespace WpfTestApp.ViewModels
 
 		#endregion
 
+		/// <summary>パラメータで指定したカテゴリ配下のアイテムを新規作成します。</summary>
+		/// <param name="categoryType">新規作成するカテゴリを表すTreeNodeCategoryType列挙型の内の1つ。</param>
+		/// <returns>新規作成したアイテムをセットしたTreeViewItemViewModel。</returns>
 		internal TreeViewItemViewModel createNewChild(TreeNodeCategoryType categoryType)
 		{
+			object newItem = null;
+			switch (categoryType)
+			{
+				case TreeNodeCategoryType.Physical:
+					newItem = this.appData.CreateNewData<PhysicalInformation>();
+					appData.Physicals.Add(newItem as PhysicalInformation);
+					break;
+				case TreeNodeCategoryType.TestPoint:
+					newItem = this.appData.CreateNewData<TestPointInformation>();
+					appData.TestPoints.Add(newItem as TestPointInformation);
+					break;
+			}
 
-
-			return null;
+			return new TreeViewItemViewModel(newItem, this);
 		}
 
 		/// <summary>SelectedItemChangedイベントハンドラ。</summary>

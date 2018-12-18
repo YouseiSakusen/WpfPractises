@@ -26,12 +26,8 @@ namespace WpfTestApp
 			appData.Student.ClassNumber = "所属クラス";
 			appData.Student.Sex = "男";
 
-			appData.Physicals.Add(new PhysicalInformation() { Id = 1 });
-			appData.TestPoints.Add(new TestPointInformation()
-			{
-				Id = 1,
-				TestDate = "新しい試験日"
-			});
+			appData.Physicals.Add(appData.CreateNewData<PhysicalInformation>());
+			appData.TestPoints.Add(appData.CreateNewData<TestPointInformation>());
 
 			return appData;
 		}

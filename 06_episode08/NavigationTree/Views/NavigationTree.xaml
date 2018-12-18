@@ -4,6 +4,7 @@
 			 xmlns:prism="http://prismlibrary.com/"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+			 xmlns:bi="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
 			 xmlns:ri="clr-namespace:Reactive.Bindings.Interactivity;assembly=ReactiveProperty.NET46"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:nt="clr-namespace:WpfTestApp.ViewModels"
@@ -25,7 +26,7 @@
 							Value="{Binding IsSelected.Value, Mode=TwoWay}" />
 				</Style>
 			</TreeView.Resources>
-			
+
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate DataType="{x:Type nt:TreeViewItemViewModel}"
 										  ItemsSource="{Binding Children}">
