@@ -36,7 +36,7 @@ namespace WpfTestApp.ViewModels
 		/// <summary>Childrenプロパティに新規Itemを追加します。</summary>
 		private void addNewItem()
 		{
-
+			this.Children.Add(this.parent.createNewChild(this.nodeCategory));
 		}
 
 		#region "コンストラクタ"
