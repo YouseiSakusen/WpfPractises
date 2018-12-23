@@ -6,17 +6,6 @@ using System.Threading.Tasks;
 
 namespace WpfTestApp.ViewModels
 {
-	/// <summary>ツリーのカテゴリタイプを表す列挙型。</summary>
-	public enum TreeNodeCategoryType
-	{
-		/// <summary>カテゴリなし</summary>
-		NoCategory,
-		/// <summary>身体測定を表します。</summary>
-		Physical,
-		/// <summary>試験結果を表します。</summary>
-		TestPoint
-	}
-
 	/// <summary>TreeViewItemを作成します。</summary>
 	internal static class TreeViewItemCreator
 	{

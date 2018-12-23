@@ -9,6 +9,18 @@ using Reactive.Bindings.Extensions;
 
 namespace WpfTestApp.ViewModels
 {
+	/// <summary>ツリーのカテゴリタイプを表す列挙型。</summary>
+	public enum TreeNodeCategoryType
+	{
+		/// <summary>カテゴリなし</summary>
+		NoCategory,
+		/// <summary>身体測定を表します。</summary>
+		Physical,
+		/// <summary>試験結果を表します。</summary>
+		TestPoint
+	}
+
+	/// <summary>NavigationTreeのViewModelを表します。</summary>
 	public class NavigationTreeViewModel : BindableBase, IDisposable
 	{
 		#region "プロパティ"
@@ -17,7 +29,7 @@ namespace WpfTestApp.ViewModels
 		public ReadOnlyReactiveCollection<TreeViewItemViewModel> TreeNodes { get; }
 
 		/// <summary>SelectedItemChangedイベントハンドラ。</summary>
-		public ReactiveCommand<System.Windows.RoutedPropertyChangedEventArgs<object>> SelectedItemChanged { get; }
+		public ReactiveCommand<RoutedPropertyChangedEventArgs<object>> SelectedItemChanged { get; }
 
 		/// <summary>UserControlのLoadedイベントハンドラ。</summary>
 		public ReactiveCommand Loaded { get; }
