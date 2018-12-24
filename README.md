@@ -20,3 +20,6 @@ halation ghost WPF episode:5 で作成したサンプル。
 
 halation ghost WPF episode:6 で作成したサンプル。
 
+## [05_episode07](https://elf-mission.net/programming/wpf/episode07/)
+
+halation ghost WPF episode:7 で作成したサンプル。
