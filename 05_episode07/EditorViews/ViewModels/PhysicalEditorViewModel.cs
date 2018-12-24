@@ -52,7 +52,7 @@ namespace WpfTestApp.ViewModels
 				.ToReactivePropertyAsSynchronized(x => x.Height)
 				.AddTo(this.disposables);
 			this.Weight = this.physical
-				.ToReactivePropertyAsSynchronized(x => x.Height)
+				.ToReactivePropertyAsSynchronized(x => x.Weight)
 				.AddTo(this.disposables);
 			this.Bmi = this.physical.ObserveProperty(x => x.Bmi)
 				.ToReadOnlyReactivePropertySlim()
