@@ -19,9 +19,11 @@
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="0.7*"/>
 			</Grid.ColumnDefinitions>
-			<ContentControl x:Name="NaviTree" prism:RegionManager.RegionName="NaviTree" Grid.Column="0" IsTabStop="False"></ContentControl>
+			<ContentControl x:Name="NaviTree"  Grid.Column="0" IsTabStop="False"
+							prism:RegionManager.RegionName="NaviTree" />
 			<GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch"/>
-			<ContentControl x:Name="EditorArea" prism:RegionManager.RegionName="EditorArea" Grid.Column="2" IsTabStop="False"></ContentControl>
+			<ContentControl x:Name="EditorArea"  Grid.Column="2" IsTabStop="False"
+							prism:RegionManager.RegionName="EditorArea" />
 		</Grid>
 	</Grid>
 </Window>

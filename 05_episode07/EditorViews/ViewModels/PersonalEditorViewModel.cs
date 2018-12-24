@@ -20,12 +20,10 @@ namespace WpfTestApp.ViewModels
 		/// <summary>性別を取得・設定します。</summary>
 		public ReactiveProperty<string> Sex { get; set; }
 
-		/// <summary>
-		/// コンストラクタ。
-		/// </summary>
+		/// <summary>コンストラクタ。</summary>
 		public PersonalEditorViewModel() { }
 
-		private PersonalInformation personInfo = new PersonalInformation();
+		private PersonalInformation personInfo = null;
 		private System.Reactive.Disposables.CompositeDisposable disposables = 
 			new System.Reactive.Disposables.CompositeDisposable();
 
@@ -33,6 +31,8 @@ namespace WpfTestApp.ViewModels
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
 		{
+			if (this.personInfo != null)
+				return;
 			this.personInfo = navigationContext.Parameters["TargetData"] as PersonalInformation;
 
 			this.Name = this.personInfo
