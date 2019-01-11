@@ -28,10 +28,23 @@ namespace WpfTestApp.ViewModels
 
 		#endregion
 
+		/// <summary>身体測定データを取得します。</summary>
+		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
+		/// <returns>NavigationContextから取得したPhysicalInformation。</returns>
+		private PhysicalInformation getPhysicalData(NavigationContext navigationContext)
+		{
+			return navigationContext.Parameters["TargetData"] as PhysicalInformation;
+		}
+
 		/// <summary>表示するViewを判別します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		/// <returns>表示するViewかどうかを表すbool。</returns>
-		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext) { return true; }
+		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext)
+		{
+			var physicalDat = this.getPhysicalData(navigationContext);
+
+			return this.physical.Id == physicalDat.Id;
+		}
 
 		private PhysicalInformation physical = null;
 		private System.Reactive.Disposables.CompositeDisposable disposables =
@@ -43,7 +56,7 @@ namespace WpfTestApp.ViewModels
 		{
 			if (this.physical != null)
 				return;
-			this.physical = navigationContext.Parameters["TargetData"] as PhysicalInformation;
+			this.physical = this.getPhysicalData(navigationContext);
 
 			this.MeasurementDate = this.physical
 				.ToReactivePropertyAsSynchronized(x => x.MeasurementDate)
