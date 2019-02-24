@@ -27,3 +27,8 @@ halation ghost WPF episode:7 で作成したサンプル。
 ## [06_episode08](https://elf-mission.net/programming/wpf/episode08/)
 
 halation ghost WPF episode:8 で作成したサンプル。
+
+## [07_episode09、09'](https://elf-mission.net/programming/wpf/episode09/)
+(https://elf-mission.net/programming/wpf/episode09dash/)
+
+halation ghost WPF episode:9、9' で作成したサンプル。
