@@ -11,7 +11,7 @@ using Reactive.Bindings.Extensions;
 namespace WpfTestApp.ViewModels
 {
 	/// <summary> 身体測定データの編集画面を表します。 </summary>
-	public class PhysicalEditorViewModel : BindableBase, IDisposable, INavigationAware
+	public class PhysicalEditorViewModel : BindableBase, IDisposable, IConfirmNavigationRequest
 	{
 		#region "プロパティ"
 
@@ -32,6 +32,22 @@ namespace WpfTestApp.ViewModels
 		public ReadOnlyReactivePropertySlim<double> Bmi { get; private set; }
 
 		#endregion
+
+		public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+		{
+			if (this.messageBoxService == null)
+				return;
+
+			this.MeasurementDate.ForceValidate();
+			this.Height.ForceValidate();
+			this.Weight.ForceValidate();
+
+			var isMove = !(this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors);
+			continuationCallback(isMove);
+
+			if (!isMove)
+				this.messageBoxService.ShowNotificationMessageBox("エラーが存在するため、別画面を表示できません。");
+		}
 
 		/// <summary>身体測定データを取得します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
@@ -115,10 +131,15 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>アプリデータ本体を表します。</summary>
 		private WpfTestAppData appData = null;
+		private IMessageBoxService messageBoxService = null;
 
 		/// <summary>コンストラクタ。</summary>
 		/// <param name="data">アプリのデータオブジェクト（Unity からインジェクション）</param>
-		public PhysicalEditorViewModel(WpfTestAppData data) { this.appData = data; }
+		public PhysicalEditorViewModel(WpfTestAppData data, IMessageBoxService messageService)
+		{
+			this.appData = data;
+			this.messageBoxService = messageService;
+		}
 
 		/// <summary>オブジェクトを破棄します。</summary>
 		void IDisposable.Dispose() { this.disposables.Dispose(); }

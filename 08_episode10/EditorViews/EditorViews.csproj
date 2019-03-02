@@ -95,6 +95,10 @@
       <Project>{8a43b926-af3f-4b85-a529-121935baac00}</Project>
       <Name>WpfTestAppModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WpfTestAppServices\WpfTestAppServices.csproj">
+      <Project>{f5303402-67ca-488b-bb3b-9d4f9cee0285}</Project>
+      <Name>WpfTestAppServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="EditorViewsResources.xaml">
