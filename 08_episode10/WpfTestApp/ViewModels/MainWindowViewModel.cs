@@ -1,9 +1,4 @@
-﻿using System.Reactive.Disposables;
-using System.ComponentModel;
-using Prism.Mvvm;
-using Prism.Interactivity.InteractionRequest;
-using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
+﻿using Prism.Mvvm;
 
 namespace WpfTestApp.ViewModels
 {
@@ -16,31 +11,9 @@ namespace WpfTestApp.ViewModels
 			set { SetProperty(ref _title, value); }
 		}
 
-		public ReactiveProperty<bool> CancelClose { get; }
-
-		public ReactiveCommand ClosingCommand { get; }
-
-		public InteractionRequest<INotification> NotificationMessage { get; set; }
-
-		private void windowClosing()
+		public MainWindowViewModel()
 		{
-			this.CancelClose.Value = true;
-		}
 
-		private CompositeDisposable disposables = new CompositeDisposable();
-		private IMessageBoxService messageBoxService = null;
-
-		public MainWindowViewModel(IMessageBoxService messageService)
-		{
-			this.messageBoxService = messageService;
-			this.NotificationMessage = this.messageBoxService.NotificationRequest;
-
-			this.CancelClose = new ReactiveProperty<bool>(false)
-				.AddTo(this.disposables);
-
-			this.ClosingCommand = new ReactiveCommand()
-				.AddTo(this.disposables);
-			this.ClosingCommand.Subscribe(() => this.windowClosing());
 		}
 	}
 }

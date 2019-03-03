@@ -8,11 +8,6 @@
 		prism:ViewModelLocator.AutoWireViewModel="True"
 		Title="{Binding Title}" Height="600" Width="800" 
 		WindowStartupLocation="CenterScreen" IsTabStop="False">
-	<Window.Resources>
-		<Style TargetType="local:MainWindow">
-			<Setter Property="CancelClose" Value="{Binding CancelClose.Value}" />
-		</Style>
-	</Window.Resources>
 	<i:Interaction.Triggers>
 		<prism:InteractionRequestTrigger SourceObject="{Binding NotificationMessage}">
 			<prism:PopupWindowAction IsModal="True"
@@ -25,9 +20,6 @@
 				</prism:PopupWindowAction.WindowStyle>
 			</prism:PopupWindowAction>
 		</prism:InteractionRequestTrigger>
-		<i:EventTrigger EventName="Closing">
-			<rp:EventToReactiveCommand Command="{Binding ClosingCommand}" />
-		</i:EventTrigger>
 	</i:Interaction.Triggers>
 	<Grid x:Name="BaseGrid">
 		<Grid.RowDefinitions>

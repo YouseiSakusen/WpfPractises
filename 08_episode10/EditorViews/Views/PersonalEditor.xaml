@@ -8,6 +8,9 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="300" d:DesignWidth="300"
 			 prism:ViewModelLocator.AutoWireViewModel="True">
+	<UserControl.Resources>
+		<ResourceDictionary Source="pack://application:,,,/EditorViews;component/EditorViewsResources.xaml" />
+	</UserControl.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.3*"/>
@@ -34,7 +37,8 @@
 									 Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}"
 									 VerticalContentAlignment="Center" Margin="0,5"
 									 MaxLength="10" AutoSelectBehavior="OnFocus"
-									 InputMethod.PreferredImeState="On" />
+									 InputMethod.PreferredImeState="On"
+									 Validation.ErrorTemplate="{StaticResource ValidationTemplate}" />
 			<xceed:AutoSelectTextBox Grid.Column="1" Grid.Row="1" Text="{Binding ClassNumber.Value}" 
 									 VerticalContentAlignment="Center" Margin="0,5" MaxLength="10"
 									 AutoSelectBehavior="OnFocus"

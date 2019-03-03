@@ -101,10 +101,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="EditorViewsResources.xaml">
+    <Resource Include="EditorViewsResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </Resource>
     <Page Include="Views\CategoryPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

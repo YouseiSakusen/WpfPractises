@@ -42,8 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLoader.cs" />
-    <Compile Include="IMessageBoxService.cs" />
-    <Compile Include="MessageBoxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

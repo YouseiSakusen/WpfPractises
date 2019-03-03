@@ -8,6 +8,9 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="300" d:DesignWidth="300"
 			 prism:ViewModelLocator.AutoWireViewModel="True">
+	<UserControl.Resources>
+		<ResourceDictionary Source="pack://application:,,,/EditorViews;component/EditorViewsResources.xaml" />
+	</UserControl.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.4*"/>
@@ -38,7 +41,8 @@
 									  Value="{Binding MeasurementDate.Value}"
 									  Watermark="測定日を選択" AutoCloseCalendar="True"
 									  ShowButtonSpinner="False" TimePickerVisibility="Collapsed"
-									  Format="ShortDate" TextAlignment="Left" CurrentDateTimePart="Month" />
+									  Format="ShortDate" TextAlignment="Left" CurrentDateTimePart="Month"
+									  Validation.ErrorTemplate="{StaticResource ValidationTemplate}"/>
 			</Grid>
 			<TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" 
 					   Text="測定日" VerticalAlignment="Center" Margin="0,0,10,0" TextAlignment="Right"/>
@@ -70,7 +74,8 @@
 										Value="{Binding Height.Value, UpdateSourceTrigger=PropertyChanged}"
 										MaxLength="6" VerticalContentAlignment="Center"
 										HorizontalContentAlignment="Right" ShowButtonSpinner="False"
-										Maximum="400" Minimum="0" ParsingNumberStyle="Float" />
+										Maximum="400" Minimum="0" ParsingNumberStyle="Float"
+										Validation.ErrorTemplate="{StaticResource ValidationTemplate}" />
 					<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="cm" />
 				</Grid>
 				<Grid Grid.Column="1" Grid.Row="1">
@@ -82,7 +87,8 @@
 										Value="{Binding Weight.Value, UpdateSourceTrigger=PropertyChanged}"
 										MaxLength="6" VerticalContentAlignment="Center"
 										HorizontalContentAlignment="Right" ShowButtonSpinner="False"
-										Maximum="999" Minimum="0" ParsingNumberStyle="Float" />
+										Maximum="999" Minimum="0" ParsingNumberStyle="Float"
+										Validation.ErrorTemplate="{StaticResource ValidationTemplate}" />
 					<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="kg" />
 				</Grid>
 				<TextBox Grid.Column="3" Grid.Row="1" Text="{Binding Bmi.Value, Mode=OneWay}"
