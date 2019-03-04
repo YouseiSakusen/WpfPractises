@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfTestApp.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		xmlns:prism="http://prismlibrary.com/"
+		xmlns:local="clr-namespace:WpfTestApp.Views"
+		prism:ViewModelLocator.AutoWireViewModel="True"
+		Title="{Binding Title}" Height="600" Width="800" 
+		WindowStartupLocation="CenterScreen" IsTabStop="False" Closing="Window_Closing">
+	<Window.Resources>
+		<Style TargetType="local:MainWindow">
+			<Setter Property="WindowClosing" Value="{Binding WindowClosing.Value, Mode=TwoWay}" />
+		</Style>
+	</Window.Resources>
+	<i:Interaction.Triggers>
+		<prism:InteractionRequestTrigger SourceObject="{Binding NotificationMessage}">
+			<prism:PopupWindowAction IsModal="True"
+									 WindowStartupLocation="CenterOwner">
+				<prism:PopupWindowAction.WindowStyle>
+					<Style TargetType="Window">
+						<Setter Property="ShowInTaskbar" Value="False" />
+						<Setter Property="SizeToContent" Value="WidthAndHeight" />
+					</Style>
+				</prism:PopupWindowAction.WindowStyle>
+			</prism:PopupWindowAction>
+		</prism:InteractionRequestTrigger>
+	</i:Interaction.Triggers>
+	<Grid x:Name="BaseGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<ToolBar x:Name="MainToolBar" Height="25" />
+		<StatusBar x:Name="MainStatus" Grid.Row="2" Height="25"/>
+		<Grid x:Name="ClientGrid" Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.3*"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="0.7*"/>
+			</Grid.ColumnDefinitions>
+			<ContentControl x:Name="NaviTree" prism:RegionManager.RegionName="NaviTree" Grid.Column="0" IsTabStop="False"></ContentControl>
+			<GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch"/>
+			<ContentControl x:Name="EditorArea" prism:RegionManager.RegionName="EditorArea" Grid.Column="2" IsTabStop="False"></ContentControl>
+		</Grid>
+	</Grid>
+</Window>
