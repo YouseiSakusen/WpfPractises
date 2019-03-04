@@ -55,7 +55,7 @@ namespace WpfTestApp.ViewModels
 		/// <summary>表示するViewを判別します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		/// <returns>表示するViewかどうかを表すbool。</returns>
-		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext) { return true; }
+		public bool IsNavigationTarget(NavigationContext navigationContext) { return true; }
 
 		private TestPointInformation testPoint = null;
 		private System.Reactive.Disposables.CompositeDisposable disposables =
@@ -63,7 +63,7 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>Viewを表示した後呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
+		public void OnNavigatedTo(NavigationContext navigationContext)
 		{
 			if (this.testPoint != null)
 				return;
@@ -94,7 +94,7 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext) { return; }
+		public void OnNavigatedFrom(NavigationContext navigationContext) { return; }
 
 		private WpfTestAppData appData = null;
 

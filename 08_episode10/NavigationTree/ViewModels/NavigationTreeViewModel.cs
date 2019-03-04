@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -59,18 +60,10 @@ namespace WpfTestApp.ViewModels
 			return new TreeViewItemViewModel(newItem, this);
 		}
 
-		private bool skipNodeChange = false;
-
 		/// <summary>SelectedItemChangedイベントハンドラ。</summary>
 		/// <param name="e">イベントデータを格納しているRoutedPropertyChangedEventArgs<object>。</param>
 		private void nodeChanged(RoutedPropertyChangedEventArgs<object> e)
 		{
-			if (this.skipNodeChange)
-			{
-				this.skipNodeChange = false;
-				return;
-			}
-
 			var viewName = string.Empty;
 			var current = e.NewValue as TreeViewItemViewModel;
 

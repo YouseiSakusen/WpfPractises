@@ -21,18 +21,13 @@ namespace WpfTestApp.ViewModels
 		/// <summary>性別を取得・設定します。</summary>
 		public ReactiveProperty<string> Sex { get; set; }
 
-		/// <summary>
-		/// コンストラクタ。
-		/// </summary>
-		public PersonalEditorViewModel() { }
-
 		private PersonalInformation personInfo = new PersonalInformation();
 		private System.Reactive.Disposables.CompositeDisposable disposables = 
 			new System.Reactive.Disposables.CompositeDisposable();
 
 		/// <summary>Viewを表示した後呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
+		public void OnNavigatedTo(NavigationContext navigationContext)
 		{
 			this.personInfo = navigationContext.Parameters["TargetData"] as PersonalInformation;
 
@@ -55,10 +50,15 @@ namespace WpfTestApp.ViewModels
 		/// <summary>表示するViewを判別します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		/// <returns>表示するViewかどうかを表すbool。</returns>
-		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext) { return true; }
+		public bool IsNavigationTarget(NavigationContext navigationContext) { return true; }
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext) { return; }
+		public void OnNavigatedFrom(NavigationContext navigationContext) { return; }
+
+		/// <summary>
+		/// コンストラクタ。
+		/// </summary>
+		public PersonalEditorViewModel() { }
 	}
 }

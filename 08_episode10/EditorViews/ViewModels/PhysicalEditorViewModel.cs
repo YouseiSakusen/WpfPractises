@@ -44,11 +44,32 @@ namespace WpfTestApp.ViewModels
 		/// <summary>表示するViewを判別します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		/// <returns>表示するViewかどうかを表すbool。</returns>
-		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext)
+		public bool IsNavigationTarget(NavigationContext navigationContext)
 		{
 			var physicalDat = this.getPhysicalData(navigationContext);
 
 			return this.physical.Id == physicalDat.Id;
+		}
+
+		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
+		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
+		public void OnNavigatedFrom(NavigationContext navigationContext) { return; }
+
+		/// <summary>測定日のエラー文字列を取得します。</summary>
+		/// <param name="value">View で入力されたDateTime?。</param>
+		/// <returns>測定日のエラー文字列</returns>
+		private string getMeasurementDateError(DateTime? value)
+		{
+			if (!value.HasValue)
+				return "必須入力です。";
+
+			if (this.appData.HasPhysicalKey(value, this.physical))
+			{
+				this.MeasurementDate.Value = this.physical.MeasurementDate;
+				return "既に同一の測定日が存在するため、別の日付を設定してください。";
+			}
+			else
+				return null;
 		}
 
 		private PhysicalInformation physical = null;
@@ -57,7 +78,7 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>Viewを表示した後呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
+		public void OnNavigatedTo(NavigationContext navigationContext)
 		{
 			if (this.physical != null)
 				return;
@@ -90,27 +111,6 @@ namespace WpfTestApp.ViewModels
 			this.RaisePropertyChanged(nameof(this.Height));
 			this.RaisePropertyChanged(nameof(this.Weight));
 			this.RaisePropertyChanged(nameof(this.Bmi));
-		}
-
-		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
-		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext) { return; }
-
-		/// <summary>測定日のエラー文字列を取得します。</summary>
-		/// <param name="value">View で入力されたDateTime?。</param>
-		/// <returns>測定日のエラー文字列</returns>
-		private string getMeasurementDateError(DateTime? value)
-		{
-			if (!value.HasValue)
-				return "必須入力です。";
-
-			if (this.appData.HasPhysicalKey(value, this.physical))
-			{
-				this.MeasurementDate.Value = this.physical.MeasurementDate;
-				return "既に同一の測定日が存在するため、別の日付を設定してください。";
-			}
-			else
-				return null;
 		}
 
 		/// <summary>アプリデータ本体を表します。</summary>
