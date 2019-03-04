@@ -6,25 +6,7 @@
 		xmlns:local="clr-namespace:WpfTestApp.Views"
 		prism:ViewModelLocator.AutoWireViewModel="True"
 		Title="{Binding Title}" Height="600" Width="800" 
-		WindowStartupLocation="CenterScreen" IsTabStop="False" Closing="Window_Closing">
-	<Window.Resources>
-		<Style TargetType="local:MainWindow">
-			<Setter Property="WindowClosing" Value="{Binding WindowClosing.Value, Mode=TwoWay}" />
-		</Style>
-	</Window.Resources>
-	<i:Interaction.Triggers>
-		<prism:InteractionRequestTrigger SourceObject="{Binding NotificationMessage}">
-			<prism:PopupWindowAction IsModal="True"
-									 WindowStartupLocation="CenterOwner">
-				<prism:PopupWindowAction.WindowStyle>
-					<Style TargetType="Window">
-						<Setter Property="ShowInTaskbar" Value="False" />
-						<Setter Property="SizeToContent" Value="WidthAndHeight" />
-					</Style>
-				</prism:PopupWindowAction.WindowStyle>
-			</prism:PopupWindowAction>
-		</prism:InteractionRequestTrigger>
-	</i:Interaction.Triggers>
+		WindowStartupLocation="CenterScreen" IsTabStop="False">
 	<Grid x:Name="BaseGrid">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
