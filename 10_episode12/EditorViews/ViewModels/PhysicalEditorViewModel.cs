@@ -3,8 +3,10 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Windows;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Interactivity.InteractionRequest;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
@@ -13,7 +15,7 @@ namespace WpfTestApp.ViewModels
 	/// <summary> 身体測定データの編集画面を表します。 </summary>
 	public class PhysicalEditorViewModel : BindableBase, IDisposable, IConfirmNavigationRequest
 	{
-		#region "プロパティ"
+		#region "バインディング"
 
 		/// <summary>測定日を取得・設定します。</summary>
 		public ReactiveProperty<DateTime?> MeasurementDate { get; set; }
@@ -31,7 +33,38 @@ namespace WpfTestApp.ViewModels
 		/// <summary>BMIを取得します。</summary>
 		public ReadOnlyReactivePropertySlim<double> Bmi { get; private set; }
 
+		/// <summary>情報MessageBoxを表示します。</summary>
+		public InteractionRequest<INotification> InformationMessage { get; private set; }
+
 		#endregion
+
+		private MessageBoxResult showConfirmMessage(string message, string title = "問い合わせ")
+		{
+			var confirm = new Confirmation()
+			{
+				Content = message,
+				Title = title
+			};
+
+			var msgRet = MessageBoxResult.Cancel;
+			this.InformationMessage.Raise(confirm, r => msgRet = (r as IConfirmation).Confirmed ? MessageBoxResult.OK : MessageBoxResult.Cancel);
+
+			return msgRet;
+		}
+
+		/// <summary>情報メッセージボックスを表示します。</summary>
+		/// <param name="message">メッセージボックスに表示する内容を表す文字列。</param>
+		/// <param name="title">メッセージボックスのタイトルを表す文字列。</param>
+		private void showInformationMessage(string message, string title = "情報")
+		{
+			var notify = new Notification()
+			{
+				Content = message,
+				Title = title
+			};
+
+			this.InformationMessage.Raise(notify);
+		}
 
 		/// <summary>他 View への遷移を確認します。</summary>
 		/// <param name="navigationContext">遷移先の情報を表すNavigationContext。</param>
@@ -42,7 +75,20 @@ namespace WpfTestApp.ViewModels
 			this.Height.ForceValidate();
 			this.Weight.ForceValidate();
 
-			var isMove = !(this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors);
+			//var isMove = !(this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors);
+			//continuationCallback(isMove);
+
+			//if (!isMove)
+			//	this.showInformationMessage("エラーが存在するため、別画面を表示できません。");
+
+			var isMove = true;
+
+			if (this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors)
+			{
+				if (this.showConfirmMessage("別画面に遷移しますか？") == MessageBoxResult.Cancel)
+					isMove = false;
+			}
+
 			continuationCallback(isMove);
 		}
 
@@ -134,6 +180,7 @@ namespace WpfTestApp.ViewModels
 		public PhysicalEditorViewModel(WpfTestAppData data)
 		{
 			this.appData = data;
+			this.InformationMessage = new InteractionRequest<INotification>();
 		}
 
 		/// <summary>オブジェクトを破棄します。</summary>
