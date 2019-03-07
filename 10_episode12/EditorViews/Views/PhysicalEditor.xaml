@@ -13,7 +13,7 @@
 		<ResourceDictionary Source="pack://application:,,,/EditorViews;component/EditorViewsResources.xaml" />
 	</UserControl.Resources>
 	<i:Interaction.Triggers>
-		<prism:InteractionRequestTrigger SourceObject="{Binding InformationMessage}">
+		<prism:InteractionRequestTrigger SourceObject="{Binding MessageBoxRequest}">
 			<prism:PopupWindowAction IsModal="True"
 									 WindowStartupLocation="CenterOwner">
 				<prism:PopupWindowAction.WindowStyle>

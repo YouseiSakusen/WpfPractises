@@ -1,9 +1,5 @@
-﻿using System;
-using System.Reactive;
-using System.Reactive.Disposables;
-using Prism.Mvvm;
-using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
+﻿using Prism.Mvvm;
+using Prism.Interactivity.InteractionRequest;
 
 namespace WpfTestApp.ViewModels
 {
@@ -16,23 +12,14 @@ namespace WpfTestApp.ViewModels
 			set { SetProperty(ref _title, value); }
 		}
 
-		public ReactiveProperty<bool> WindowClosing { get; set; }
+		/// <summary>メッセージボックス表示Messanger</summary>
+		public InteractionRequest<INotification> MessageBoxRequest { get; }
 
-		private void onWindowClosing(bool value)
+		/// <summary>コンストラクタ。</summary>
+		/// <param name="msgService">MessageBoxService。（Unityからインジェクション）</param>
+		public MainWindowViewModel(MessageBoxService msgService)
 		{
-			if (!value)
-				return;
-
-			//this.WindowClosing.Value = false;
-		}
-
-		private CompositeDisposable disposables = new CompositeDisposable();
-
-		public MainWindowViewModel()
-		{
-			this.WindowClosing = new ReactiveProperty<bool>()
-				.AddTo(this.disposables);
-			this.WindowClosing.Subscribe(v => this.onWindowClosing(v));
+			this.MessageBoxRequest = msgService.MessageBoxRequest;
 		}
 	}
 }
