@@ -28,7 +28,7 @@ namespace WpfTestApp
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterInstance<WpfTestAppData>(DataLoader.Load(this.dataFilePath));
-			containerRegistry.RegisterInstance<MessageBoxService>(new MessageBoxService());
+			containerRegistry.RegisterSingleton<IMessageBoxService, MessageBoxService>();
 		}
 
 		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

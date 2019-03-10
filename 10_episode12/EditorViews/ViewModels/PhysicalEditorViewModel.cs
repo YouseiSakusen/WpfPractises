@@ -178,11 +178,12 @@ namespace WpfTestApp.ViewModels
 		/// <summary>アプリデータ本体を表します。</summary>
 		private WpfTestAppData appData = null;
 		/// <summary>メッセージボックス表示Service。</summary>
-		private MessageBoxService messageBoxService = null;
+		private IMessageBoxService messageBoxService = null;
 
 		/// <summary>コンストラクタ。</summary>
-		/// <param name="data">アプリのデータオブジェクト（Unity からインジェクション）</param>
-		public PhysicalEditorViewModel(WpfTestAppData data, MessageBoxService msgService)
+		/// <param name="data">アプリのデータオブジェクト。（Unity からインジェクション）</param>
+		/// <param name="msgService">メッセージボックス表示インタフェース。（Unity からインジェクション）</param>
+		public PhysicalEditorViewModel(WpfTestAppData data, IMessageBoxService msgService)
 		{
 			this.appData = data;
 			this.messageBoxService = msgService;

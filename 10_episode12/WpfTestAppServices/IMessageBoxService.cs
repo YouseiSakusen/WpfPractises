@@ -8,7 +8,7 @@ using Prism.Interactivity.InteractionRequest;
 
 namespace WpfTestApp
 {
-	interface IMessageBoxService
+	public interface IMessageBoxService
 	{
 		/// <summary>MessageBoxを表示します。</summary>
 		InteractionRequest<INotification> MessageBoxRequest { get; }

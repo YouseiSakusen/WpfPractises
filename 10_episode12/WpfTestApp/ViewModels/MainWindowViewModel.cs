@@ -16,8 +16,8 @@ namespace WpfTestApp.ViewModels
 		public InteractionRequest<INotification> MessageBoxRequest { get; }
 
 		/// <summary>コンストラクタ。</summary>
-		/// <param name="msgService">MessageBoxService。（Unityからインジェクション）</param>
-		public MainWindowViewModel(MessageBoxService msgService)
+		/// <param name="msgService">IMessageBoxService。（Unityからインジェクション）</param>
+		public MainWindowViewModel(IMessageBoxService msgService)
 		{
 			this.MessageBoxRequest = msgService.MessageBoxRequest;
 		}
