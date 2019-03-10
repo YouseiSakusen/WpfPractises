@@ -1,7 +1,7 @@
-﻿using WpfTestApp.Views;
+﻿using System.Windows;
 using Prism.Ioc;
 using Prism.Modularity;
-using System.Windows;
+using WpfTestApp.Views;
 
 namespace WpfTestApp
 {
@@ -28,6 +28,7 @@ namespace WpfTestApp
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterInstance<WpfTestAppData>(DataLoader.Load(this.dataFilePath));
+			containerRegistry.RegisterSingleton<IMessageBoxService, MessageBoxService>();
 		}
 
 		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

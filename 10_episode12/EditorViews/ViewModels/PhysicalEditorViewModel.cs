@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Windows;
 using Prism.Mvvm;
 using Prism.Regions;
 using Reactive.Bindings;
@@ -13,7 +14,7 @@ namespace WpfTestApp.ViewModels
 	/// <summary> 身体測定データの編集画面を表します。 </summary>
 	public class PhysicalEditorViewModel : BindableBase, IDisposable, IConfirmNavigationRequest
 	{
-		#region "プロパティ"
+		#region "バインディング"
 
 		/// <summary>測定日を取得・設定します。</summary>
 		public ReactiveProperty<DateTime?> MeasurementDate { get; set; }
@@ -31,7 +32,45 @@ namespace WpfTestApp.ViewModels
 		/// <summary>BMIを取得します。</summary>
 		public ReadOnlyReactivePropertySlim<double> Bmi { get; private set; }
 
+		///// <summary>情報MessageBoxを表示します。</summary>
+		//public InteractionRequest<INotification> MessageBoxRequest { get; private set; }
+
 		#endregion
+
+		///// <summary>確認メッセージボックスを表示します。</summary>
+		///// <param name="message">メッセージボックスに表示する内容を表す文字列。</param>
+		///// <param name="title">メッセージボックスのタイトルを表す文字列。</param>
+		///// <returns>メッセージボックスの選択結果を表すMessageBoxResult列挙型の内の1つ。</returns>
+		//private MessageBoxResult showConfirmMessage(string message, string title = "問い合わせ")
+		//{
+		//	var confirm = new Confirmation()
+		//	{
+		//		Content = message,
+		//		Title = title
+		//	};
+
+		//	var msgRet = MessageBoxResult.Cancel;
+		//	this.MessageBoxRequest.Raise(confirm, r =>
+		//	{
+		//		msgRet = (r as IConfirmation).Confirmed ? MessageBoxResult.OK : MessageBoxResult.Cancel;
+		//	});
+
+		//	return msgRet;
+		//}
+
+		///// <summary>情報メッセージボックスを表示します。</summary>
+		///// <param name="message">メッセージボックスに表示する内容を表す文字列。</param>
+		///// <param name="title">メッセージボックスのタイトルを表す文字列。</param>
+		//private void showInformationMessage(string message, string title = "情報")
+		//{
+		//	var notify = new Notification()
+		//	{
+		//		Content = message,
+		//		Title = title
+		//	};
+
+		//	this.MessageBoxRequest.Raise(notify);
+		//}
 
 		/// <summary>他 View への遷移を確認します。</summary>
 		/// <param name="navigationContext">遷移先の情報を表すNavigationContext。</param>
@@ -42,7 +81,20 @@ namespace WpfTestApp.ViewModels
 			this.Height.ForceValidate();
 			this.Weight.ForceValidate();
 
-			var isMove = !(this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors);
+			//var isMove = !(this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors);
+			//continuationCallback(isMove);
+
+			//if (!isMove)
+			//	this.messageBoxService.ShowInformationMessage("エラーが存在するため、別画面を表示できません。");
+
+			var isMove = true;
+
+			if (this.MeasurementDate.HasErrors | this.Height.HasErrors | this.Weight.HasErrors)
+			{
+				if (this.messageBoxService.ShowConfirmMessage("別画面に遷移しますか？") == MessageBoxResult.Cancel)
+					isMove = false;
+			}
+
 			continuationCallback(isMove);
 		}
 
@@ -120,20 +172,21 @@ namespace WpfTestApp.ViewModels
 				.AddTo(this.disposables);
 
 			// View へ反映
-			this.RaisePropertyChanged(nameof(this.MeasurementDate));
-			this.RaisePropertyChanged(nameof(this.Height));
-			this.RaisePropertyChanged(nameof(this.Weight));
-			this.RaisePropertyChanged(nameof(this.Bmi));
+			this.RaisePropertyChanged(null);
 		}
 
 		/// <summary>アプリデータ本体を表します。</summary>
 		private WpfTestAppData appData = null;
+		/// <summary>メッセージボックス表示Service。</summary>
+		private IMessageBoxService messageBoxService = null;
 
 		/// <summary>コンストラクタ。</summary>
-		/// <param name="data">アプリのデータオブジェクト（Unity からインジェクション）</param>
-		public PhysicalEditorViewModel(WpfTestAppData data)
+		/// <param name="data">アプリのデータオブジェクト。（Unity からインジェクション）</param>
+		/// <param name="msgService">メッセージボックス表示インタフェース。（Unity からインジェクション）</param>
+		public PhysicalEditorViewModel(WpfTestAppData data, IMessageBoxService msgService)
 		{
 			this.appData = data;
+			this.messageBoxService = msgService;
 		}
 
 		/// <summary>オブジェクトを破棄します。</summary>

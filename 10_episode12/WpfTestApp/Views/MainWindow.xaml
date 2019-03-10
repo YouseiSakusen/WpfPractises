@@ -13,7 +13,7 @@
 		</Style>
 	</Window.Resources>
 	<i:Interaction.Triggers>
-		<prism:InteractionRequestTrigger SourceObject="{Binding NotificationMessage}">
+		<prism:InteractionRequestTrigger SourceObject="{Binding MessageBoxRequest}">
 			<prism:PopupWindowAction IsModal="True"
 									 WindowStartupLocation="CenterOwner">
 				<prism:PopupWindowAction.WindowStyle>
