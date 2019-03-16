@@ -4,6 +4,7 @@
 		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 		xmlns:prism="http://prismlibrary.com/"
 		xmlns:local="clr-namespace:WpfTestApp.Views"
+		xmlns:srvc="clr-namespace:WpfTestApp.Views;assembly=WpfTestAppServices"
 		prism:ViewModelLocator.AutoWireViewModel="True"
 		Title="{Binding Title}" Height="600" Width="800" 
 		WindowStartupLocation="CenterScreen" IsTabStop="False" Closing="Window_Closing">
@@ -20,8 +21,12 @@
 					<Style TargetType="Window">
 						<Setter Property="ShowInTaskbar" Value="False" />
 						<Setter Property="SizeToContent" Value="WidthAndHeight" />
+						<Setter Property="ResizeMode" Value="NoResize" />
 					</Style>
 				</prism:PopupWindowAction.WindowStyle>
+				<prism:PopupWindowAction.WindowContent>
+					<srvc:ConfirmPopup />
+				</prism:PopupWindowAction.WindowContent>
 			</prism:PopupWindowAction>
 		</prism:InteractionRequestTrigger>
 	</i:Interaction.Triggers>
