@@ -2,21 +2,21 @@
 
 ## 01_episode03
 
-[halation ghost 【WPF Prism episode: 3 ～ Re: ゼロから始める Prism 生活～】](https://elf-mission.net/programming/wpf/episode03/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 3 ～ Re: ゼロから始める Prism 生活 ～】](https://elf-mission.net/programming/wpf/episode03/) で作成したサンプル。
 
 Prism のプロジェクトを新規作成して Prism の Module を Shell に読み込む部分までを紹介。  
 Prism の Bootstrapper に設定する内容を紹介しています。
 
 ## 02_episode03_Prism7.1
 
-[halation ghost 【WPF Prism episode: 3 ～ Re: ゼロから始める Prism 生活～】](https://elf-mission.net/programming/wpf/episode03/) で作成したサンプルの Prism 7.1 対応版。
+[halation ghost 【WPF Prism episode: 3 ～ Re: ゼロから始める Prism 生活 ～】](https://elf-mission.net/programming/wpf/episode03/) で作成したサンプルの Prism 7.1 対応版。
 
 Prism のプロジェクトを新規作成して Prism の Module を Shell に読み込む部分までを紹介。  
 Prism 7.1 で変更になった部分も併せて紹介しています。
 
 ## 02_episode04
 
-[halation ghost 【WPF Prism episode: 4 ～ DI だけど Unity さえあれば関係ないよねっ～】](https://elf-mission.net/programming/wpf/episode04/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 4 ～ DI だけど Unity さえあれば関係ないよねっ ～】](https://elf-mission.net/programming/wpf/episode04/) で作成したサンプル。
 
 Prism の Shell ⇔ Module 間で受け渡すデータをプロジェクト作成時に選択した DI コンテナ（ここでは Unity）を介してやり取りするサンプル。
 
