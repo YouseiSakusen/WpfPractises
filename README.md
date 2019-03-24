@@ -65,3 +65,9 @@ episode: 9、9' で設定したバリデーションの ErrorTemplate を設定�
 [halation ghost 【WPF Prism episode: 11 ～ Prism が画面遷移キャンセルするのは IConfirmNavigationRequest だけど INavigationAware じゃない～】](https://elf-mission.net/programming/wpf/episode11/) で作成したサンプル。
 
 Prism の IConfirmNavigationRequest を使用して画面遷移をキャンセルするサンプル。
+
+## 10_episode12
+
+[halation ghost 【WPF Prism episode: 12 ～ Prism メッセージボックスの Service な日常 ～】](https://elf-mission.net/programming/wpf/episode12/) で作成したサンプル。
+
+Prism 組み込みのメッセージボックスを表示するサンプル。
