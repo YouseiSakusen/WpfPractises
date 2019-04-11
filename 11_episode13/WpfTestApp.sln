@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorViews", "EditorViews\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestApp", "WpfTestApp\WpfTestApp.csproj", "{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismDialog", "PrismDialog\PrismDialog\PrismDialog.csproj", "{0C1AE1AF-06AA-4BC9-86CE-60AEC4B05CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C1AE1AF-06AA-4BC9-86CE-60AEC4B05CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1AE1AF-06AA-4BC9-86CE-60AEC4B05CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1AE1AF-06AA-4BC9-86CE-60AEC4B05CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1AE1AF-06AA-4BC9-86CE-60AEC4B05CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

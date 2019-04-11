@@ -3,11 +3,11 @@
 namespace WpfTestApp.Views
 {
 	/// <summary>
-	/// Interaction logic for QuestionPopup
+	/// Interaction logic for SearchDialog
 	/// </summary>
-	public partial class QuestionPopup : UserControl
+	public partial class SearchDialog : UserControl
 	{
-		public QuestionPopup()
+		public SearchDialog()
 		{
 			InitializeComponent();
 		}
