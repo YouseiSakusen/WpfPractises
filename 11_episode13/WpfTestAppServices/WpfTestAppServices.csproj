@@ -45,7 +45,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BleachAgent.cs" />
     <Compile Include="DataLoader.cs" />
     <Compile Include="DialogService.cs" />
     <Compile Include="IDialogService.cs" />

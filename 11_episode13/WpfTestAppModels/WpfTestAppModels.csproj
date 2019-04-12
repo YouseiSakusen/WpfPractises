@@ -73,7 +73,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character.cs" />
     <Compile Include="PersonalInformation.cs" />
     <Compile Include="PhysicalInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
