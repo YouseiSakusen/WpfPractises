@@ -71,3 +71,11 @@ Prism の IConfirmNavigationRequest を使用して画面遷移をキャンセ�
 [halation ghost 【WPF Prism episode: 12 ～ Prism メッセージボックスの Service な日常 ～】](https://elf-mission.net/programming/wpf/episode12/) で作成したサンプル。
 
 Prism 組み込みのメッセージボックスを表示するサンプル。
+
+## 11_episode13
+
+[halation ghost 【WPF Prism episode: 13 ～ カスタマイズしたらメッセージボックスだった件 ～】](https://elf-mission.net/programming/wpf/episode13/) で作成したサンプル。
+
+Prism 組み込みのメッセージボックスをカスタマイズするサンプル。
+
+
