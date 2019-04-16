@@ -1,0 +1,19 @@
+﻿<Window x:Class="MvvmSample.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:prism="http://prismlibrary.com/"
+		prism:ViewModelLocator.AutoWireViewModel="True"
+		Title="{Binding Title}" Height="350" Width="525">
+	<Grid>
+		<StackPanel Orientation="Vertical">
+			<TextBox Text="{Binding UserName}" />
+			<DatePicker SelectedDate="{Binding UserBirthDay}" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding UserAge}" />
+				<TextBlock Text="歳" />
+			</StackPanel>
+			<Button Content="保存" Command="{Binding }" />
+		</StackPanel>
+		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
+	</Grid>
+</Window>
