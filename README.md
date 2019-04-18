@@ -22,11 +22,11 @@ Prism の Shell ⇔ Module 間で受け渡すデータをプロジェクト作�
 
 ## 03_episode05
 
-[halation ghost 【WPF Prism episode: 4.5 ～ ReactiveProperty からはじまる MVVM 狂想曲 ～】](https://elf-mission.net/programming/wpf/episode045/)、[halation ghost 【WPF Prism episode: 5 ～ご注文は TreeView ですか？～】](https://elf-mission.net/programming/wpf/episode05/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 4.5 ～ ReactiveProperty からはじまる MVVM 狂想曲 ～】](https://elf-mission.net/programming/wpf/episode045/)、
+[halation ghost 【WPF Prism episode: 5 ～ご注文は TreeView ですか？～】](https://elf-mission.net/programming/wpf/episode05/) で作成したサンプル。
 
 MVVM パターンで TreeView へデータをバインドするサンプル。  
 TreeView の各 Item 毎に VM を用意してバインドする例を紹介しています。
-
 MVVM パターン入門で紹介したサンプルプロジェクトを追加。（2019/4/18 追記）
 
 ## 04_episode06
