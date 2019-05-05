@@ -13,8 +13,6 @@ namespace WpfTestApp.ViewModels
 {
 	public class MainWindowViewModel : BindableBase
 	{
-		public ReadOnlyReactivePropertySlim<string> CharacterName { get; }
-
 		public ReactiveProperty<string> ItemCode { get; set; }
 
 		private string _title = "Prism Application";
@@ -46,25 +44,16 @@ namespace WpfTestApp.ViewModels
 		{
 			if (e.Key != Key.Enter)
 				return;
-
-			var target = this.agent.GetCharacter(this.ItemCode.Value);
-			if (target != null)
-				this.chara.Name.Value = target.Name.Value;
 		}
 
 		private CompositeDisposable disposables = new CompositeDisposable();
-		private BleachAgent agent = new BleachAgent();
+		private SampleItem inputItem { get; set; } = new SampleItem();
 		private IDialogService dialogService = null;
-		private Character chara { get; set; } = new Character();
 
 		public MainWindowViewModel(IDialogService dialogSrv)
 		{
-			this.ItemCode = this.chara.Code
+			this.ItemCode = this.inputItem.Code
 				.ToReactiveProperty()
-				.AddTo(this.disposables);
-
-			this.CharacterName = this.chara.Name
-				.ToReadOnlyReactivePropertySlim()
 				.AddTo(this.disposables);
 
 			this.ItemCodeKeyDown = new ReactiveCommand<KeyEventArgs>()

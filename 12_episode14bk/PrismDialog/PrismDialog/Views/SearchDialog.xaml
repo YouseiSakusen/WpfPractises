@@ -12,15 +12,13 @@
 			<RowDefinition Height="0.85*"/>
 			<RowDefinition Height="0.15*"/>
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" Margin="0, 10, 0, 0"
-			  FocusManager.FocusedElement="{Binding ElementName=lstBleach}">
+		<Grid Grid.Row="0" Margin="0, 10, 0, 0">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="30"/>
 				<ColumnDefinition />
 				<ColumnDefinition Width="30"/>
 			</Grid.ColumnDefinitions>
-			<ListBox Grid.Column="1" x:Name="lstBleach"
-					 ItemsSource="{Binding Characters}"
+			<ListBox Grid.Column="1" ItemsSource="{Binding Characters}"
 					 HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedItem.Value, Mode=TwoWay}"
 					 VirtualizingPanel.IsContainerVirtualizable="True" VirtualizingPanel.VirtualizationMode="Recycling">
 				<i:Interaction.Triggers>
@@ -52,10 +50,9 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 		</Grid>
-		<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0, 15, 30, 25" HorizontalAlignment="Right">
-			<Button Content="追加" Width="100" Margin="0, 0, 0, 0" Command="{Binding AddCommand}" />
-			<Button Content="OK" Width="100" Margin="10, 0, 0, 0" Command="{Binding OkCommand}" IsDefault="True" />
-			<Button Content="キャンセル" Margin="10, 0, 0, 0" Width="100" IsCancel="True" />
+		<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0, 15, 30, 0" HorizontalAlignment="Right">
+			<Button Content="OK" Width="100" Margin="0, 0, 0, 25" Command="{Binding OkCommand}" IsDefault="True" />
+			<Button Content="キャンセル" Margin="10, 0, 0, 25" Width="100" IsCancel="True" />
 		</StackPanel>
 	</Grid>
 </UserControl>

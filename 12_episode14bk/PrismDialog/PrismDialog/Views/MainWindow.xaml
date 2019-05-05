@@ -41,8 +41,8 @@
 			<TextBox x:Name="ItemCode"
 					 Width="70"
 					 VerticalContentAlignment="Center"
-					 MaxLength="3"
-					 Text="{Binding ItemCode.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+					 MaxLength="2"
+					 Text="{Binding ItemCode.Value, Mode=TwoWay}">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="KeyDown">
 						<rp:EventToReactiveCommand Command="{Binding ItemCodeKeyDown}" />
@@ -54,9 +54,7 @@
 					Command="{Binding SearchCommand}" />
 			<TextBox Width="200"
 					 IsReadOnly="True"
-					 VerticalContentAlignment="Center"
-					 Background="{x:Static SystemColors.ControlLightBrush}"
-					 Text="{Binding CharacterName.Value, Mode=OneWay}"/>
+					 Background="{x:Static SystemColors.ControlLightBrush}"/>
 		</StackPanel>
 		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
 	</Grid>

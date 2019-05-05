@@ -9,11 +9,6 @@ namespace WpfTestApp
 {
 	public class BleachAgent
 	{
-		public Character GetCharacter(string characterCode)
-		{
-			return BleachAgent.characters.Find(c => c.Code.Value == characterCode);
-		}
-
 		public List<Character> GetAllCharacters()
 		{
 			return BleachAgent.characters;
