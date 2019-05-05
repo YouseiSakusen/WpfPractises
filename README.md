@@ -80,4 +80,9 @@ Prism 組み込みのメッセージボックスを表示するサンプル。
 
 Prism 組み込みのメッセージボックスをカスタマイズするサンプル。
 
+## 12_episode14
+
+[halation ghost 【WPF Prism episode: 14 ～ ListBox 相手は ReactiveCollection、ダイアログな、Prism。 ～】](https://elf-mission.net/programming/wpf/episode14/) で作成したサンプル。
+
+Prism からダイアログウィンドウを表示するサンプル。
 
