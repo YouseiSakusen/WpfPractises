@@ -31,8 +31,9 @@ MVVM パターン入門で紹介したサンプルプロジェクトを追加。
 
 ## 04_episode06
 
-[halation ghost 【WPF Prism extra: 1 ～ TreeViewItem を MVVM パターンで展開する ～】](https://elf-mission.net/programming/wpf/extra01/) 、
-[halation ghost 【WPF Prism episode: 6 ～されどイベントは ViewModel と踊る～】](https://elf-mission.net/programming/wpf/episode06/) で作成したサンプル。
+[halation ghost 【WPF Prism extra: 1 ～ TreeViewItem を MVVM パターンで展開する ～】](https://elf-mission.net/programming/wpf/extra01/) 、  
+[halation ghost 【WPF Prism episode: 6 ～されどイベントは ViewModel と踊る～】](https://elf-mission.net/programming/wpf/episode06/) 、  
+[halation ghost 【WPF Prism episode: 6.5 ～ いつだって Prism の画面遷移は RequestNavigation だった。 ～】](https://elf-mission.net/programming/wpf/episode065/)で作成したサンプル。
 
 EventToReactiveCommand（View 側）と ReactiveCommand（VM 側） を利用して TreeView.SelectedItemChanged イベントを VM 処理するサンプル。  
 イベントパラメータ（EventArgs）を受け取って Prism の RequestNavigation メソッドで別の View に切り替えるまでを紹介しています。
