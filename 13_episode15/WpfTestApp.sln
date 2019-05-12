@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationTree", "NavigationTree\NavigationTree.csproj", "{BF4D235B-7353-4807-9229-5257ADBF1BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestAppModels", "WpfTestAppModels\WpfTestAppModels.csproj", "{8A43B926-AF3F-4B85-A529-121935BAAC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestAppServices", "WpfTestAppServices\WpfTestAppServices.csproj", "{F5303402-67CA-488B-BB3B-9D4F9CEE0285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorViews", "EditorViews\EditorViews.csproj", "{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestApp", "WpfTestApp\WpfTestApp.csproj", "{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismDialog", "PrismDialog\PrismDialog.csproj", "{B857C34A-8646-437F-8716-2D38B61F0AC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismCommonDialogLib", "PrismCommonDialogLib\PrismCommonDialogLib.csproj", "{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF4D235B-7353-4807-9229-5257ADBF1BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4D235B-7353-4807-9229-5257ADBF1BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4D235B-7353-4807-9229-5257ADBF1BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4D235B-7353-4807-9229-5257ADBF1BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A43B926-AF3F-4B85-A529-121935BAAC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A43B926-AF3F-4B85-A529-121935BAAC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A43B926-AF3F-4B85-A529-121935BAAC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A43B926-AF3F-4B85-A529-121935BAAC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5303402-67CA-488B-BB3B-9D4F9CEE0285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5303402-67CA-488B-BB3B-9D4F9CEE0285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5303402-67CA-488B-BB3B-9D4F9CEE0285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5303402-67CA-488B-BB3B-9D4F9CEE0285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B857C34A-8646-437F-8716-2D38B61F0AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B857C34A-8646-437F-8716-2D38B61F0AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B857C34A-8646-437F-8716-2D38B61F0AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B857C34A-8646-437F-8716-2D38B61F0AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50BA5900-B761-410F-AC8D-2F6AD2EB0BC4}
+	EndGlobalSection
+EndGlobal
