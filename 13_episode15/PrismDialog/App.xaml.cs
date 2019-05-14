@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
+using PrismCommonDialog;
 
 namespace WpfTestApp
 {
@@ -18,6 +19,7 @@ namespace WpfTestApp
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterSingleton<IDialogService, DialogService>();
+			containerRegistry.RegisterSingleton<ICommonDialogService, CommonDialogService>();
 		}
 	}
 }

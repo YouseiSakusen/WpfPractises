@@ -1,18 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using System.Reactive.Linq;
-using System.Reactive.Disposables;
-using System.Windows;
-using Prism.Interactivity.InteractionRequest;
+using PrismCommonDialog;
+using PrismCommonDialog.Confirmations;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
+using System;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Windows.Input;
 
 namespace WpfTestApp.ViewModels
 {
 	public class MainWindowViewModel : BindableBase
 	{
+		/// <summary>選択したファイルのパスを取得します。</summary>
+		public ReactivePropertySlim<string> SelectedFilePath { get; }
+
 		public ReadOnlyReactivePropertySlim<string> CharacterName { get; }
 
 		public ReactiveProperty<string> ItemCode { get; set; }
@@ -26,13 +29,33 @@ namespace WpfTestApp.ViewModels
 
 		public IInteractionRequest DialogRequest { get; }
 
+		/// <summary>ファイルを開くダイアログの表示を要求するためのIInteractionRequestを取得します。</summary>
+		public IInteractionRequest OpenFileDialogRequest { get; }
+
 		public ReadOnlyReactivePropertySlim<Type> DialogContents { get; }
+
+		/// <summary>MVVMパターンでShowDialogボタンのClickコマンドを取得します。</summary>
+		public ReactiveCommand OpenFileDialogCommand { get; }
 
 		public ReactiveCommand ShowDialogCommand { get; }
 
 		public ReactiveCommand<KeyEventArgs> ItemCodeKeyDown { get; }
 
 		public ReactiveCommand SearchCommand { get; }
+
+		/// <summary>MVVMパターンでShowDialogボタンのClickコマンドを処理します。</summary>
+		private void showOpenFileDialog()
+		{
+			var openFileComfirm = new OpenFileDialogConfirmation()
+			{
+				Title = "ファイルを開く"
+			};
+
+			if (this.commonDialogService.ShowDialog(openFileComfirm) == System.Windows.MessageBoxResult.OK)
+			{
+				this.SelectedFilePath.Value = openFileComfirm.FileName;
+			}
+		}
 
 		private void showDialogButton_Click()
 		{
@@ -63,16 +86,26 @@ namespace WpfTestApp.ViewModels
 		private CompositeDisposable disposables = new CompositeDisposable();
 		private BleachAgent agent = new BleachAgent();
 		private IDialogService dialogService = null;
+		private ICommonDialogService commonDialogService = null;
 		private Character chara { get; set; } = new Character();
 
-		public MainWindowViewModel(IDialogService dialogSrv)
+		public MainWindowViewModel(IDialogService dialogSrv, ICommonDialogService comDlgService)
 		{
+			this.dialogService = dialogSrv;
+			this.DialogRequest = this.dialogService.DialogRequest;
+
+			this.commonDialogService = comDlgService;
+			this.OpenFileDialogRequest = this.commonDialogService.CommonDialogRequest;
+
 			this.ItemCode = this.chara.Code
 				.ToReactiveProperty()
 				.AddTo(this.disposables);
 
 			this.CharacterName = this.chara.Name
 				.ToReadOnlyReactivePropertySlim()
+				.AddTo(this.disposables);
+
+			this.SelectedFilePath = new ReactivePropertySlim<string>(string.Empty)
 				.AddTo(this.disposables);
 
 			this.ItemCodeKeyDown = new ReactiveCommand<KeyEventArgs>()
@@ -87,8 +120,9 @@ namespace WpfTestApp.ViewModels
 				.AddTo(this.disposables);
 			this.ShowDialogCommand.Subscribe(() => this.showDialogButton_Click());
 
-			this.dialogService = dialogSrv;
-			this.DialogRequest = this.dialogService.DialogRequest;
+			this.OpenFileDialogCommand = new ReactiveCommand()
+				.AddTo(this.disposables);
+			this.OpenFileDialogCommand.Subscribe(() => this.showOpenFileDialog());
 		}
 	}
 }
