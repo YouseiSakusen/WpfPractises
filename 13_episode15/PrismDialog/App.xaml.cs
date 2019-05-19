@@ -1,8 +1,7 @@
-﻿using WpfTestApp.Views;
-using Prism.Ioc;
-using Prism.Modularity;
-using System.Windows;
+﻿using Prism.Ioc;
 using PrismCommonDialog;
+using System.Windows;
+using WpfTestApp.Views;
 
 namespace WpfTestApp
 {
@@ -18,7 +17,9 @@ namespace WpfTestApp
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
+			// ダイアログウィンドウを表示するServiceを登録。
 			containerRegistry.RegisterSingleton<IDialogService, DialogService>();
+			// コモンダイアログを表示するServiceを登録。
 			containerRegistry.RegisterSingleton<ICommonDialogService, CommonDialogService>();
 		}
 	}

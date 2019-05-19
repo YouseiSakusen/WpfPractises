@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismDialog", "PrismDialog\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismCommonDialogLib", "PrismCommonDialogLib\PrismCommonDialogLib.csproj", "{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ookii.Dialogs.Wpf", "Ookii.Dialogs.Wpf\Ookii.Dialogs.Wpf.csproj", "{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DFA3D32-9C7A-4E4E-BEF7-B782D9EBB3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

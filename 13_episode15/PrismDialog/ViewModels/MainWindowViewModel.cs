@@ -13,6 +13,9 @@ namespace WpfTestApp.ViewModels
 {
 	public class MainWindowViewModel : BindableBase
 	{
+		/// <summary>選択したフォルダのパスを取得します。</summary>
+		public ReactivePropertySlim<string> SelectedFolderPath { get; }
+
 		/// <summary>選択したファイルのパスを取得します。</summary>
 		public ReactivePropertySlim<string> SelectedFilePath { get; }
 
@@ -34,6 +37,8 @@ namespace WpfTestApp.ViewModels
 
 		public ReadOnlyReactivePropertySlim<Type> DialogContents { get; }
 
+		public ReactiveCommand OokiiDialogCommand { get; }
+
 		/// <summary>MVVMパターンでShowDialogボタンのClickコマンドを取得します。</summary>
 		public ReactiveCommand OpenFileDialogCommand { get; }
 
@@ -42,6 +47,20 @@ namespace WpfTestApp.ViewModels
 		public ReactiveCommand<KeyEventArgs> ItemCodeKeyDown { get; }
 
 		public ReactiveCommand SearchCommand { get; }
+
+		/// <summary>MVVMパターンでフォルダ選択ダイアログを表示します。</summary>
+		private void ShowOokiiDialog_Click()
+		{
+			var dlgConfirm = new FolderSelectDialogConfirmation()
+			{
+				Title = "大きいDialog"
+			};
+
+			if (this.commonDialogService.ShowDialog(dlgConfirm) == System.Windows.MessageBoxResult.OK)
+			{
+				this.SelectedFolderPath.Value = dlgConfirm.SelectedPath;
+			}
+		}
 
 		/// <summary>MVVMパターンでShowDialogボタンのClickコマンドを処理します。</summary>
 		private void showOpenFileDialog()
@@ -53,7 +72,7 @@ namespace WpfTestApp.ViewModels
 
 			if (this.commonDialogService.ShowDialog(openFileComfirm) == System.Windows.MessageBoxResult.OK)
 			{
-				this.SelectedFilePath.Value = openFileComfirm.FileName;
+				this.SelectedFolderPath.Value = openFileComfirm.FileName;
 			}
 		}
 
@@ -108,6 +127,9 @@ namespace WpfTestApp.ViewModels
 			this.SelectedFilePath = new ReactivePropertySlim<string>(string.Empty)
 				.AddTo(this.disposables);
 
+			this.SelectedFolderPath = new ReactivePropertySlim<string>(string.Empty)
+				.AddTo(this.disposables);
+
 			this.ItemCodeKeyDown = new ReactiveCommand<KeyEventArgs>()
 				.AddTo(this.disposables);
 			this.ItemCodeKeyDown.Subscribe(e => this.itemCode_keyDown(e));
@@ -123,6 +145,10 @@ namespace WpfTestApp.ViewModels
 			this.OpenFileDialogCommand = new ReactiveCommand()
 				.AddTo(this.disposables);
 			this.OpenFileDialogCommand.Subscribe(() => this.showOpenFileDialog());
+
+			this.OokiiDialogCommand = new ReactiveCommand()
+				.AddTo(this.disposables);
+
 		}
 	}
 }

@@ -119,6 +119,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ookii.Dialogs.Wpf\Ookii.Dialogs.Wpf.csproj">
+      <Project>{d01b1d20-8f5b-4834-8e5c-c7ec6dd587d4}</Project>
+      <Name>Ookii.Dialogs.Wpf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrismCommonDialogLib\PrismCommonDialogLib.csproj">
       <Project>{5dfa3d32-9c7a-4e4e-bef7-b782d9ebb3f2}</Project>
       <Name>PrismCommonDialogLib</Name>

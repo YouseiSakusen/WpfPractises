@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CommonDialogService.cs" />
     <Compile Include="Confirmations\FileSelectCommonDialogConfirmationBase.cs" />
+    <Compile Include="Confirmations\FolderSelectDialogConfirmation.cs" />
     <Compile Include="Confirmations\OpenFileDialogConfirmation.cs" />
     <Compile Include="ICommonDialogService.cs" />
     <Compile Include="PopupCommonDialogAction.cs" />
