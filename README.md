@@ -46,7 +46,7 @@ EventToReactiveCommand（View 側）と ReactiveCommand（VM 側） を利用し
 
 Prism の NavigationContext と INavigationAware を利用して遷移先画面の VM にパラメータを渡すサンプル。  
 View と VM は ReactiveProperty でバインドされていて、VM は INotifyPropertyChanged をインプリメントしたモデルと ToReactivePropertyAsSynchronized メソッドで同期されていて、その同期しているモデルを差し替える例も紹介しています。  
-UserControl.Loaded イベントを ReactiveCommand とバインドして TreeView の SelectedItem を設定するサンプルも含まれています。
+UserControl.Loaded イベントを ReactiveCommand とバインドして TreeView の SelectedItem を設定するサンプルも含んでいます。
 
 ## 06_episode08
 
