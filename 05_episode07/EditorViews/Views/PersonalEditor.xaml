@@ -30,12 +30,12 @@
 			<TextBlock TextWrapping="Wrap" Text="性別" Grid.Row="2" Grid.Column="0" 
 					   VerticalAlignment="Center" Padding="0" Margin="0,0,10,0" TextAlignment="Right"/>
 			<TextBox x:Name="txtName" Grid.Column="1" Grid.Row="0"
-					 Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}"
+					 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
 					 VerticalContentAlignment="Center" Margin="0,5"
 					 MaxLength="10"/>
-			<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ClassNumber.Value}" 
+			<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ClassNumber}" 
 					 VerticalContentAlignment="Center" Margin="0,5" MaxLength="10"/>
-			<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Sex.Value}" 
+			<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Sex}" 
 					 VerticalContentAlignment="Center" Margin="0,5" MaxLength="5"/>
 		</Grid>
 	</Grid>

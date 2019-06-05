@@ -15,23 +15,86 @@ namespace WpfTestApp.ViewModels
 		#region "プロパティ"
 
 		/// <summary>測定日を取得・設定します。</summary>
-		public ReactiveProperty<DateTime?> MeasurementDate { get; set; }
+		private DateTime? measureDate;
+		public DateTime? MeasurementDate
+		{
+			get { return measureDate; }
+			set { SetProperty(ref measureDate, value); }
+		}
 
 		/// <summary>身長を取得・設定します。</summary>
-		public ReactiveProperty<double> Height { get; set; }
+		private double height;
+		public double Height
+		{
+			get { return height; }
+			set
+			{
+				SetProperty(ref height, value);
+				this.calcBmi();
+			}
+		}
 
 		/// <summary>体重を取得・設定します。</summary>
-		public ReactiveProperty<double> Weight { get; set; }
+		private double wight;
+		public double Weight
+		{
+			get { return wight; }
+			set
+			{
+				SetProperty(ref wight, value);
+				this.calcBmi();
+			}
+		}
 
 		/// <summary>BMIを取得します。</summary>
-		public ReadOnlyReactivePropertySlim<double> Bmi { get; private set; }
+		private double bmi;
+		public double Bmi
+		{
+			get { return bmi; }
+			private set { SetProperty(ref bmi, value); }
+		}
+
+		/// <summary>BMI を計算します。</summary>
+		private void calcBmi()
+		{
+			if (this.Height == 0)
+			{
+				this.Bmi = 0;
+				return;
+			}
+
+			this.Bmi = Math.Round(this.Weight / Math.Pow((this.Height / 100), 2),
+								  1,
+								  MidpointRounding.AwayFromZero);
+		}
+
+
+		///// <summary>測定日を取得・設定します。</summary>
+		//public ReactiveProperty<DateTime?> MeasurementDate { get; set; }
+
+		///// <summary>身長を取得・設定します。</summary>
+		//public ReactiveProperty<double> Height { get; set; }
+
+		///// <summary>体重を取得・設定します。</summary>
+		//public ReactiveProperty<double> Weight { get; set; }
+
+		///// <summary>BMIを取得します。</summary>
+		//public ReadOnlyReactivePropertySlim<double> Bmi { get; private set; }
 
 		#endregion
 
 		/// <summary>表示するViewを判別します。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		/// <returns>表示するViewかどうかを表すbool。</returns>
-		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext){ return true; }
+		bool INavigationAware.IsNavigationTarget(NavigationContext navigationContext)
+		{
+			if (this.physical == null)
+				return false;
+
+			var physicalInfo = navigationContext.Parameters["TargetData"] as PhysicalInformation;
+
+			return this.physical.Id == physicalInfo.Id;
+		}
 
 		private PhysicalInformation physical = null;
 		private System.Reactive.Disposables.CompositeDisposable disposables =
@@ -45,23 +108,27 @@ namespace WpfTestApp.ViewModels
 				return;
 			this.physical = navigationContext.Parameters["TargetData"] as PhysicalInformation;
 
-			this.MeasurementDate = this.physical
-				.ToReactivePropertyAsSynchronized(x => x.MeasurementDate)
-				.AddTo(this.disposables);
-			this.Height = this.physical
-				.ToReactivePropertyAsSynchronized(x => x.Height)
-				.AddTo(this.disposables);
-			this.Weight = this.physical
-				.ToReactivePropertyAsSynchronized(x => x.Weight)
-				.AddTo(this.disposables);
-			this.Bmi = this.physical.ObserveProperty(x => x.Bmi)
-				.ToReadOnlyReactivePropertySlim()
-				.AddTo(this.disposables);
+			this.MeasurementDate = this.physical.MeasurementDate;
+			this.Height = this.physical.Height;
+			this.Weight = this.physical.Weight;
 
-			this.RaisePropertyChanged(nameof(this.MeasurementDate));
-			this.RaisePropertyChanged(nameof(this.Height));
-			this.RaisePropertyChanged(nameof(this.Weight));
-			this.RaisePropertyChanged(nameof(this.Bmi));
+			//this.MeasurementDate = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.MeasurementDate)
+			//	.AddTo(this.disposables);
+			//this.Height = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.Height)
+			//	.AddTo(this.disposables);
+			//this.Weight = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.Weight)
+			//	.AddTo(this.disposables);
+			//this.Bmi = this.physical.ObserveProperty(x => x.Bmi)
+			//	.ToReadOnlyReactivePropertySlim()
+			//	.AddTo(this.disposables);
+
+			//this.RaisePropertyChanged(nameof(this.MeasurementDate));
+			//this.RaisePropertyChanged(nameof(this.Height));
+			//this.RaisePropertyChanged(nameof(this.Weight));
+			//this.RaisePropertyChanged(nameof(this.Bmi));
 		}
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>

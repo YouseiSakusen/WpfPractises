@@ -1,55 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Regions;
-using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
 
 namespace WpfTestApp.ViewModels
 {
 	public class PersonalEditorViewModel : BindableBase, INavigationAware
 	{
 		/// <summary>生徒氏名を取得・設定します。</summary>
-		public ReactiveProperty<string> Name { get; set; }
+		private string _name;
+		public string Name
+		{
+			get { return _name; }
+			set { SetProperty(ref _name, value); }
+		}
 
 		/// <summary>所属クラスを取得・設定します。</summary>
-		public ReactiveProperty<string> ClassNumber { get; set; }
+		private string classNum;
+		public string ClassNumber
+		{
+			get { return classNum; }
+			set { SetProperty(ref classNum, value); }
+		}
 
 		/// <summary>性別を取得・設定します。</summary>
-		public ReactiveProperty<string> Sex { get; set; }
+		private string _sex;
+		public string Sex
+		{
+			get { return _sex; }
+			set { SetProperty(ref _sex, value); }
+		}
 
 		/// <summary>コンストラクタ。</summary>
 		public PersonalEditorViewModel() { }
 
 		private PersonalInformation personInfo = null;
-		private System.Reactive.Disposables.CompositeDisposable disposables = 
-			new System.Reactive.Disposables.CompositeDisposable();
 
 		/// <summary>Viewを表示した後呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
 		void INavigationAware.OnNavigatedTo(NavigationContext navigationContext)
 		{
-			if (this.personInfo != null)
-				return;
 			this.personInfo = navigationContext.Parameters["TargetData"] as PersonalInformation;
 
-			this.Name = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.Name)
-				.AddTo(this.disposables);
-
-			this.ClassNumber = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.ClassNumber)
-				.AddTo(this.disposables);
-
-			this.Sex = this.personInfo
-				.ToReactivePropertyAsSynchronized(x => x.Sex)
-				.AddTo(this.disposables);
-
-			this.RaisePropertyChanged(nameof(this.Name));
-			this.RaisePropertyChanged(nameof(this.ClassNumber));
-			this.RaisePropertyChanged(nameof(this.Sex));
+			this.Name = this.personInfo.Name;
+			this.ClassNumber = this.personInfo.ClassNumber;
+			this.Sex = this.personInfo.Sex;
 		}
 
 		/// <summary>表示するViewを判別します。</summary>
@@ -59,6 +52,11 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
 		/// <param name="navigationContext">Navigation Requestの情報を表すNavigationContext。</param>
-		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext) { return; }
+		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext)
+		{
+			this.personInfo.Name = this.Name;
+			this.personInfo.ClassNumber = this.ClassNumber;
+			this.personInfo.Sex = this.Sex;
+		}
 	}
 }

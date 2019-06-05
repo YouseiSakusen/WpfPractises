@@ -29,14 +29,34 @@ namespace WpfTestApp.ViewModels
 		/// <summary>TreeViewItemが選択されているかを取得・設定します。</summary>
 		public ReactivePropertySlim<bool> IsSelected { get; set; }
 
+		/// <summary>Childrenプロパティに新規Itemを追加します。</summary>
+		private void addNewItem()
+		{
+			this.Children.Add(this.parent.createNewChild(this.nodeCategory));
+		}
+
+		/// <summary>カテゴリノードかどうかを取得・設定します。</summary>
+		private ReactivePropertySlim<bool> IsCategory { get; set; }
+
+		/// <summary>新規データ追加コマンド</summary>
+		public ReactiveCommand AddNewDataCommand { get; }
+
 		/// <summary>ReactivePropertyのDispose用リスト</summary>
 		private System.Reactive.Disposables.CompositeDisposable disposables
 			= new System.Reactive.Disposables.CompositeDisposable();
 
+		/// <summary>親のViewModel。</summary>
+		private NavigationTreeViewModel parent = null;
+
+		/// <summary>ツリーノードのカテゴリ。</summary>
+		private TreeNodeCategoryType nodeCategory = TreeNodeCategoryType.NoCategory;
+
 		/// <summary>コンストラクタ</summary>
 		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
-		public TreeViewItemViewModel(object treeItem)
+		/// <param name="parentViewModel">このViewModelの親を表すNavigationTreeViewModel。</param>
+		public TreeViewItemViewModel(object treeItem, NavigationTreeViewModel parentViewModel)
 		{
+			this.parent = parentViewModel;
 			this.Children = new ReactiveCollection<TreeViewItemViewModel>()
 				.AddTo(this.disposables);
 
@@ -88,6 +108,31 @@ namespace WpfTestApp.ViewModels
 				.AddTo(this.disposables);
 			this.IsSelected = new ReactivePropertySlim<bool>(false)
 				.AddTo(this.disposables);
+			this.IsCategory = new ReactivePropertySlim<bool>(this.SourceData != null && this.SourceData is string)
+				.AddTo(this.disposables);
+
+			this.AddNewDataCommand = new List<IObservable<bool>>()
+				{
+					this.IsCategory,
+					this.IsSelected
+				}
+				.CombineLatestValuesAreAllTrue()
+				.ToReactiveCommand()
+				.AddTo(this.disposables);
+			this.AddNewDataCommand.Subscribe(() => this.addNewItem());
+		}
+
+		/// <summary>コンストラクタ。</summary>
+		/// <summary>コンストラクタ</summary>
+		/// <param name="treeItem">TreeViewItem の元データを表すobject。</param>
+		/// <param name="parentViewModel">このViewModelの親を表すNavigationTreeViewModel。</param>
+		/// <param name="categoryType">カテゴリの種類を表す列挙型の内の1つ。。</param>
+		public TreeViewItemViewModel(string treeItem,
+									 NavigationTreeViewModel parentViewModel,
+									 TreeNodeCategoryType categoryType)
+			: this(treeItem, parentViewModel)
+		{
+			this.nodeCategory = categoryType;
 		}
 
 		/// <summary>オブジェクトを破棄します。</summary>

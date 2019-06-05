@@ -9,6 +9,17 @@ using Reactive.Bindings.Extensions;
 
 namespace WpfTestApp.ViewModels
 {
+	/// <summary>ツリーのカテゴリタイプを表す列挙型。</summary>
+	public enum TreeNodeCategoryType
+	{
+		/// <summary>カテゴリなし</summary>
+		NoCategory,
+		/// <summary>身体測定を表します。</summary>
+		Physical,
+		/// <summary>試験結果を表します。</summary>
+		TestPoint
+	}
+
 	public class NavigationTreeViewModel : BindableBase, IDisposable
 	{
 		/// <summary>TreeViewItem を取得します。</summary>
@@ -19,6 +30,27 @@ namespace WpfTestApp.ViewModels
 
 		/// <summary>UserControlのLoadedイベントハンドラ。</summary>
 		public ReactiveCommand Loaded { get; }
+
+		/// <summary>パラメータで指定したカテゴリ配下のアイテムを新規作成します。</summary>
+		/// <param name="categoryType">新規作成するカテゴリを表すTreeNodeCategoryType列挙型の内の1つ。</param>
+		/// <returns>新規作成したアイテムをセットしたTreeViewItemViewModel。</returns>
+		internal TreeViewItemViewModel createNewChild(TreeNodeCategoryType categoryType)
+		{
+			object newItem = null;
+			switch (categoryType)
+			{
+				case TreeNodeCategoryType.Physical:
+					newItem = this.appData.CreateNewData<PhysicalInformation>();
+					appData.Physicals.Add(newItem as PhysicalInformation);
+					break;
+				case TreeNodeCategoryType.TestPoint:
+					newItem = this.appData.CreateNewData<TestPointInformation>();
+					appData.TestPoints.Add(newItem as TestPointInformation);
+					break;
+			}
+
+			return new TreeViewItemViewModel(newItem, this);
+		}
 
 		private WpfTestAppData appData = null;
 		private TreeViewItemViewModel rootNode = null;
@@ -35,7 +67,7 @@ namespace WpfTestApp.ViewModels
 			this.appData = data;
 			this.regionManager = rm;
 
-			this.rootNode = TreeViewItemCreator.Create(this.appData);
+			this.rootNode = TreeViewItemCreator.Create(this.appData, this);
 			var col = new System.Collections.ObjectModel.ObservableCollection<TreeViewItemViewModel>();
 
 			col.Add(this.rootNode);

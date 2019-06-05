@@ -1,16 +1,15 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Prism.Mvvm;
+using Prism.Regions;
 
 namespace WpfTestApp.ViewModels
 {
-	public class CategoryPanelViewModel : BindableBase
+	/// <summary>カテゴリパネルのViewModel</summary>
+	public class CategoryPanelViewModel : BindableBase, IRegionMemberLifetime
 	{
-		public CategoryPanelViewModel()
-		{
+		/// <summary>非Active時にインスタンスを保持するかを取得します。</summary>
+		public bool KeepAlive => false;
 
-		}
+		/// <summary>コンストラクタ。</summary>
+		public CategoryPanelViewModel() { }
 	}
 }

@@ -31,7 +31,7 @@
 				</Grid.ColumnDefinitions>
 				<DatePicker Grid.Column="0" Grid.ColumnSpan="2"
 							VerticalAlignment="Center" Margin="10,0"
-							SelectedDate="{Binding MeasurementDate.Value, UpdateSourceTrigger=PropertyChanged}"/>
+							SelectedDate="{Binding MeasurementDate, UpdateSourceTrigger=PropertyChanged}"/>
 			</Grid>
 			<TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" 
 					   Text="測定日" VerticalAlignment="Center" Margin="0,0,10,0" TextAlignment="Right"/>
@@ -60,7 +60,7 @@
 						<ColumnDefinition Width="0.2*"/>
 					</Grid.ColumnDefinitions>
 					<TextBox Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
-							 Text="{Binding Height.Value, UpdateSourceTrigger=PropertyChanged}" MaxLength="5" />
+							 Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" MaxLength="5" />
 					<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="cm" />
 				</Grid>
 				<Grid Grid.Column="1" Grid.Row="1">
@@ -68,11 +68,11 @@
 						<ColumnDefinition Width="0.8*"/>
 						<ColumnDefinition Width="0.2*"/>
 					</Grid.ColumnDefinitions>
-					<TextBox Grid.Column="0" Text="{Binding Weight.Value, UpdateSourceTrigger=PropertyChanged}"
+					<TextBox Grid.Column="0" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}"
 							 TextAlignment="Right" VerticalContentAlignment="Center" />
 					<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="kg" />
 				</Grid>
-				<TextBox Grid.Column="3" Grid.Row="1" Text="{Binding Bmi.Value, Mode=OneWay}"
+				<TextBox Grid.Column="3" Grid.Row="1" Text="{Binding Bmi, Mode=OneWay}"
 						 TextAlignment="Right" IsReadOnly="True" VerticalContentAlignment="Center" />
 			</Grid>
 		</Grid>
