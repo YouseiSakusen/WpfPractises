@@ -41,10 +41,12 @@ EventToReactiveCommand（View 側）と ReactiveCommand（VM 側） を利用し
 
 ## 05_episode07
 
+[halation ghost 【WPF Prism extra: 2 ～ TreeViewItem を MVVM パターンで選択する ～】](https://elf-mission.net/programming/wpf/extra02/) 、  
 [halation ghost 【WPF Prism episode: 7 ～ ReactiveProperty がバインドできないのはどう考えても Navigation が悪い！～】](https://elf-mission.net/programming/wpf/episode07/) で作成したサンプル。
 
 Prism の NavigationContext と INavigationAware を利用して遷移先画面の VM にパラメータを渡すサンプル。  
-View と VM は ReactiveProperty でバインドされていて、VM は INotifyPropertyChanged をインプリメントしたモデルと ToReactivePropertyAsSynchronized メソッドで同期されていて、その同期しているモデルを差し替える例も紹介しています。
+View と VM は ReactiveProperty でバインドされていて、VM は INotifyPropertyChanged をインプリメントしたモデルと ToReactivePropertyAsSynchronized メソッドで同期されていて、その同期しているモデルを差し替える例も紹介しています。  
+UserControl.Loaded イベントを ReactiveCommand とバインドして TreeView の SelectedItem を設定するサンプルも含まれています。
 
 ## 06_episode08
 
