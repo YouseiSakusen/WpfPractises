@@ -31,7 +31,7 @@
 				</Grid.ColumnDefinitions>
 				<TextBox Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center"
 						 Margin="10,0"
-						 Text="{Binding TestDate.Value, Mode=TwoWay}"/>
+						 Text="{Binding TestDate.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 			</Grid>
 			<TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="Wrap"
 					   Text="試験日" VerticalAlignment="Center"

@@ -46,6 +46,7 @@ namespace WpfTestApp.ViewModels
 		{
 			if (this.testPoint != null)
 				return;
+
 			this.testPoint = navigationContext.Parameters["TargetData"] as TestPointInformation;
 
 			this.TestDate = this.testPoint
@@ -64,11 +65,7 @@ namespace WpfTestApp.ViewModels
 				.ToReadOnlyReactivePropertySlim()
 				.AddTo(this.disposables);
 
-			this.RaisePropertyChanged(nameof(this.TestDate));
-			this.RaisePropertyChanged(nameof(this.JapaneseScore));
-			this.RaisePropertyChanged(nameof(this.MathematicsScore));
-			this.RaisePropertyChanged(nameof(this.EnglishScore));
-			this.RaisePropertyChanged(nameof(this.Average));
+			this.RaisePropertyChanged(null);
 		}
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>

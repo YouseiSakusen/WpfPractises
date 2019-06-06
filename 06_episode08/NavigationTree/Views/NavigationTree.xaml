@@ -10,6 +10,12 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="300" d:DesignWidth="300"
 			 prism:ViewModelLocator.AutoWireViewModel="True">
+	<!--<UserControl.Resources>
+		<ContextMenu x:Key="TreeViewItemContextMenu">
+					<MenuItem Header="新規データの追加(_A)"
+										  Command="{Binding AddNewDataCommand}" />
+				</ContextMenu>
+	</UserControl.Resources>-->
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded">
 			<ri:EventToReactiveCommand Command="{Binding Loaded}" />
@@ -26,18 +32,27 @@
 					<EventSetter Event="PreviewMouseRightButtonDown"
 								 Handler="TreeViewItem_PreviewMouseRightButtonDown" />
 				</Style>
+				<ContextMenu x:Key="TreeViewItemContextMenu">
+					<MenuItem Header="新規データの追加(_A)"
+										  Command="{Binding AddNewDataCommand}" />
+				</ContextMenu>
 			</TreeView.Resources>
 
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate DataType="{x:Type nt:TreeViewItemViewModel}"
 										  ItemsSource="{Binding Children}">
 					<StackPanel Orientation="Horizontal" Margin="0,3">
-						<StackPanel.ContextMenu>
+						<StackPanel.Style>
+							<Style TargetType="StackPanel">
+								<Setter Property="ContextMenu" Value="{Binding Source={StaticResource TreeViewItemContextMenu}}" />
+							</Style>
+						</StackPanel.Style>
+						<!--<StackPanel.ContextMenu>
 							<ContextMenu>
 								<MenuItem Header="新規データの追加(_A)"
 										  Command="{Binding AddNewDataCommand}" />
 							</ContextMenu>
-						</StackPanel.ContextMenu>
+						</StackPanel.ContextMenu>-->
 						<Image Source="{Binding ItemImage.Value}" Width="25" Height="25" />
 						<TextBlock Text="{Binding ItemText.Value}"
 								   VerticalAlignment="Center" Padding="5,0" />

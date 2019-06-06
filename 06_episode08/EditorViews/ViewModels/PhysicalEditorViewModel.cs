@@ -46,7 +46,7 @@ namespace WpfTestApp.ViewModels
 			return this.physical.Id == physicalDat.Id;
 		}
 
-		private PhysicalInformation physical = null;
+		private PhysicalInformation physical = null;	// new PhysicalInformation();
 		private System.Reactive.Disposables.CompositeDisposable disposables =
 			new System.Reactive.Disposables.CompositeDisposable();
 
@@ -56,7 +56,15 @@ namespace WpfTestApp.ViewModels
 		{
 			if (this.physical != null)
 				return;
+
 			this.physical = this.getPhysicalData(navigationContext);
+
+			//var physicalInfo = this.getPhysicalData(navigationContext);
+
+			//this.physical.MeasurementDate = physicalInfo.MeasurementDate;
+			//this.physical.Height = physicalInfo.Height;
+			//this.physical.Weight = physicalInfo.Weight;
+
 
 			this.MeasurementDate = this.physical
 				.ToReactivePropertyAsSynchronized(x => x.MeasurementDate)
@@ -71,10 +79,7 @@ namespace WpfTestApp.ViewModels
 				.ToReadOnlyReactivePropertySlim()
 				.AddTo(this.disposables);
 
-			this.RaisePropertyChanged(nameof(this.MeasurementDate));
-			this.RaisePropertyChanged(nameof(this.Height));
-			this.RaisePropertyChanged(nameof(this.Weight));
-			this.RaisePropertyChanged(nameof(this.Bmi));
+			this.RaisePropertyChanged(null);
 		}
 
 		/// <summary>別のViewに切り替わる前に呼び出されます。</summary>
@@ -82,7 +87,21 @@ namespace WpfTestApp.ViewModels
 		void INavigationAware.OnNavigatedFrom(NavigationContext navigationContext) { return; }
 
 		/// <summary>コンストラクタ。</summary>
-		public PhysicalEditorViewModel() { }
+		public PhysicalEditorViewModel()
+		{
+			//this.MeasurementDate = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.MeasurementDate)
+			//	.AddTo(this.disposables);
+			//this.Height = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.Height)
+			//	.AddTo(this.disposables);
+			//this.Weight = this.physical
+			//	.ToReactivePropertyAsSynchronized(x => x.Weight)
+			//	.AddTo(this.disposables);
+			//this.Bmi = this.physical.ObserveProperty(x => x.Bmi)
+			//	.ToReadOnlyReactivePropertySlim()
+			//	.AddTo(this.disposables);
+		}
 
 		/// <summary>オブジェクトを破棄します。</summary>
 		void IDisposable.Dispose() { this.disposables.Dispose(); }
