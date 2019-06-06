@@ -54,7 +54,7 @@ UserControl.Loaded イベントを ReactiveCommand とバインドして TreeVie
 [halation ghost 【WPF Prism episode: 8 ～とある TreeView の状況一覧 (Context menu) ～】](https://elf-mission.net/programming/wpf/episode08/) で作成したサンプル。
 
 List 型メンバを編集するための View がどのメンバに対応する View かを Prism の INavigationAware.IsTarget を使用して判定するサンプル。  
-TreeView に追加したコンテキストメニューから ReactiveCollection へ項目を追加すると TreeView に子 Item が追加されるサンプルも併せて紹介しています。
+TreeView に追加したコンテキストメニューから ReactiveCollection へ項目を追加すると TreeView に子 Item が追加されるサンプルも併せて紹介しています。  
 又、ReactiveCommand からコントロールの IsEnabled を設定する方法も含んでいます。
 
 ## 07_episode09
