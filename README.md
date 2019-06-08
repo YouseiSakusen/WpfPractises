@@ -51,11 +51,11 @@ UserControl.Loaded イベントを ReactiveCommand とバインドして TreeVie
 ## 06_episode08
 
 [halation ghost 【WPF Prism extra: 3 ～ とある TreeView の状況一覧 (Context menu) ～】](https://elf-mission.net/programming/wpf/extra03/)、  
-[halation ghost 【WPF Prism episode: 8 ～とある TreeView の状況一覧 (Context menu) ～】](https://elf-mission.net/programming/wpf/episode08/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 8 ～ ReactiveProperty がバインドできないのはどう考えても Navigation が悪い！ ～】](https://elf-mission.net/programming/wpf/episode08/) で作成したサンプル。
 
 List 型メンバを編集するための View がどのメンバに対応する View かを Prism の INavigationAware.IsTarget を使用して判定するサンプル。  
 TreeView に追加したコンテキストメニューから ReactiveCollection へ項目を追加すると TreeView に子 Item が追加されるサンプルも併せて紹介しています。  
-又、ReactiveCommand からコントロールの IsEnabled を設定する方法も含んでいます。
+又、ReactiveCommand からコントロールの IsEnabled を設定する方法や ReactiveProperty を使用して VM ⇔ Model 間を双方向でバインドするサンプルも含んでいます。
 
 ## 07_episode09
 
