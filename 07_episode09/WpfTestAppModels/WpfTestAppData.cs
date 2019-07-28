@@ -39,7 +39,7 @@ namespace WpfTestApp
 				return new PhysicalInformation()
 				{
 					  Id = id
-					, MeasurementDate = DateTime.Now
+					//, MeasurementDate = DateTime.Now
 				} as T;
 			}
 

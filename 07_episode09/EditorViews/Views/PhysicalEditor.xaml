@@ -30,15 +30,15 @@
 					<ColumnDefinition Width="0.25*"/>
 					<ColumnDefinition Width="0.25*"/>
 				</Grid.ColumnDefinitions>
-				<!--<DatePicker Grid.Column="0" Grid.ColumnSpan="2"
-									  VerticalAlignment="Center" Margin="10,0"
-									  SelectedDate="{Binding MeasurementDate.Value, UpdateSourceTrigger=PropertyChanged}" />-->
-				<xceed:DateTimePicker Grid.Column="0" Grid.ColumnSpan="2"
+				<DatePicker Grid.Column="0" Grid.ColumnSpan="2"
+							VerticalAlignment="Center" Margin="10,0"
+							SelectedDate="{Binding MeasurementDate.Value, UpdateSourceTrigger=PropertyChanged}" />
+				<!--<xceed:DateTimePicker Grid.Column="0" Grid.ColumnSpan="2"
 									  VerticalAlignment="Center" Margin="10,0"
 									  Value="{Binding MeasurementDate.Value}"
 									  Watermark="測定日を選択" AutoCloseCalendar="True"
 									  ShowButtonSpinner="False" TimePickerVisibility="Collapsed"
-									  Format="ShortDate" TextAlignment="Left" CurrentDateTimePart="Month" />
+									  Format="ShortDate" TextAlignment="Left" CurrentDateTimePart="Month" />-->
 			</Grid>
 			<TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" 
 					   Text="測定日" VerticalAlignment="Center" Margin="0,0,10,0" TextAlignment="Right"/>
@@ -66,11 +66,15 @@
 						<ColumnDefinition Width="0.8*"/>
 						<ColumnDefinition Width="0.2*"/>
 					</Grid.ColumnDefinitions>
-					<xceed:DoubleUpDown Grid.Column="0"
+					<TextBox Grid.Column="0" MaxLength="6"
+							 HorizontalContentAlignment="Right"
+							 VerticalContentAlignment="Center"
+							 Text="{Binding Height.Value, UpdateSourceTrigger=PropertyChanged}" />
+					<!--<xceed:DoubleUpDown Grid.Column="0"
 										Value="{Binding Height.Value, UpdateSourceTrigger=PropertyChanged}"
 										MaxLength="6" VerticalContentAlignment="Center"
 										HorizontalContentAlignment="Right" ShowButtonSpinner="False"
-										Maximum="400" Minimum="0" ParsingNumberStyle="Float" />
+										Maximum="400" Minimum="0" ParsingNumberStyle="Float" />-->
 					<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="cm" />
 				</Grid>
 				<Grid Grid.Column="1" Grid.Row="1">

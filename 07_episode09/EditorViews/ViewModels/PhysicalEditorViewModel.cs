@@ -16,6 +16,8 @@ namespace WpfTestApp.ViewModels
 		#region "プロパティ"
 
 		/// <summary>測定日を取得・設定します。</summary>
+		//[RegularExpression(@"^([2][0]\d{2}\/([0]\d|[1][0-2])\/([0-2]\d|[3][0-1]))$|^([2][0]\d{2}\/([0]\d|[1][0-2])\/([0-2]\d|[3][0-1])$",
+		//	ErrorMessage ="不正な日付です。")]
 		public ReactiveProperty<DateTime?> MeasurementDate { get; set; }
 
 		/// <summary>身長を取得・設定します。</summary>
@@ -63,12 +65,13 @@ namespace WpfTestApp.ViewModels
 				return;
 			this.physical = this.getPhysicalData(navigationContext);
 
-			var mode = ReactivePropertyMode.Default | ReactivePropertyMode.IgnoreInitialValidationError;
+			//var mode = ReactivePropertyMode.Default | ReactivePropertyMode.IgnoreInitialValidationError;
+			var mode = ReactivePropertyMode.Default;
 
 			// 測定日
 			this.MeasurementDate = this.physical
 				.ToReactivePropertyAsSynchronized(x => x.MeasurementDate, mode, true)
-				.SetValidateNotifyError(v => this.getMeasurementDateError(v))
+				//.SetValidateNotifyError(v => this.getMeasurementDateError(v))
 				.AddTo(this.disposables);
 			// 身長
 			this.Height = this.physical
