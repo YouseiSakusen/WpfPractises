@@ -1,31 +1,33 @@
 ﻿<Window x:Class="WpfPrism72.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="15, 15">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.33*"/>
-            <ColumnDefinition Width="0.33*"/>
-            <ColumnDefinition Width="0.33*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.1*"/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="1" Grid.Column="0"
-                Content="ダイアログ表示"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:prism="http://prismlibrary.com/"
+		prism:ViewModelLocator.AutoWireViewModel="True"
+		Title="{Binding Title}" Height="350" Width="525"
+		WindowStartupLocation="CenterScreen">
+	<Grid Margin="15, 15">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+		</Grid.RowDefinitions>
+		<Button Grid.Row="1" Grid.Column="0"
+				Content="ダイアログ表示"
 				Command="{Binding OkButtonCommand}" />
-        <!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
-    </Grid>
+		<TextBlock Grid.Row="3" Grid.Column="0"
+				   Text="{Binding DialogMessage.Value}" />
+		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
+	</Grid>
 </Window>

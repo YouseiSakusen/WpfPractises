@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfPrism72.Views.NotificationMessageBox"
+﻿<UserControl x:Class="WpfPrism72.Views.NotifiedMessageBox"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:prism="http://prismlibrary.com/"             
@@ -14,11 +14,12 @@
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
 				   TextWrapping="Wrap"
-				   Text="{Binding Message}"/>
+				   Text="{Binding Message.Value}"/>
 		<Button Grid.Row="1"
 				Content="OK"
 				Margin="0, 10, 0, 0"
 				HorizontalAlignment="Right"
-				Width="75" Height="25" />
+				Width="75" Height="25"
+				Command="{Binding OkCommand}" />
 	</Grid>
 </UserControl>

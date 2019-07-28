@@ -1,20 +1,22 @@
-﻿using WpfPrism72.Views;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
+using WpfPrism72.Views;
 
 namespace WpfPrism72
 {
+	/// <summary>メッセーボックスモジュールを表します。</summary>
 	public class MessageBoxLibModule : IModule
 	{
-		public void OnInitialized(IContainerProvider containerProvider)
-		{
- 
-		}
+		/// <summary>モジュールを初期化します。</summary>
+		/// <param name="containerProvider"></param>
+		public void OnInitialized(IContainerProvider containerProvider) { }
 
+		/// <summary>DIコンテナへTypeを登録します。</summary>
+		/// <param name="containerRegistry">登録用のDIコンテナを表すIContainerRegistry</param>
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterDialog<NotificationMessageBox, ViewModels.NotificationMessageBoxViewModel>();
+			containerRegistry.RegisterDialog<NotifiedMessageBox, ViewModels.NotifiedMessageBoxViewModel>();
+			containerRegistry.RegisterDialog<ConfirmedMessageBox, ViewModels.ConfirmedMessageBoxViewModel>();
 		}
 	}
 }

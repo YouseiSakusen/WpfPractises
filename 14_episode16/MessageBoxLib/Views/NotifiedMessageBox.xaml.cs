@@ -5,9 +5,9 @@ namespace WpfPrism72.Views
 	/// <summary>
 	/// Interaction logic for NotificationMessageBox
 	/// </summary>
-	public partial class NotificationMessageBox : UserControl
+	public partial class NotifiedMessageBox : UserControl
 	{
-		public NotificationMessageBox()
+		public NotifiedMessageBox()
 		{
 			InitializeComponent();
 		}
