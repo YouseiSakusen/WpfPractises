@@ -59,9 +59,10 @@ TreeView に追加したコンテキストメニューから ReactiveCollection 
 
 ## 07_episode09
 
-[halation ghost 【WPF Prism episode: 9、9' ～ ReactiveProperty の Validation は DataAnnotation じゃないと思った？～】](https://elf-mission.net/programming/wpf/episode09/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 9、9' ～ ReactiveProperty の Validation は DataAnnotation じゃないと思った？～】](https://elf-mission.net/programming/wpf/episode09/) で作成したサンプル。  
+[halation ghost 【WPF Prism extra: 4 ～ Extended WPF Toolkit™ で数値と日付を入力 ～】](https://elf-mission.net/programming/wpf/extra04/) で作成したサンプル。
 
-ReactiveProperty へバリデーション（DataAnnotation）を設定するサンプル。
+ReactiveProperty へバリデーション（DataAnnotation）を設定するサンプルと Xceed の Extended WPF Toolkit™ を使用するサンプル。
 
 ## 08_episode10
 
@@ -92,4 +93,10 @@ Prism 組み込みのメッセージボックスをカスタマイズするサ�
 [halation ghost 【WPF Prism episode: 14 ～ ListBox 相手は ReactiveCollection、ダイアログな、Prism。 ～】](https://elf-mission.net/programming/wpf/episode14/) で作成したサンプル。
 
 Prism からダイアログウィンドウを表示するサンプル。
+
+## 13_episode15
+
+[halation ghost 【WPF Prism episode: 15 ～ FolderBrowserDialog の為ならば、Prism の InteractionRequest はもしかしたらコモンダイアログも Popup できるかもしれない。 ～】](https://elf-mission.net/programming/wpf/episode15/) で作成したサンプル。
+
+Prism から FolderBrowserDialog や OpenFileDialog 等のコモンダイアログを表示するサンプル。
 
