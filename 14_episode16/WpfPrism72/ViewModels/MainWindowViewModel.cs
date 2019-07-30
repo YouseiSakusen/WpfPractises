@@ -37,11 +37,11 @@ namespace WpfPrism72.ViewModels
 		///// <returns>メッセージボックスの戻り値を表すButtonResult列挙型の内の1つ。</returns>
 		//private ButtonResult showInformationMessage(string message)
 		//{
-		//	var ret = ButtonResult.Cancel;
+		//	var ret = ButtonResult.No;
 		//	var param = new DialogParameters($"Message={message}");
 
 		//	//param.Add("Message", message);
-		//	this.dlgService.ShowDialog("NotifiedMessageBox", param, r => ret = r.Result);
+		//	this.dlgService.ShowDialog("ConfirmedMessageBox", param, r => ret = r.Result);
 
 		//	return ret;
 		//}
@@ -49,13 +49,13 @@ namespace WpfPrism72.ViewModels
 		/// <summary>OKボタンのClickイベントハンドラ。</summary>
 		private void onOkCommand()
 		{
-			this.dlgService.ShowInformationMessage("通知メッセージを表示するよ！");
-			this.DialogMessage.Value = "OKボタンが押されたよ！";
+			//this.dlgService.ShowInformationMessage("通知メッセージを表示するよ！");
+			//this.DialogMessage.Value = "OKボタンが押されたよ！";
 
-			//if (this.showInformationMessage("通知メッセージを表示するよ！") == ButtonResult.OK)
-			//{
-			//	this.DialogMessage.Value = "OKボタンが押されたよ！";
-			//}
+			if (this.dlgService.ShowConfirmationMessage("通知メッセージを表示するよ！") == ButtonResult.Yes)
+				this.DialogMessage.Value = "OKボタンが押されたよ！";
+			else
+				this.DialogMessage.Value = string.Empty;
 		}
 
 		#endregion

@@ -5,7 +5,7 @@ using Reactive.Bindings;
 
 namespace WpfPrism72.ViewModels
 {
-	/// <summary>通知メッセージボックスのVMを表します。</summary>
+	/// <summary>問い合わせメッセージボックスのVMを表します。</summary>
 	public class ConfirmedMessageBoxViewModel : BindableBase, IDialogAware
 	{
 		#region "プロパティ"
