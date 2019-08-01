@@ -8,7 +8,7 @@ namespace WpfPrism72.ViewModels
 	/// <summary>ShellのViewModelを表します。</summary>
 	public class MainWindowViewModel : BindableBase
 	{
-		#region "プロパティ"
+		#region プロパティ
 
 		/// <summary>ダイアログの表示結果を取得します。</summary>
 		public ReactivePropertySlim<string> DialogMessage { get; }
@@ -23,14 +23,14 @@ namespace WpfPrism72.ViewModels
 
 		#endregion
 
-		#region "コマンド"
+		#region コマンド
 
 		/// <summary>OKボタンのCommandを取得します。</summary>
-		public ReactiveCommand OkButtonCommand { get; } = new ReactiveCommand();
+		public ReactiveCommand ShowMessageButtonCommand { get; }
 
 		#endregion
 
-		#region "メソッド"
+		#region メソッド
 
 		///// <summary>OKボタンのみのメッセージボックスを表示します。</summary>
 		///// <param name="message">表示するメッセージを表す文字列。</param>
@@ -47,7 +47,7 @@ namespace WpfPrism72.ViewModels
 		//}
 
 		/// <summary>OKボタンのClickイベントハンドラ。</summary>
-		private void onOkCommand()
+		private void onShowMessageButtonCommand()
 		{
 			//this.dlgService.ShowInformationMessage("通知メッセージを表示するよ！");
 			//this.DialogMessage.Value = "OKボタンが押されたよ！";
@@ -60,7 +60,7 @@ namespace WpfPrism72.ViewModels
 
 		#endregion
 
-		#region "コンストラクタ"
+		#region コンストラクタ
 
 		/// <summary>ダイアログ表示サービスを表します。</summary>
 		private IDialogService dlgService = null;
@@ -71,7 +71,8 @@ namespace WpfPrism72.ViewModels
 		{
 			this.dlgService = dialogService;
 
-			this.OkButtonCommand.Subscribe(this.onOkCommand);
+			this.ShowMessageButtonCommand = new ReactiveCommand()
+				.WithSubscribe(this.onShowMessageButtonCommand);
 			this.DialogMessage = new ReactivePropertySlim<string>(string.Empty);
 		}
 

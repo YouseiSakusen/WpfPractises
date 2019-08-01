@@ -8,7 +8,7 @@ namespace WpfPrism72.ViewModels
 	/// <summary>問い合わせメッセージボックスのVMを表します。</summary>
 	public class ConfirmedMessageBoxViewModel : BindableBase, IDialogAware
 	{
-		#region "プロパティ"
+		#region プロパティ
 
 		/// <summary>メッセージボックスのタイトルを取得します。</summary>
 		public string Title => "メッセージボックスTEST";
@@ -18,7 +18,7 @@ namespace WpfPrism72.ViewModels
 
 		#endregion
 
-		#region "CommandとAction"
+		#region CommandとAction
 
 		/// <summary>はいボタンのCommandを取得します。</summary>
 		public ReactiveCommand YesCommand { get; } = new ReactiveCommand();
@@ -31,7 +31,7 @@ namespace WpfPrism72.ViewModels
 
 		#endregion
 
-		#region "メソッド"
+		#region メソッド
 
 		/// <summary>ダイアログがClose可能かを取得します。</summary>
 		/// <returns></returns>
@@ -49,7 +49,7 @@ namespace WpfPrism72.ViewModels
 
 		#endregion
 
-		#region "コンストラクタ"
+		#region コンストラクタ
 
 		public ConfirmedMessageBoxViewModel()
 		{
