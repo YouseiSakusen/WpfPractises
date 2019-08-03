@@ -100,3 +100,9 @@ Prism からダイアログウィンドウを表示するサンプル。
 
 Prism から FolderBrowserDialog や OpenFileDialog 等のコモンダイアログを表示するサンプル。
 
+## 14_episode16
+
+[halation ghost 【WPF Prism episode: 16 ～ Prism7.2、ダイアログは IDialogService でって言ったよね！ ～】](https://elf-mission.net/programming/wpf/episode16/) で作成したサンプル。
+
+Prism 7.2 から新たに追加された IDialogService でダイアログを表示するサンプル。
+
