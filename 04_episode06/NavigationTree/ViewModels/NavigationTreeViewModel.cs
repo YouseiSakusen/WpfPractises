@@ -39,8 +39,11 @@ namespace WpfTestApp.ViewModels
 				.AddTo(this.disposables);
 
 			this.SelectedItemChanged = new ReactiveCommand<System.Windows.RoutedPropertyChangedEventArgs<object>>()
+				.WithSubscribe(e => this.nodeChanged(e))
 				.AddTo(this.disposables);
-			this.SelectedItemChanged.Subscribe(e => this.nodeChanged(e));
+
+			//	.AddTo(this.disposables);
+			//this.SelectedItemChanged.Subscribe(e => this.nodeChanged(e));
 		}
 
 		/// <summary>SelectedItemChangedイベントハンドラ。</summary>
