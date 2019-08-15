@@ -25,10 +25,10 @@ namespace WpfTestApp
 
 		private void initCharacters()
 		{
-			if (BleachAgent.characters == null)
-			{
-				BleachAgent.characters = new List<Character>();
-			}
+			if (BleachAgent.characters != null)
+				return;
+
+			BleachAgent.characters = new List<Character>();
 
 			BleachAgent.characters.Add(new Character("001", "黒崎一護", "くろさき いちご", "斬月", "天鎖斬月"));
 			BleachAgent.characters.Add(new Character("131", "朽木ルキア", "くちき るきあ", "袖白雪", "白霞罸"));
