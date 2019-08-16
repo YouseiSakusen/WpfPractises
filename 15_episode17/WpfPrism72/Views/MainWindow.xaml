@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfPrism72.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:prism="http://prismlibrary.com/"
+		prism:ViewModelLocator.AutoWireViewModel="True"
+		Title="{Binding Title}" Height="350" Width="525"
+		WindowStartupLocation="CenterScreen">
+	<Grid Margin="15, 15">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.1*"/>
+		</Grid.RowDefinitions>
+		<Button Grid.Row="1" Grid.Column="0"
+				Content="メッセージボックス表示"
+				Command="{Binding ShowMessageButtonCommand}" />
+		<TextBlock Grid.Row="3" Grid.Column="0"
+				   Text="{Binding DialogMessage.Value}" />
+		<Button Grid.Row="1" Grid.Column="2" 
+				Content="BLEACHダイアログ表示"
+				Command="{Binding ShowBleachDialogCommand}" />
+		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
+	</Grid>
+</Window>

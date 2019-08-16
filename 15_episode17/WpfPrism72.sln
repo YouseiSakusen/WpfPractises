@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPrism72", "WpfPrism72\WpfPrism72.csproj", "{AA9DEE68-D719-4066-877C-BF582444B04A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxLib", "MessageBoxLib\MessageBoxLib.csproj", "{64CE201F-E1AF-42F8-9DFD-11476B662314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonDialogLib", "CommonDialogLib\CommonDialogLib.csproj", "{F00B1213-24AD-41C2-BBA1-8705C422877C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPrism72Dialog", "WpfPrism72Dialog\WpfPrism72Dialog.csproj", "{0A290DE4-CCD0-49BD-B08F-F6316B6F108C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPrism72Models", "WpfPrism72Models\WpfPrism72Models.csproj", "{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA9DEE68-D719-4066-877C-BF582444B04A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9DEE68-D719-4066-877C-BF582444B04A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9DEE68-D719-4066-877C-BF582444B04A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9DEE68-D719-4066-877C-BF582444B04A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64CE201F-E1AF-42F8-9DFD-11476B662314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64CE201F-E1AF-42F8-9DFD-11476B662314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64CE201F-E1AF-42F8-9DFD-11476B662314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64CE201F-E1AF-42F8-9DFD-11476B662314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00B1213-24AD-41C2-BBA1-8705C422877C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00B1213-24AD-41C2-BBA1-8705C422877C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00B1213-24AD-41C2-BBA1-8705C422877C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00B1213-24AD-41C2-BBA1-8705C422877C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A290DE4-CCD0-49BD-B08F-F6316B6F108C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A290DE4-CCD0-49BD-B08F-F6316B6F108C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A290DE4-CCD0-49BD-B08F-F6316B6F108C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A290DE4-CCD0-49BD-B08F-F6316B6F108C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1163DE8-D07B-4A9F-87A4-2AB9A0FF2D2D}
+	EndGlobalSection
+EndGlobal
