@@ -11,9 +11,6 @@
 		<i:EventTrigger EventName="Closed">
 			<rp:EventToReactiveCommand Command="{Binding ClosedCommand}" />
 		</i:EventTrigger>
-		<i:EventTrigger EventName="Loaded">
-			<rp:EventToReactiveCommand Command="{Binding LoadedCommand}" />
-		</i:EventTrigger>
 	</i:Interaction.Triggers>
 	<Grid Margin="10, 5, 10, 0">
 		<Grid.RowDefinitions>
