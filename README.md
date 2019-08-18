@@ -106,3 +106,14 @@ Prism から FolderBrowserDialog や OpenFileDialog 等のコモンダイアロ�
 
 Prism 7.2 から新たに追加された IDialogService でダイアログを表示するサンプル。
 
+## QA_MvvmSampleApp
+[halation ghost episode: 16](https://elf-mission.net/programming/wpf/episode16/) のコメントに書かれた質問への回答用サンプル。
+
+Prism + ReactivePropertyでMVVMアプリを作成するためには定石とも言える構造を紹介するために作成したサンプル。  
+モデル層の変更をReactivePropertyを使用してVMへ伝播する方法を理解するのに向いていると思います。
+
+## QA_VmLoadTest
+[halation ghost episode: 16](https://elf-mission.net/programming/wpf/episode16/) のコメントに書かれた質問への回答用サンプル。
+
+Prism Shell起動時にPrism ModuleのViewを非表示でLoadしたい場合の裏技的な方法を紹介するためのサンプル。
+重いViewをアプリ起動時にあらかじめLoadしておきたい場合を想定していますがあまりお勧めの方法とは言えないような気がします。
