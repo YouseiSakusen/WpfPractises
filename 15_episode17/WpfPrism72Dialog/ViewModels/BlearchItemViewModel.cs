@@ -21,10 +21,7 @@ namespace WpfPrism72.ViewModels
 
 		public ReadOnlyReactivePropertySlim<string> Bankai { get; }
 
-		public BleachCharacter TargetCharacter
-		{
-			get { return this.targetCharacter; }
-		}
+		public BleachCharacter TargetCharacter => this.targetCharacter;
 
 		private BleachCharacter targetCharacter = null;
 		private CompositeDisposable disposables = new CompositeDisposable();

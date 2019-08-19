@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPrism72Dialog", "WpfPris
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPrism72Models", "WpfPrism72Models\WpfPrism72Models.csproj", "{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogExtensions", "DialogExtensions\DialogExtensions.csproj", "{9723F206-4A9A-4EB8-9561-46FB1B0B1777}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8627DEF0-137C-4E8D-9E49-BFF354D50BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9723F206-4A9A-4EB8-9561-46FB1B0B1777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9723F206-4A9A-4EB8-9561-46FB1B0B1777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9723F206-4A9A-4EB8-9561-46FB1B0B1777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9723F206-4A9A-4EB8-9561-46FB1B0B1777}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

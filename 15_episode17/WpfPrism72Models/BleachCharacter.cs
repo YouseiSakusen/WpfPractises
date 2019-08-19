@@ -1,14 +1,15 @@
-﻿using Reactive.Bindings;
+﻿using Prism.Mvvm;
+using Reactive.Bindings;
 
 namespace WpfPrism72
 {
 	/// <summary>BLEACHキャラクターを表します。</summary>
-	public class BleachCharacter
+	public class BleachCharacter : BindableBase
 	{
 		#region プロパティ
 
 		/// <summary>BLEACHキャラクターコードを取得します。</summary>
-		public ReactivePropertySlim<string> Code { get; }
+		public ReactiveProperty<string> Code { get; }
 
 		/// <summary>キャラクター名を取得・設定します。</summary>
 		public ReactivePropertySlim<string> Name { get; set; }
@@ -44,7 +45,7 @@ namespace WpfPrism72
 		/// <summary>デフォルトコンストラクタ。</summary>
 		public BleachCharacter()
 		{
-			this.Code = new ReactivePropertySlim<string>(string.Empty);
+			this.Code = new ReactiveProperty<string>(string.Empty);
 			this.Name = new ReactivePropertySlim<string>(string.Empty);
 			this.Yomigana = new ReactivePropertySlim<string>(string.Empty);
 			this.Zanpakuto = new ReactivePropertySlim<string>(string.Empty);

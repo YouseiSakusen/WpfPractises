@@ -21,7 +21,7 @@ namespace WpfPrism72
 
 		private static List<BleachCharacter> characters { get; set; } = null;
 
-		public static ReactiveCollection<BleachCharacter> charaCol { get; set; }
+		private static ReactiveCollection<BleachCharacter> charaCol { get; set; }
 
 		private void initCharacters()
 		{
@@ -45,9 +45,13 @@ namespace WpfPrism72
 			BleachAgent.characters.Add(new BleachCharacter("130", "浮竹 十四郎", "うきたけ じゅうしろう", "双魚理", "-"));
 		}
 
+		#region コンストラクタ
+
 		public BleachAgent()
 		{
 			this.initCharacters();
 		}
+
+		#endregion
 	}
 }

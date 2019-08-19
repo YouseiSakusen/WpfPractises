@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive.Disposables;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 using WpfPrism72.Extensions;
 
 namespace WpfPrism72.ViewModels
@@ -55,7 +57,11 @@ namespace WpfPrism72.ViewModels
 		/// <summary>OKボタンのClickイベントハンドラ。</summary>
 		private void okButton_Click()
 		{
-			this.RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
+			var param = new DialogParameters();
+			param.Add("SelectedItem", this.SelectedItem.Value.TargetCharacter);
+
+			var ret = new DialogResult(ButtonResult.OK, param);
+			this.RequestClose?.Invoke(ret);
 		}
 
 		#endregion
@@ -69,7 +75,7 @@ namespace WpfPrism72.ViewModels
 			return this.dialogService.ShowConfirmationMessage("画面を閉じてOK？") == ButtonResult.Yes;
 		}
 
-		public void OnDialogClosed() { }
+		public void OnDialogClosed() => this.disposables.Dispose();
 
 		public void OnDialogOpened(IDialogParameters parameters) { }
 
@@ -80,6 +86,7 @@ namespace WpfPrism72.ViewModels
 		private ObservableCollection<BleachCharacter> bleachCharacters { get; set; }
 
 		private IDialogService dialogService = null;
+		private CompositeDisposable disposables = new CompositeDisposable();
 
 		/// <summary>コンストラクタ。</summary>
 		public BleachDialogViewModel(IDialogService dlgService)
@@ -90,18 +97,23 @@ namespace WpfPrism72.ViewModels
 			this.bleachCharacters = new ObservableCollection<BleachCharacter>(charaList.OrderBy(c => c.Code.Value));
 
 			this.Characters = this.bleachCharacters
-				.ToReadOnlyReactiveCollection(c => new BlearchItemViewModel(c));
+				.ToReadOnlyReactiveCollection(c => new BlearchItemViewModel(c))
+				.AddTo(this.disposables);
 
-			this.SelectedItem = new ReactiveProperty<BlearchItemViewModel>(this.Characters.First());
+			this.SelectedItem = new ReactiveProperty<BlearchItemViewModel>(this.Characters.First())
+				.AddTo(this.disposables);
 
 			this.OkCommand = new ReactiveCommand()
-				.WithSubscribe(() => this.okButton_Click());
+				.WithSubscribe(() => this.okButton_Click())
+				.AddTo(this.disposables);
 
 			this.ListBoxDoubleClick = new ReactiveCommand()
-				.WithSubscribe(() => this.listBox_DoubleClick());
+				.WithSubscribe(() => this.listBox_DoubleClick())
+				.AddTo(this.disposables);
 
 			this.AddCommand = new ReactiveCommand()
-				.WithSubscribe(() => this.addButtonClick());
+				.WithSubscribe(() => this.addButtonClick())
+				.AddTo(this.disposables);
 		}
 
 		#endregion

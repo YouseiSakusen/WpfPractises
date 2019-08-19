@@ -7,9 +7,8 @@
 		WindowStartupLocation="CenterScreen">
 	<Grid Margin="15, 15">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.33*"/>
-			<ColumnDefinition Width="0.33*"/>
-			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.30*"/>
+			<ColumnDefinition Width="0.70*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.1*"/>
@@ -28,9 +27,34 @@
 				Command="{Binding ShowMessageButtonCommand}" />
 		<TextBlock Grid.Row="3" Grid.Column="0"
 				   Text="{Binding DialogMessage.Value}" />
-		<Button Grid.Row="1" Grid.Column="2" 
+		<Grid Grid.Row="2" Grid.Column="1"
+			  Height="25">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.22*"/>
+				<ColumnDefinition Width="0.2*"/>
+				<ColumnDefinition Width="0.15*"/>
+				<ColumnDefinition Width="0.48*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0"
+					   Margin="0, 0, 10, 0"
+					   VerticalAlignment="Center"
+					   Text="サンプル項目" />
+			<TextBox Grid.Column="1"
+					 VerticalContentAlignment="Center"
+					 MaxLength="3"
+					 Text="{Binding BlearchCharacterCode.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+			</TextBox>
+			<Button Grid.Column="2" Content="検索"
+					Command="{Binding ShowBleachDialogCommand}" />
+			<TextBox Grid.Column="3"
+					 IsReadOnly="True"
+					 VerticalContentAlignment="Center"
+					 Background="{x:Static SystemColors.ControlLightBrush}"
+					 Text="{Binding BleachCharacterName.Value, Mode=OneWay}"/>
+		</Grid>
+		<!--<Button Grid.Row="3" Grid.Column="2" 
 				Content="BLEACHダイアログ表示"
-				Command="{Binding ShowBleachDialogCommand}" />
+				Command="{Binding ShowBleachDialogCommand}" />-->
 		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
 	</Grid>
 </Window>
