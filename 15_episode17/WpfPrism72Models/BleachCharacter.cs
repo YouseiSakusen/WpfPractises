@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System;
+using System.Reactive.Linq;
+using Prism.Mvvm;
 using Reactive.Bindings;
 
 namespace WpfPrism72
@@ -45,8 +47,11 @@ namespace WpfPrism72
 		/// <summary>デフォルトコンストラクタ。</summary>
 		public BleachCharacter()
 		{
-			this.Code = new ReactiveProperty<string>(string.Empty);
 			this.Name = new ReactivePropertySlim<string>(string.Empty);
+			this.Code = new ReactiveProperty<string>(string.Empty);
+			this.Code.Where(c => string.IsNullOrEmpty(c))
+				.Subscribe(c => this.Name.Value = string.Empty);
+
 			this.Yomigana = new ReactivePropertySlim<string>(string.Empty);
 			this.Zanpakuto = new ReactivePropertySlim<string>(string.Empty);
 			this.Bankai = new ReactivePropertySlim<string>(string.Empty);

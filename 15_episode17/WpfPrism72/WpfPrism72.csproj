@@ -104,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonDialogLib\CommonDialogLib.csproj">
-      <Project>{f00b1213-24ad-41c2-bba1-8705c422877c}</Project>
+      <Project>{f9dd3c89-e1bf-4840-8ab9-7e8166ebae6e}</Project>
       <Name>CommonDialogLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\DialogExtensions\DialogExtensions.csproj">

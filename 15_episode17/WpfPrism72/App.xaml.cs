@@ -2,7 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
-using WpfPrism72.CommonDialog;
+using WpfPrism72.CommonDialogs;
 
 namespace WpfPrism72
 {
@@ -13,14 +13,13 @@ namespace WpfPrism72
 	{
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterInstance<IOpenFileDialogService>(new OpenFileDialogService());
+			containerRegistry.RegisterSingleton<ICommonDialogService, CommonDialogService>();
 		}
 
 		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
 		{
 			moduleCatalog.AddModule<MessageBoxLibModule>();
 			moduleCatalog.AddModule<WpfPrism72DialogModule>();
-			//moduleCatalog.AddModule<CommonDialog.CommonDialogLibModule>();
 		}
 
 		protected override Window CreateShell()

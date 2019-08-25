@@ -5,7 +5,8 @@ using Prism.Services.Dialogs;
 using Prism.Services.Dialogs.Extensions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using WpfPrism72.CommonDialog;
+using WpfPrism72.CommonDialogs;
+using WpfPrism72.Extensions;
 
 namespace WpfPrism72.ViewModels
 {
@@ -41,13 +42,43 @@ namespace WpfPrism72.ViewModels
 		/// <summary>メッセージボックス表示ボタンのCommandを取得します。</summary>
 		public ReactiveCommand ShowMessageButtonCommand { get; }
 
+		public ReactiveCommand ShowOpenFileDialogCommand { get; }
+
+		public ReactiveCommand ShowFolderBrowsDialogCommand { get; }
+
 		#endregion
 
 		#region コマンドハンドラ
 
+		private void onShowFolderBrowsDialog()
+		{
+			var settings = new ApiPackFolderBrowsDialogSettings();
+
+			if (this.commonDialogService.ShowDialog(settings))
+			{
+
+			}
+		}
+
+		private void onShowOpenFileDialog()
+		{
+			var settings = new OpenFileDialogSettings();
+
+			if (this.commonDialogService.ShowDialog(settings))
+			{
+
+			}
+		}
+
 		/// <summary>メッセージボックス表示ボタンのClickイベントハンドラ。</summary>
-		private void onShowMessageButtonCommand() => this.openFileDialogService.ShowDialog();
-		
+		private void onShowMessageButtonCommand()
+		{
+			if (this.dlgService.ShowConfirmationMessage("通知メッセージを表示するよ！") == ButtonResult.Yes)
+				this.DialogMessage.Value = "OKボタンが押されたよ！";
+			else
+				this.DialogMessage.Value = string.Empty;
+		}
+
 		/// <summary>キャラクターコードの変更イベントハンドラ。</summary>
 		/// <param name="characterCode">現在入力されているキャラクターコードを表す文字列。</param>
 		private void onCharacterCode(string characterCode)
@@ -78,15 +109,15 @@ namespace WpfPrism72.ViewModels
 		/// <summary>画面に表示しているキャラクター情報を表します。</summary>
 		private BleachCharacter character { get; set; }
 
-		private IOpenFileDialogService openFileDialogService = null;
+		private ICommonDialogService commonDialogService = null;
 
 		/// <summary>コンストラクタ。</summary>
 		/// <param name="dialogService">Prismのダイアログサービスを表すIDialogService。</param>
-		public MainWindowViewModel(IDialogService dialogService, IOpenFileDialogService fileDialogService)
+		public MainWindowViewModel(IDialogService dialogService, ICommonDialogService comDlgService)
 		{
 			this.dlgService = dialogService;
+			this.commonDialogService = comDlgService;
 			this.character = new BleachCharacter();
-			this.openFileDialogService = fileDialogService;
 
 			this.ShowMessageButtonCommand = new ReactiveCommand()
 				.WithSubscribe(this.onShowMessageButtonCommand);
@@ -94,6 +125,12 @@ namespace WpfPrism72.ViewModels
 
 			this.ShowBleachDialogCommand = new ReactiveCommand()
 				.WithSubscribe(() => this.showBleachDialog());
+
+			this.ShowOpenFileDialogCommand = new ReactiveCommand()
+				.WithSubscribe(() => this.onShowOpenFileDialog());
+
+			this.ShowFolderBrowsDialogCommand = new ReactiveCommand()
+				.WithSubscribe(() => this.onShowFolderBrowsDialog());
 
 			this.BlearchCharacterCode = this.character.Code;
 			this.BlearchCharacterCode.Where(v => v.Length == 3)

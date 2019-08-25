@@ -52,9 +52,12 @@
 					 Background="{x:Static SystemColors.ControlLightBrush}"
 					 Text="{Binding BleachCharacterName.Value, Mode=OneWay}"/>
 		</Grid>
-		<!--<Button Grid.Row="3" Grid.Column="2" 
-				Content="BLEACHダイアログ表示"
-				Command="{Binding ShowBleachDialogCommand}" />-->
+		<Button Grid.Column="0" Grid.Row="3"
+				Content="OpenFileDialog 表示"
+				Command="{Binding ShowOpenFileDialogCommand}"/>
+		<Button Grid.Column="0" Grid.Row="5"
+				Content="フォルダ選択ダイアログ"
+				Command="{Binding ShowFolderBrowsDialogCommand}" />
 		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
 	</Grid>
 </Window>

@@ -1,56 +1,36 @@
 ﻿using System.Reflection;
-using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Windows;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
+// アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
+// 制御されます。アセンブリに関連付けられている情報を変更するには、
+// これらの属性値を変更してください。
 [assembly: AssemblyTitle("CommonDialogLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("CommonDialogLib")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+// ComVisible を false に設定すると、このアセンブリ内の型は COM コンポーネントから
+// 参照できなくなります。COM からこのアセンブリ内の型にアクセスする必要がある場合は、
+// その型の ComVisible 属性を true に設定してください。
 [assembly: ComVisible(false)]
 
-//In order to begin building localizable applications, set 
-//<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
-//inside a <PropertyGroup>.  For example, if you are using US english
-//in your source files, set the <UICulture> to en-US.  Then uncomment
-//the NeutralResourceLanguage attribute below.  Update the "en-US" in
-//the line below to match the UICulture setting in the project file.
+// このプロジェクトが COM に公開される場合、次の GUID が typelib の ID になります
+[assembly: Guid("f9dd3c89-e1bf-4840-8ab9-7e8166ebae6e")]
 
-//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
-
-
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
-                                     //(used if a resource is not found in the page, 
-                                     // or application resource dictionaries)
-    ResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located
-                                              //(used if a resource is not found in the page, 
-                                              // app, or any theme specific resource dictionaries)
-)]
-
-
-// Version information for an assembly consists of the following four values:
+// アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
 //
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
+//      メジャー バージョン
+//      マイナー バージョン
+//      ビルド番号
+//      リビジョン
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
+// すべての値を指定するか、次を使用してビルド番号とリビジョン番号を既定に設定できます
+// 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
