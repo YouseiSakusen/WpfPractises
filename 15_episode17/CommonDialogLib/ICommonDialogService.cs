@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfPrism72.CommonDialogs
+﻿namespace WpfPrism72.CommonDialogs
 {
+	/// <summary>コモンダイアログ表示用インタフェース</summary>
 	public interface ICommonDialogService
 	{
 		bool ShowDialog(IDialogSettings settings);

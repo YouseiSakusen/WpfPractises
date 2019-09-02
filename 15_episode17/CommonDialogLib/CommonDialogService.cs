@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfPrism72.CommonDialogs.InnerServices;
+﻿using WpfPrism72.CommonDialogs.InnerServices;
 
 namespace WpfPrism72.CommonDialogs
 {
+	/// <summary>コモンダイアログ表示用サービスクラスを表します。</summary>
 	public class CommonDialogService : ICommonDialogService
 	{
 		public bool ShowDialog(IDialogSettings settings)

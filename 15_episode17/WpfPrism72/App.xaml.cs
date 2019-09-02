@@ -1,8 +1,8 @@
-﻿using WpfPrism72.Views;
+﻿using System.Windows;
 using Prism.Ioc;
 using Prism.Modularity;
-using System.Windows;
 using WpfPrism72.CommonDialogs;
+using WpfPrism72.Views;
 
 namespace WpfPrism72
 {
