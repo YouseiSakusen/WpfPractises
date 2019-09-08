@@ -23,6 +23,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 				case CommonFileDialogResult.Cancel:
 					break;
 				case CommonFileDialogResult.Ok:
+					this.setReturnValues(dialog, settings);
 					return true;
 			}
 
@@ -36,27 +37,60 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 
 			CommonFileDialog dialog = null;
 
-			if (settings is ApiPackFolderBrowsDialogSettings)
-				dialog = new CommonOpenFileDialog() { IsFolderPicker = true };
-			if (settings is ApiPackOpenFileDialogSettings)
-				dialog = new CommonOpenFileDialog();
-			else if (settings is ApiPackSaveFileDialogSettings)
-				dialog = new CommonSaveFileDialog();
-
-			if (settings is ApiPackFolderBrowsDialogSettings)
+			switch (settings)
 			{
-				var openFolderSettings = settings as ApiPackFolderBrowsDialogSettings;
-
-				dialog.InitialDirectory = openFolderSettings.InitialDirectory;
+				case ApiPackFolderBrowsDialogSettings f:
+					dialog = new CommonOpenFileDialog() { IsFolderPicker = true };
+					break;
+				case ApiPackOpenFileDialogSettings o:
+					dialog = new CommonOpenFileDialog();
+					break;
+				case ApiPackSaveFileDialogSettings s:
+					dialog = new CommonSaveFileDialog();
+					break;
+				default:
+					return null;
 			}
-			else
+			
+			dialog.InitialDirectory = settings.InitialDirectory;
+			dialog.Title = settings.Title;
+
+			var filters = new List<CommonFileDialogFilter>();
+
+			switch (settings)
 			{
-				var saveSettings = settings as ApiPackSaveFileDialogSettings;
-
-				dialog.InitialDirectory = saveSettings.InitialDirectory;
+				case ApiPackOpenFileDialogSettings f:
+					filters = ApiPackDialogFilterCreator.Create(f.Filter);
+					break;
+				case ApiPackSaveFileDialogSettings s:
+					filters = ApiPackDialogFilterCreator.Create(s.Filter);
+					break;
+				default:
+					return dialog;
 			}
+
+			filters.ForEach(f => dialog.Filters.Add(f));
 
 			return dialog;
+		}
+
+		private void setReturnValues(CommonFileDialog dialog, IDialogSettings settings)
+		{
+			switch (settings)
+			{
+				case ApiPackOpenFileDialogSettings o:
+					o.FileName = dialog.FileName;
+					o.FileNames = (dialog as CommonOpenFileDialog)?.FileNames.ToList();
+					break;
+				case ApiPackSaveFileDialogSettings s:
+					s.FileName = dialog.FileName;
+					break;
+				case ApiPackFolderBrowsDialogSettings f:
+					f.SelectedFolderPath = dialog.FileName;
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:prism="http://prismlibrary.com/"
 		prism:ViewModelLocator.AutoWireViewModel="True"
-		Title="{Binding Title}" Height="350" Width="525"
+		Title="{Binding Title.Value}" Height="350" Width="525"
 		WindowStartupLocation="CenterScreen">
 	<Grid Margin="15, 15">
 		<Grid.ColumnDefinitions>
@@ -55,9 +55,17 @@
 		<Button Grid.Column="0" Grid.Row="3"
 				Content="OpenFileDialog 表示"
 				Command="{Binding ShowOpenFileDialogCommand}"/>
+		<TextBlock Grid.Column="2" Grid.Row="3"
+				   VerticalAlignment="Center"
+				   Margin="20, 0, 0, 0"
+				   Text="{Binding OpenFileName.Value}" />
 		<Button Grid.Column="0" Grid.Row="5"
 				Content="フォルダ選択ダイアログ"
 				Command="{Binding ShowFolderBrowsDialogCommand}" />
+		<TextBlock Grid.Column="2" Grid.Row="5"
+				   VerticalAlignment="Center"
+				   Margin="20, 0, 0, 0"
+				   Text="{Binding FolderPath.Value}" />
 		<!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
 	</Grid>
 </Window>

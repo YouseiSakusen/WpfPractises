@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfPrism72.CommonDialogs
 {
-	public class ApiPackFolderBrowsDialogSettings : SaveFileDialogSettings
+	public class ApiPackFolderBrowsDialogSettings : DialogSettingsBase
 	{
+		public string SelectedFolderPath { get; set; } = string.Empty;
 	}
 }

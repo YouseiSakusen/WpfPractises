@@ -10,6 +10,7 @@ using WpfPrism72.Extensions;
 
 namespace WpfPrism72.ViewModels
 {
+	/// <summary>BLEACHのキャラクターを選択するダイアログ。</summary>
 	public class BleachDialogViewModel : BindableBase, IDialogAware
 	{
 		#region プロパティ
@@ -33,6 +34,7 @@ namespace WpfPrism72.ViewModels
 		/// <summary>追加ボタンのClickコマンド。</summary>
 		public ReactiveCommand AddCommand { get; }
 
+		/// <summary>ダイアログのClose要求</summary>
 		public event Action<IDialogResult> RequestClose;
 
 		#endregion
@@ -41,9 +43,7 @@ namespace WpfPrism72.ViewModels
 
 		/// <summary>追加ボタンのClickイベントハンドラ。</summary>
 		private void addButtonClick()
-		{
-			this.bleachCharacters.Add(new BleachCharacter("011", "京楽 春水", "きょうらく しゅんすい", "花天狂骨", "花天狂骨枯松心中"));
-		}
+			=> this.bleachCharacters.Add(new BleachCharacter("011", "京楽 春水", "きょうらく しゅんすい", "花天狂骨", "花天狂骨枯松心中"));
 
 		/// <summary>ListBoxのMouseDoubleClickイベントハンドラ。</summary>
 		private void listBox_DoubleClick()
@@ -68,15 +68,20 @@ namespace WpfPrism72.ViewModels
 
 		#region IDialogAware
 
+		/// <summary>ダイアログのタイトルを取得します。</summary>
 		public string Title => "BLEACH登場人物";
 
+		/// <summary>ダイアログがClose可能かを取得します。</summary>
+		/// <returns>ダイアログがClose可能かを表すbool。</returns>
 		public bool CanCloseDialog()
-		{
-			return this.dialogService.ShowConfirmationMessage("画面を閉じてOK？") == ButtonResult.Yes;
-		}
+			=> this.dialogService.ShowConfirmationMessage("画面を閉じてOK？") == ButtonResult.Yes;
 
-		public void OnDialogClosed() => this.disposables.Dispose();
+		/// <summary>ダイアログが閉じた後の処理を実行します。</summary>
+		public void OnDialogClosed()
+			=> this.disposables.Dispose();
 
+		/// <summary>ダイアログが開く時の処理を実行します。</summary>
+		/// <param name="parameters">パラメータを表すIDialogParameters。</param>
 		public void OnDialogOpened(IDialogParameters parameters) { }
 
 		#endregion

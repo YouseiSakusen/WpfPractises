@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using System.Linq;
+using Microsoft.Win32;
 
 namespace WpfPrism72.CommonDialogs.InnerServices
 {
@@ -58,15 +59,19 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 		/// <param name="settings">設定情報を表すIDialogSettings。</param>
 		private void setReturnValues(FileDialog dialog, IDialogSettings settings)
 		{
-			if (settings is OpenFileDialogSettings openSettings)
+			switch (settings)
 			{
-				var openDialog = dialog as OpenFileDialog;
-
-			}
-			else if (settings is SaveFileDialogSettings saveSettings)
-			{
-				var saveDialog = dialog as SaveFileDialog;
-
+				case OpenFileDialogSettings o:
+					var openDialog = dialog as OpenFileDialog;
+					o.FileName = openDialog.FileName;
+					o.FileNames = openDialog.FileNames.ToList();
+					break;
+				case SaveFileDialogSettings s:
+					var saveDialog = dialog as SaveFileDialog;
+					s.FileName = saveDialog.FileName;
+					break;
+				default:
+					break;
 			}
 		}
 	}

@@ -19,12 +19,18 @@ namespace WpfPrism72.CommonDialogs
 			if (settings == null)
 				return null;
 
-			if ((settings is ApiPackFolderBrowsDialogSettings) || (settings is ApiPackSaveFileDialogSettings))
-				return new CommonFileDialogService();
-			else if (settings is SaveFileDialogSettings)
-				return new FileDialogService();
-			else
-				return null;
+			switch (settings)
+			{
+				case ApiPackFolderBrowsDialogSettings f:
+				case ApiPackOpenFileDialogSettings o:
+				case ApiPackSaveFileDialogSettings s:
+					return new CommonFileDialogService();
+				case OpenFileDialogSettings o:
+				case SaveFileDialogSettings s:
+					return new FileDialogService();
+				default:
+					return null;
+			}
 		}
 	}
 }

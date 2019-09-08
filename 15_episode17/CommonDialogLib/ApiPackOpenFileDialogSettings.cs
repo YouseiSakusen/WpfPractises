@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfPrism72.CommonDialogs
 {
-	class ApiPackOpenFileDialogSettings
+	public class ApiPackOpenFileDialogSettings : OpenFileDialogSettings
 	{
 	}
 }
