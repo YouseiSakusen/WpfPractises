@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfPrism72.CommonDialogs
 {
-	public interface IDialogSettings
+	public interface ICommonDialogSettings
 	{
 		string InitialDirectory { get; set; }
 

@@ -11,10 +11,10 @@ namespace WpfPrism72
 	/// </summary>
 	public partial class App
 	{
+		/// <summary>DIコンテナへ型を登録します。</summary>
+		/// <param name="containerRegistry">DIコンテナへの型を登録するIContainerRegistry</param>
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
-		{
-			containerRegistry.RegisterSingleton<ICommonDialogService, CommonDialogService>();
-		}
+			=> containerRegistry.RegisterSingleton<ICommonDialogService, CommonDialogService>();
 
 		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
 		{
@@ -23,8 +23,6 @@ namespace WpfPrism72
 		}
 
 		protected override Window CreateShell()
-		{
-			return Container.Resolve<MainWindow>();
-		}
+			=> Container.Resolve<MainWindow>();
 	}
 }

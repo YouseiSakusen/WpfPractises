@@ -55,7 +55,7 @@
     <Compile Include="CommonDialogService.cs" />
     <Compile Include="DialogSettingsBase.cs" />
     <Compile Include="ICommonDialogService.cs" />
-    <Compile Include="IDialogSettings.cs" />
+    <Compile Include="ICommonDialogSettings.cs" />
     <Compile Include="InnerServices\CommonFileDialogService.cs" />
     <Compile Include="InnerServices\FileDialogService.cs" />
     <Compile Include="OpenFileDialogSettings.cs" />

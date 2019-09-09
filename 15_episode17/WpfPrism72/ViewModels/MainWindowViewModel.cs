@@ -108,9 +108,7 @@ namespace WpfPrism72.ViewModels
 		{
 			var ret = this.dlgService.ShowDialog("BleachDialog", null);
 			if (ret.Result == ButtonResult.OK)
-			{
 				this.character.Code.Value = ret.Parameters.GetValue<BleachCharacter>("SelectedItem").Code.Value;
-			}
 		}
 
 		#endregion
@@ -121,7 +119,7 @@ namespace WpfPrism72.ViewModels
 		private IDialogService dlgService = null;
 		/// <summary>画面に表示しているキャラクター情報を表します。</summary>
 		private BleachCharacter character { get; set; }
-
+		/// <summary>コモンダイアログ表示サービスを表します。</summary>
 		private ICommonDialogService commonDialogService = null;
 
 		private CompositeDisposable disposables = new CompositeDisposable();

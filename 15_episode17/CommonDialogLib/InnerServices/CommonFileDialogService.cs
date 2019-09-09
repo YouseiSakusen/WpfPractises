@@ -9,7 +9,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 {
 	class CommonFileDialogService : ICommonDialogService
 	{
-		public bool ShowDialog(IDialogSettings settings)
+		public bool ShowDialog(ICommonDialogSettings settings)
 		{
 			var dialog = this.createDialog(settings);
 			if (dialog == null)
@@ -30,7 +30,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 			return false;
 		}
 
-		private CommonFileDialog createDialog(IDialogSettings settings)
+		private CommonFileDialog createDialog(ICommonDialogSettings settings)
 		{
 			if (settings == null)
 				return null;
@@ -74,7 +74,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 			return dialog;
 		}
 
-		private void setReturnValues(CommonFileDialog dialog, IDialogSettings settings)
+		private void setReturnValues(CommonFileDialog dialog, ICommonDialogSettings settings)
 		{
 			switch (settings)
 			{

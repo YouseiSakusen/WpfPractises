@@ -9,7 +9,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 		/// <summary>コモンダイアログを表示します。</summary>
 		/// <param name="settings">設定情報を表すIDialogSettings。</param>
 		/// <returns>trueが返ると選択したファイル名、ユーザがキャンセルするとfalseが返ります。</returns>
-		public bool ShowDialog(IDialogSettings settings)
+		public bool ShowDialog(ICommonDialogSettings settings)
 		{
 			var dialog = this.createDialogService(settings);
 			if (dialog == null)
@@ -30,7 +30,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 		/// <summary>表示するコモンダイアログを生成します。</summary>
 		/// <param name="settings">設定情報を表すIDialogSettings。</param>
 		/// <returns>生成したコモンダイアログを表すFileDialog。</returns>
-		private FileDialog createDialogService(IDialogSettings settings)
+		private FileDialog createDialogService(ICommonDialogSettings settings)
 		{
 			if (settings == null)
 				return null;
@@ -57,7 +57,7 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 		/// <summary>戻り値を設定します。</summary>
 		/// <param name="dialog">表示したダイアログを表すFileDialog。</param>
 		/// <param name="settings">設定情報を表すIDialogSettings。</param>
-		private void setReturnValues(FileDialog dialog, IDialogSettings settings)
+		private void setReturnValues(FileDialog dialog, ICommonDialogSettings settings)
 		{
 			switch (settings)
 			{

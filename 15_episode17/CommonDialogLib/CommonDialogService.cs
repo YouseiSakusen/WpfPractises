@@ -5,7 +5,10 @@ namespace WpfPrism72.CommonDialogs
 	/// <summary>コモンダイアログ表示用サービスクラスを表します。</summary>
 	public class CommonDialogService : ICommonDialogService
 	{
-		public bool ShowDialog(IDialogSettings settings)
+		/// <summary>コモンダイアログを表示します。</summary>
+		/// <param name="settings">ダイアログと値を受け渡しするためのICommonDialogSettings。</param>
+		/// <returns>trueが返るとOKボタン、falseが返るとキャンセルボタンが押されたことを表します。</returns>
+		public bool ShowDialog(ICommonDialogSettings settings)
 		{
 			var service = this.createInnerService(settings);
 			if (service == null)
@@ -14,7 +17,10 @@ namespace WpfPrism72.CommonDialogs
 			return service.ShowDialog(settings);
 		}
 
-		private ICommonDialogService createInnerService(IDialogSettings settings)
+		/// <summary>表示するコモンダイアログサービスを生成します。</summary>
+		/// <param name="settings">ダイアログと値を受け渡しするためのICommonDialogSettings。</param>
+		/// <returns>表示するコモンダイアログサービスを表すICommonDialogService。</returns>
+		private ICommonDialogService createInnerService(ICommonDialogSettings settings)
 		{
 			if (settings == null)
 				return null;
