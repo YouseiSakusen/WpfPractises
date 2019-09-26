@@ -92,17 +92,6 @@ namespace WpfPrism72.ViewModels
 				this.DialogMessage.Value = string.Empty;
 		}
 
-		/// <summary>キャラクターコードの変更イベントハンドラ。</summary>
-		/// <param name="characterCode">現在入力されているキャラクターコードを表す文字列。</param>
-		private void onCharacterCode(string characterCode)
-		{
-			var chara = new BleachAgent().GetCharacter(characterCode);
-			if (chara == null)
-				this.character.Code.Value = string.Empty;
-			else
-				this.character.Name.Value = chara.Name.Value;
-		}
-
 		/// <summary>BLEACHの登場人物選択ダイアログを表示します。</summary>
 		private void showBleachDialog()
 		{
@@ -153,8 +142,8 @@ namespace WpfPrism72.ViewModels
 
 			this.BlearchCharacterCode = this.character.Code
 				.AddTo(this.disposables);
-			this.BlearchCharacterCode.Where(v => v.Length == 3)
-				.Subscribe(v => this.onCharacterCode(v));
+			this.BlearchCharacterCode.Where(v => v.Length == 0 || v.Length == 3)
+				.Subscribe(_ => new BleachAgent().SetCharacterValues(this.character));
 
 			this.BleachCharacterName = this.character.Name
 				.ToReadOnlyReactiveProperty()

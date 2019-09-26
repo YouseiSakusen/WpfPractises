@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace WpfPrism72.CommonDialogs.InnerServices
 {
+	/// <summary>Windows API Code PackのCommonFileDialogを表示します。</summary>
 	class CommonFileDialogService : ICommonDialogService
 	{
+		/// <summary>コモンダイアログを表示します。</summary>
+		/// <param name="settings">設定情報を表すIDialogSettings。</param>
+		/// <returns>trueが返ると選択したファイル名、ユーザがキャンセルするとfalseが返ります。</returns>
 		public bool ShowDialog(ICommonDialogSettings settings)
 		{
 			var dialog = this.createDialog(settings);
@@ -30,6 +31,9 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 			return false;
 		}
 
+		/// <summary>表示するコモンダイアログを生成します。</summary>
+		/// <param name="settings">設定情報を表すIDialogSettings。</param>
+		/// <returns>生成したコモンダイアログを表すCommonFileDialog。</returns>
 		private CommonFileDialog createDialog(ICommonDialogSettings settings)
 		{
 			if (settings == null)
@@ -74,6 +78,9 @@ namespace WpfPrism72.CommonDialogs.InnerServices
 			return dialog;
 		}
 
+		/// <summary>戻り値を設定します。</summary>
+		/// <param name="dialog">表示したダイアログを表すFileDialog。</param>
+		/// <param name="settings">設定情報を表すIDialogSettings。</param>
 		private void setReturnValues(CommonFileDialog dialog, ICommonDialogSettings settings)
 		{
 			switch (settings)

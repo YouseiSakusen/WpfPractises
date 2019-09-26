@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Reactive.Bindings;
+﻿using System.Collections.Generic;
 
 namespace WpfPrism72
 {
+	/// <summary>BLEACHキャラクター用Agentクラスを表します。</summary>
 	public class BleachAgent
 	{
+		/// <summary>BLEACHキャラクターの値を設定します。</summary>
+		/// <param name="target">設定先のBleachCharacter。</param>
+		public void SetCharacterValues(BleachCharacter target)
+		{
+			var bleachChara = this.GetCharacter(target.Code.Value);
+
+			if (bleachChara == null)
+				target.ClearValues();
+			else
+				target.SetCharacter(bleachChara);
+		}
+
+		/// <summary>キャラクターコードからBLEACHキャラクターを取得します。</summary>
+		/// <param name="characterCode">BLEACHキャラクターコードを表す文字列。</param>
+		/// <returns>BleachCharacter。</returns>
 		public BleachCharacter GetCharacter(string characterCode)
-		{
-			return BleachAgent.characters.Find(c => c.Code.Value == characterCode);
-		}
+			=> BleachAgent.characters.Find(c => c.Code.Value == characterCode);
 
+		/// <summary>全BLEACHキャラクターを取得します。</summary>
+		/// <returns>全BLEACHキャラクターを表すList<BleachCharacter>。</returns>
 		public List<BleachCharacter> GetAllCharacters()
-		{
-			return BleachAgent.characters;
-		}
+			=> BleachAgent.characters;
 
+		/// <summary>BLEACHキャラクターのリストを表します。</summary>
 		private static List<BleachCharacter> characters { get; set; } = null;
 
-		private static ReactiveCollection<BleachCharacter> charaCol { get; set; }
-
+		/// <summary>BLEACHキャラクターのリストを初期化します。</summary>
 		private void initCharacters()
 		{
 			if (BleachAgent.characters != null)
@@ -47,10 +56,11 @@ namespace WpfPrism72
 
 		#region コンストラクタ
 
+		/// <summary>
+		/// デフォルトコンストラクタ。
+		/// </summary>
 		public BleachAgent()
-		{
-			this.initCharacters();
-		}
+			=> this.initCharacters();
 
 		#endregion
 	}

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reactive.Linq;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Reactive.Bindings;
 
 namespace WpfPrism72
@@ -27,6 +25,51 @@ namespace WpfPrism72
 
 		#endregion
 
+		#region メソッド
+
+		/// <summary>BleachCharacterの値を設定します。</summary>
+		/// <param name="source">値の設定元を表すBleachCharacter。</param>
+		public void SetCharacter(BleachCharacter source)
+		{
+			this.Code.Value = source.Code.Value;
+			this.Name.Value = source.Name.Value;
+			this.Yomigana.Value = source.Yomigana.Value;
+			this.Zanpakuto.Value = source.Zanpakuto.Value;
+			this.Bankai.Value = source.Bankai.Value;
+		}
+
+		/// <summary>全てのプロパティを初期化します。</summary>
+		public void ClearValues()
+		{
+			this.Code.Value = string.Empty;
+			this.Name.Value = string.Empty;
+			this.Yomigana.Value = string.Empty;
+			this.Zanpakuto.Value = string.Empty;
+			this.Bankai.Value = string.Empty;
+		}
+
+		///// <summary>キャラクターコードのChangeイベントハンドラ。</summary>
+		///// <param name="code">キャラクターコードを表す文字列。</param>
+		//private void onChangeCode(string code)
+		//{
+		//	if (this.isInitializing)
+		//		return;
+
+		//	if (string.IsNullOrEmpty(code))
+		//	{
+		//		this.Name.Value = string.Empty;
+		//		return;
+		//	}
+
+		//	var chara = new BleachAgent().GetCharacter(code);
+		//	if (chara == null)
+		//		this.Code.Value = string.Empty;
+		//	else
+		//		this.Name.Value = chara.Name.Value;
+		//}
+
+		#endregion
+
 		#region コンストラクタ
 
 		/// <summary>コンストラクタ。</summary>
@@ -49,8 +92,8 @@ namespace WpfPrism72
 		{
 			this.Name = new ReactivePropertySlim<string>(string.Empty);
 			this.Code = new ReactiveProperty<string>(string.Empty);
-			this.Code.Where(c => string.IsNullOrEmpty(c))
-				.Subscribe(c => this.Name.Value = string.Empty);
+			//this.Code.Where(c => c.Length == 0 || c.Length == 3)
+			//	.Subscribe(c => this.onChangeCode(c));
 
 			this.Yomigana = new ReactivePropertySlim<string>(string.Empty);
 			this.Zanpakuto = new ReactivePropertySlim<string>(string.Empty);
