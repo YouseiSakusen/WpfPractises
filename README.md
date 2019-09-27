@@ -106,6 +106,13 @@ Prism から FolderBrowserDialog や OpenFileDialog 等のコモンダイアロ�
 
 Prism 7.2 から新たに追加された IDialogService でダイアログを表示するサンプル。
 
+## 15_episode17
+
+[halation ghost 【WPF Prism episode: 17 ～ IDialogService にコモンダイアログを求めるのは間違っているだろうか ～】](https://elf-mission.net/programming/wpf/episode17/) で作成したサンプル。
+
+Prism からファイルを開くダイアログやファイルに名前を付けて保存ダイアログ等のコモンダイアログを表示するサンプル。
+Window API Code Pack のフォルダ選択ダイアログを表示する方法も含んでいます。
+
 ## QA_MvvmSampleApp
 [halation ghost episode: 16](https://elf-mission.net/programming/wpf/episode16/) のコメントに書かれた質問への回答用サンプル。
 
@@ -117,3 +124,4 @@ Prism + ReactivePropertyでMVVMアプリを作成するためには定石とも�
 
 Prism Shell起動時にPrism ModuleのViewを非表示でLoadしたい場合の裏技的な方法を紹介するためのサンプル。
 重いViewをアプリ起動時にあらかじめLoadしておきたい場合を想定していますがあまりお勧めの方法とは言えないような気がします。
+
