@@ -113,6 +113,9 @@ namespace WpfPrism72.ViewModels
 
 		private CompositeDisposable disposables = new CompositeDisposable();
 
+		/// <summary>BLEACHのキャラクターデータを取得します。</summary>
+		private BleachAgent agent = new BleachAgent();
+
 		/// <summary>コンストラクタ。</summary>
 		/// <param name="dialogService">Prismのダイアログサービスを表すIDialogService。</param>
 		public MainWindowViewModel(IDialogService dialogService, ICommonDialogService comDlgService)
@@ -143,7 +146,7 @@ namespace WpfPrism72.ViewModels
 			this.BlearchCharacterCode = this.character.Code
 				.AddTo(this.disposables);
 			this.BlearchCharacterCode.Where(v => v.Length == 0 || v.Length == 3)
-				.Subscribe(_ => new BleachAgent().SetCharacterValues(this.character));
+				.Subscribe(_ => this.agent.SetCharacterValues(this.character));
 
 			this.BleachCharacterName = this.character.Name
 				.ToReadOnlyReactiveProperty()
