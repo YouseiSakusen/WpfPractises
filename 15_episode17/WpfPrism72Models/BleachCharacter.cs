@@ -4,7 +4,7 @@ using Reactive.Bindings;
 namespace WpfPrism72
 {
 	/// <summary>BLEACHキャラクターを表します。</summary>
-	public class BleachCharacter : BindableBase
+	public class BleachCharacter
 	{
 		#region プロパティ
 

@@ -20,15 +20,15 @@ namespace WpfPrism72.ViewModels
 		public ReactiveProperty<string> BlearchCharacterCode { get; set; }
 
 		/// <summary>キャラクター名を取得します。</summary>
-		public ReadOnlyReactiveProperty<string> BleachCharacterName { get; }
+		public ReadOnlyReactivePropertySlim<string> BleachCharacterName { get; }
 
 		/// <summary>ダイアログの表示結果を取得します。</summary>
 		public ReactivePropertySlim<string> DialogMessage { get; }
 
 		/// <summary>OpenFileDialogから取得したフルパスを取得します。</summary>
-		public ReactiveProperty<string> OpenFileName { get; }
+		public ReactivePropertySlim<string> OpenFileName { get; }
 
-		public ReactiveProperty<string> FolderPath { get; }
+		public ReactivePropertySlim<string> FolderPath { get; }
 
 		/// <summary>画面のタイトルを取得・設定します。</summary>
 		public ReactiveProperty<string> Title { get; }
@@ -149,13 +149,13 @@ namespace WpfPrism72.ViewModels
 				.Subscribe(_ => this.agent.SetCharacterValues(this.character));
 
 			this.BleachCharacterName = this.character.Name
-				.ToReadOnlyReactiveProperty()
+				.ToReadOnlyReactivePropertySlim()
 				.AddTo(this.disposables);
 
-			this.OpenFileName = new ReactiveProperty<string>(string.Empty)
+			this.OpenFileName = new ReactivePropertySlim<string>(string.Empty)
 				.AddTo(this.disposables);
 
-			this.FolderPath = new ReactiveProperty<string>(string.Empty)
+			this.FolderPath = new ReactivePropertySlim<string>(string.Empty)
 				.AddTo(this.disposables);
 		}
 
