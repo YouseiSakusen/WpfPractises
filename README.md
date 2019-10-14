@@ -108,7 +108,8 @@ Prism 7.2 から新たに追加された IDialogService でダイアログを表
 
 ## 15_episode17
 
-[halation ghost 【WPF Prism episode: 17 ～ IDialogService にコモンダイアログを求めるのは間違っているだろうか ～】](https://elf-mission.net/programming/wpf/episode17/) で作成したサンプル。
+[halation ghost 【WPF Prism episode: 17 ～ IDialogService にコモンダイアログを求めるのは間違っているだろうか ～】](https://elf-mission.net/programming/wpf/episode17/) と  
+[halation ghost 【WPF Prism extra: 5 ～ ReactvieProperty の変更通知を Subscribe して MVVM 的にデータを更新する ～】](https://elf-mission.net/programming/wpf/extra05/) で作成したサンプル。
 
 Prism からファイルを開くダイアログやファイルに名前を付けて保存ダイアログ等のコモンダイアログを表示するサンプル。
 Window API Code Pack のフォルダ選択ダイアログを表示する方法も含んでいます。
