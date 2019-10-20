@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Reactive.Disposables;
 using Prism.Mvvm;
+using Prism.Regions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
 namespace PrismNetCoreApp
 {
+	/// <summary>アプリケーションのメイン画面を表します。</summary>
 	public class MainWindowViewModel : BindableBase, IDisposable
 	{
 		#region プロパティ
@@ -26,6 +28,11 @@ namespace PrismNetCoreApp
 				if (disposing)
 				{
 					this.disposables.Dispose();
+
+					foreach (var region in this.regionManager.Regions)
+					{
+						region.RemoveAll();
+					}
 				}
 
 				// TODO: アンマネージ リソース (アンマネージ オブジェクト) を解放し、下のファイナライザーをオーバーライドします。
@@ -55,11 +62,15 @@ namespace PrismNetCoreApp
 
 		#region コンストラクタ
 
+		private IRegionManager regionManager = null;
+
 		private CompositeDisposable disposables = new CompositeDisposable();
 
 		/// <summary>コンストラクタ。</summary>
-		public MainWindowViewModel()
+		public MainWindowViewModel(IRegionManager regionMan)
 		{
+			this.regionManager = regionMan;
+
 			this.Title = new ReactivePropertySlim<string>(".NET Core 3.0 Application")
 				.AddTo(this.disposables);
 		}
