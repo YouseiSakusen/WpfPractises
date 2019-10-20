@@ -58,7 +58,7 @@ namespace PrismNetCoreApp
 
 		/// <summary>ViewModelを破棄します。</summary>
 		public void Destroy()
-			=> this.disposables.Dispose();
+			=> this.Dispose();
 
 		#endregion
 
