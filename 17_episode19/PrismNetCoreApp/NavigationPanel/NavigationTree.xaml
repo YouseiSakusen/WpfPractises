@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="PrismNetCoreApp.NavigationTree"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
+			 xmlns:prism="http://prismlibrary.com/"
+			 xmlns:rp="clr-namespace:Reactive.Bindings.Interactivity;assembly=ReactiveProperty.NETCore"
+			 xmlns:ni="clr-namespace:PrismNetCoreApp.NavigationItems"
+			 mc:Ignorable="d"
+			 d:DesignHeight="300" d:DesignWidth="300"
+			 prism:ViewModelLocator.AutoWireViewModel="True">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<HierarchicalDataTemplate x:Key="TreeItem"
+									  DataType="{x:Type ni:NavigationItemViewModel}"
+									  ItemsSource="{Binding Children}">
+				<StackPanel Orientation="Horizontal"
+						Margin="0, 0, 0, 10">
+					<TextBlock VerticalAlignment="Center"
+						   Margin="0, 5, 7, 0"
+						   Text="{Binding Text.Value}" />
+				</StackPanel>
+			</HierarchicalDataTemplate>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<TreeView ItemsSource="{Binding TreeItems}"
+			  ItemTemplate="{StaticResource ResourceKey=TreeItem}">
+		<TreeView.Resources>
+			<Style TargetType="TreeViewItem">
+				<Setter Property="IsExpanded"
+						Value="{Binding IsExpanded.Value, Mode=TwoWay}" />
+				<Setter Property="IsSelected"
+						Value="{Binding IsSelected.Value, Mode=TwoWay}" />
+			</Style>
+		</TreeView.Resources>
+		<bh:Interaction.Triggers>
+			<bh:EventTrigger EventName="SelectedItemChanged">
+				<rp:EventToReactiveCommand Command="{Binding SelectedItemChanged}" />
+			</bh:EventTrigger>
+		</bh:Interaction.Triggers>
+	</TreeView>
+</UserControl>
