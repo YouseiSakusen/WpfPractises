@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="PrismNetCoreApp.PersonSelectDialog"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+			 xmlns:prism="http://prismlibrary.com/"
+			 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+			 xmlns:app="clr-namespace:PrismNetCoreApp"
+			 prism:ViewModelLocator.AutoWireViewModel="True"
+			 mc:Ignorable="d"
+			 d:DesignWidth="540" d:DesignHeight="465">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Fonts.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<prism:Dialog.WindowStyle>
+		<Style TargetType="metro:MetroWindow">
+			<Setter Property="ShowInTaskbar" Value="False" />
+			<Setter Property="SizeToContent" Value="Manual" />
+			<Setter Property="MinWidth" Value="540" />
+			<Setter Property="MinHeight"  Value="465" />
+			<Setter Property="Height" Value="465" />
+			<Setter Property="Width" Value="540" />
+			<Setter Property="IsMinButtonEnabled" Value="False" />
+			<Setter Property="TitleCharacterCasing" Value="Normal" />
+		</Style>
+	</prism:Dialog.WindowStyle>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="70"/>
+		</Grid.RowDefinitions>
+		<ListBox Grid.Row="0"
+				 Margin="20, 25, 20, 0"
+				 HorizontalAlignment="Stretch"
+				 VerticalAlignment="Stretch"
+				 HorizontalContentAlignment="Stretch"
+				 ItemsSource="{Binding Persons}"
+				 VirtualizingPanel.IsContainerVirtualizable="True"
+				 VirtualizingPanel.VirtualizationMode="Recycling">
+			<ListBox.ItemTemplate>
+				<DataTemplate DataType="{x:Type app:PersonItemViewModel}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="40"/>
+							<ColumnDefinition/>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<TextBlock Grid.Row="1" Grid.Column="0"
+								   Style="{StaticResource MaterialDesignBody2TextBlock}"
+								   Text="{Binding Code.Value}" />
+						<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Yomigana.Value}" />
+						<TextBlock Grid.Row="1" Grid.Column="1"
+								   Style="{StaticResource MaterialDesignTitleTextBlock}"
+								   Text="{Binding Name.Value}" />
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0, 15, 30, 25" HorizontalAlignment="Right">
+			<Button Content="OK" Width="100" Margin="10, 0, 0, 0" Command="{Binding OkCommand}" IsDefault="True" />
+			<Button Content="キャンセル" Margin="10, 0, 0, 0" Width="100" IsCancel="True" />
+		</StackPanel>
+	</Grid>
+</UserControl>
