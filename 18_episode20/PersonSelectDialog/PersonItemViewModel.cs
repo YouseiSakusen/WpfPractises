@@ -4,7 +4,7 @@ using Prism.Mvvm;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
-namespace PrismNetCoreApp
+namespace PrismNetCoreApp.PersonalManagements
 {
 	public class PersonItemViewModel : BindableBase, IDisposable
 	{

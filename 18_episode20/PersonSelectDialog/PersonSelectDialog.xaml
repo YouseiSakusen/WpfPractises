@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PrismNetCoreApp.PersonSelectDialog"
+﻿<UserControl x:Class="PrismNetCoreApp.PersonalManagements.PersonSelectDialog"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,7 +6,7 @@
 			 xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
 			 xmlns:prism="http://prismlibrary.com/"
 			 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-			 xmlns:app="clr-namespace:PrismNetCoreApp"
+			 xmlns:ps="clr-namespace:PrismNetCoreApp.PersonalManagements"
 			 prism:ViewModelLocator.AutoWireViewModel="True"
 			 mc:Ignorable="d"
 			 d:DesignWidth="540" d:DesignHeight="465">
@@ -43,7 +43,7 @@
 				 VirtualizingPanel.IsContainerVirtualizable="True"
 				 VirtualizingPanel.VirtualizationMode="Recycling">
 			<ListBox.ItemTemplate>
-				<DataTemplate DataType="{x:Type app:PersonItemViewModel}">
+				<DataTemplate DataType="{x:Type ps:PersonItemViewModel}">
 					<Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="40"/>

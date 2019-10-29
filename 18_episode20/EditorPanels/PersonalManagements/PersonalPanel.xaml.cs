@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace PrismNetCoreApp
+namespace PrismNetCoreApp.PersonalManagements
 {
 	/// <summary>
 	/// Interaction logic for PersonalPanel

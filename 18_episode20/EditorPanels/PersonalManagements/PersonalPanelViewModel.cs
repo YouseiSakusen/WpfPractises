@@ -7,7 +7,7 @@ using Prism.Services.Dialogs.Extensions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
-namespace PrismNetCoreApp
+namespace PrismNetCoreApp.PersonalManagements
 {
 	public class PersonalPanelViewModel : BindableBase, IDisposable, IDestructible
 	{

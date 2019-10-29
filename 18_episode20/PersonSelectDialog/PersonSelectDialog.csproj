@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>PersonSelectDialog</AssemblyName>
-    <RootNamespace>PrismNetCoreApp</RootNamespace>
+    <RootNamespace>PrismNetCoreApp.PersonalManagements</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;NU1701</NoWarn>

@@ -1,7 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 
-namespace PrismNetCoreApp
+namespace PrismNetCoreApp.PersonalManagements
 {
 	public class PersonSelectDialogModule : IModule
 	{

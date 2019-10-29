@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using PrismNetCoreApp.PersonalManagements;
 
 namespace PrismNetCoreApp
 {

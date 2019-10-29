@@ -4,6 +4,7 @@ using System.Windows;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Mvvm;
+using PrismNetCoreApp.PersonalManagements;
 
 namespace PrismNetCoreApp
 {
