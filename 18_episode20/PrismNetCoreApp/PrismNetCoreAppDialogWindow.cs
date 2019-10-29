@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using MahApps.Metro.Controls;
 using Prism.Services.Dialogs;
 
 namespace PrismNetCoreApp
 {
-	public class PrismNetCoreAppWindow : MetroWindow, IDialogWindow
+	public partial class PrismNetCoreAppDialogWindow : MetroWindow, IDialogWindow
 	{
 		public IDialogResult Result { get; set; }
 
+		/// <summary>WindowのLoadイベントハンドラ。</summary>
+		/// <param name="sender">イベントのソース。</param>
+		/// <param name="e">イベントデータを格納しているRoutedEventArgs。</param>
 		private void PersonSelectWindow_Loaded(object sender, RoutedEventArgs e)
 		{
 			if ((this.DataContext != null) && (this.DataContext is IDialogAware))
@@ -19,7 +19,8 @@ namespace PrismNetCoreApp
 			this.Loaded -= this.PersonSelectWindow_Loaded;
 		}
 
-		public PrismNetCoreAppWindow()
+		/// <summary>コンストラクタ。</summary>
+		public PrismNetCoreAppDialogWindow()
 		{
 			this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
 

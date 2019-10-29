@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrismNetCoreModels", "Prism
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrismNetCoreControllers", "PrismNetCoreControllers\PrismNetCoreControllers.csproj", "{5DBC217F-3620-4D09-9DCB-3B52F9479791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorPanels", "EditorPanels\EditorPanels.csproj", "{ADAFF70A-0AE4-4B91-AF25-64F59D21A358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EditorPanels", "EditorPanels\EditorPanels.csproj", "{ADAFF70A-0AE4-4B91-AF25-64F59D21A358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonSelectDialog", "PersonSelectDialog\PersonSelectDialog.csproj", "{FD307304-8647-4E31-A85A-B20926A6A57E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonSelectDialog", "PersonSelectDialog\PersonSelectDialog.csproj", "{FD307304-8647-4E31-A85A-B20926A6A57E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogExtensions", "DialogExtensions\DialogExtensions.csproj", "{A13DB86F-3991-4589-8E95-5C18B2B691E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogExtensions", "DialogExtensions\DialogExtensions.csproj", "{A13DB86F-3991-4589-8E95-5C18B2B691E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismMessageBoxes", "PrismMessageBoxes\PrismMessageBoxes.csproj", "{79C448B4-19FE-4F5F-8A2A-0694E6F124B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A13DB86F-3991-4589-8E95-5C18B2B691E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A13DB86F-3991-4589-8E95-5C18B2B691E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A13DB86F-3991-4589-8E95-5C18B2B691E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C448B4-19FE-4F5F-8A2A-0694E6F124B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C448B4-19FE-4F5F-8A2A-0694E6F124B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C448B4-19FE-4F5F-8A2A-0694E6F124B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C448B4-19FE-4F5F-8A2A-0694E6F124B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,12 +50,13 @@ namespace PrismNetCoreApp
 			moduleCatalog.AddModule<NavigationPanelModule>();
 			moduleCatalog.AddModule<PersonSelectDialogModule>();
 			moduleCatalog.AddModule<EditorPanelsModule>();
+			moduleCatalog.AddModule<PrismMessageBoxesModule>();
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterInstance<IPrismNetCoreData>(new PrismNetCoreAgent().LoadData(this.dataFilePath));
-			containerRegistry.RegisterDialogWindow<PrismNetCoreAppWindow>();
+			containerRegistry.RegisterDialogWindow<PrismNetCoreAppDialogWindow>();
 		}
 
 		#endregion

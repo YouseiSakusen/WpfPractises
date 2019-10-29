@@ -6,6 +6,7 @@
 				   xmlns:prism="http://prismlibrary.com/"
 				   xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
 				   xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+				   xmlns:local="clr-namespace:PrismNetCoreApp.Behaviors"
 				   prism:ViewModelLocator.AutoWireViewModel="True"
 				   WindowStartupLocation="CenterScreen"
 				   Width="800" Height="600"
@@ -14,6 +15,11 @@
 				   GlowBrush="{DynamicResource AccentColorBrush}"
 				   BorderThickness="1"
 				   Title="{Binding Title.Value}">
+	<bh:Interaction.Behaviors>
+		<local:WindowClosingBehavior CanClose="{Binding CanClose.Value}"
+									 CloseCanceledCallbackMethodTarget="{Binding}"
+									 CloseCanceledCallbackMethodName="ConfirmClose"/>
+	</bh:Interaction.Behaviors>
 	<bh:Interaction.Triggers>
 		<bh:EventTrigger EventName="Closed">
 			<l:DataContextDisposeAction />
