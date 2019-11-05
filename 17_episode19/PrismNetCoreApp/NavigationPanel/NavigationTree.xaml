@@ -15,11 +15,9 @@
 			<HierarchicalDataTemplate x:Key="TreeItem"
 									  DataType="{x:Type ni:NavigationItemViewModel}"
 									  ItemsSource="{Binding Children}">
-				<StackPanel Orientation="Horizontal"
-						Margin="0, 0, 0, 10">
+				<StackPanel Orientation="Horizontal">
 					<TextBlock VerticalAlignment="Center"
-						   Margin="0, 5, 7, 0"
-						   Text="{Binding Text.Value}" />
+							   Text="{Binding Text.Value}" />
 				</StackPanel>
 			</HierarchicalDataTemplate>
 		</ResourceDictionary>
@@ -27,7 +25,8 @@
 	<TreeView ItemsSource="{Binding TreeItems}"
 			  ItemTemplate="{StaticResource ResourceKey=TreeItem}">
 		<TreeView.Resources>
-			<Style TargetType="TreeViewItem">
+			<Style TargetType="TreeViewItem"
+				   BasedOn="{StaticResource MaterialDesignTreeViewItem}">
 				<Setter Property="IsExpanded"
 						Value="{Binding IsExpanded.Value, Mode=TwoWay}" />
 				<Setter Property="IsSelected"
