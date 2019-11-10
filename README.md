@@ -121,6 +121,12 @@ Window API Code Pack のフォルダ選択ダイアログを表示する方法�
 Prism 7.2 で追加された IDestractible と[分割導入できるようになった Livet](https://github.com/runceel/Livet) を Prism で作成したサンプルに導入してWindow Close 時に Window と UserControl の VM を Disposeするサンプル。  
 今回からプロジェクトのフレームワークを .NET Core に変更しています。
 
+## 17_episode19/PrismNetCoreApp
+
+[halation ghost 【WPF Prism episode: 19 ～ MahApps.Metro と Material Design In XAML Toolkit たちは Prism でも余裕で生き抜くようです! ～】](https://elf-mission.net/programming/wpf/episode19/)
+
+サンプルアプリに MahApps.Metro と Material Design In XAML Toolkit をインストールしてマテリアルデザイン風の画面にするサンプル。
+
 ## QA_MvvmSampleApp
 [halation ghost episode: 16](https://elf-mission.net/programming/wpf/episode16/) のコメントに書かれた質問への回答用サンプル。
 
