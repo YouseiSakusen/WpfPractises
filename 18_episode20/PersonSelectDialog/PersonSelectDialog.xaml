@@ -18,7 +18,7 @@
 		</ResourceDictionary>
 	</UserControl.Resources>
 	<prism:Dialog.WindowStyle>
-		<!--<Style TargetType="metro:MetroWindow">
+		<Style TargetType="metro:MetroWindow">
 			<Setter Property="ShowInTaskbar" Value="False" />
 			<Setter Property="SizeToContent" Value="Manual" />
 			<Setter Property="MinWidth" Value="540" />
@@ -27,15 +27,15 @@
 			<Setter Property="Width" Value="540" />
 			<Setter Property="IsMinButtonEnabled" Value="False" />
 			<Setter Property="TitleCharacterCasing" Value="Normal" />
-		</Style>-->
-		<Style TargetType="Window">
+		</Style>
+		<!--<Style TargetType="Window">
 			<Setter Property="ShowInTaskbar" Value="False" />
 			<Setter Property="SizeToContent" Value="Manual" />
 			<Setter Property="MinWidth" Value="540" />
 			<Setter Property="MinHeight"  Value="465" />
 			<Setter Property="Height" Value="465" />
 			<Setter Property="Width" Value="540" />
-		</Style>
+		</Style>-->
 	</prism:Dialog.WindowStyle>
 	<Grid>
 		<Grid.RowDefinitions>
