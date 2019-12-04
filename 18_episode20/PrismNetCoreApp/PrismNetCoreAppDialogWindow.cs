@@ -13,7 +13,7 @@ namespace PrismNetCoreApp
 		/// <param name="e">イベントデータを格納しているRoutedEventArgs。</param>
 		private void PersonSelectWindow_Loaded(object sender, RoutedEventArgs e)
 		{
-			if ((this.DataContext != null) && (this.DataContext is IDialogAware))
+			if (this.DataContext is IDialogAware)
 				this.Title = (this.DataContext as IDialogAware).Title;
 
 			this.Loaded -= this.PersonSelectWindow_Loaded;
