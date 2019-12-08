@@ -114,7 +114,7 @@ Prism 7.2 から新たに追加された IDialogService でダイアログを表
 Prism からファイルを開くダイアログやファイルに名前を付けて保存ダイアログ等のコモンダイアログを表示するサンプル。
 Window API Code Pack のフォルダ選択ダイアログを表示する方法も含んでいます。
 
-## 16_episode18
+## 16_episode18/PrismNetCoreApp
 
 [halation ghost 【WPF Prism episode: 18 ～ Livet が Prism に「IDisposable 呼び出し用」としてゲッツされた件 ～】](https://elf-mission.net/programming/wpf/episode18/)
 
@@ -126,6 +126,14 @@ Prism 7.2 で追加された IDestractible と[分割導入できるようにな
 [halation ghost 【WPF Prism episode: 19 ～ MahApps.Metro と Material Design In XAML Toolkit たちは Prism でも余裕で生き抜くようです! ～】](https://elf-mission.net/programming/wpf/episode19/)
 
 サンプルアプリに MahApps.Metro と Material Design In XAML Toolkit をインストールしてマテリアルデザイン風の画面にするサンプル。
+
+
+## 18_episode20
+
+[halation ghost 【WPF Prism episode: 20 ～ Prism ダイアログに MahApps.Metro が舞い降りた! ～】](https://elf-mission.net/programming/wpf/episode20/)
+
+Prism の IDialogService から表示するメッセーボックスやダイアログウィンドウを MahApps.Metro の MetroWindow にするサンプル。  
+Window Close 時に問い合わせメッセージを表示して Window Close をキャンセルするサンプルも含んでいます。
 
 ## QA_MvvmSampleApp
 [halation ghost episode: 16](https://elf-mission.net/programming/wpf/episode16/) のコメントに書かれた質問への回答用サンプル。
