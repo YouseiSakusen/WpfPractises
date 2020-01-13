@@ -1,5 +1,15 @@
 # halation ghost WPF
 
+master ブランチの 02_episode03_Prism7.1 ～ 13_episode15 を全て以下の環境に更新しました。  
+※ 01_episode03 のみ Prism 6.3
+
+* Visual Studio 2019
+* .NET Framework 4.8
+* Prism 7.2
+
+元々の環境は old-reference ブランチに分岐して残しています。
+
+
 ## 01_episode03
 
 [halation ghost 【WPF Prism episode: 3 ～ Re: ゼロから始める Prism 生活～】](https://elf-mission.net/programming/wpf/episode03/) で作成したサンプル。
