@@ -1,9 +1,9 @@
-﻿using Microsoft.Win32;
-using Prism.Interactivity.InteractionRequest;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Interactivity;
+using Microsoft.Win32;
+using Prism.Interactivity.InteractionRequest;
 
 namespace PrismCommonDialog
 {

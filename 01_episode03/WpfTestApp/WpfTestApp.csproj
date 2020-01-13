@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F94E57E6-E5AA-4B2B-BCCB-42D415BE0569}</ProjectGuid>
+    <ProjectGuid>{6291DAD0-07BD-4BE0-9CB7-91E2A15C00E0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfTestApp</RootNamespace>
     <AssemblyName>WpfTestApp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NavigationTree\NavigationTree.csproj">
-      <Project>{13cd094a-9f0b-4d56-b473-f4629c4025ad}</Project>
+      <Project>{635c1ce5-acb8-44c0-9017-a51db82e7ab9}</Project>
       <Name>NavigationTree</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,6 +4,7 @@
 		xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework"
 		xmlns:dlg="clr-namespace:Ookii.Dialogs.Wpf;assembly=Ookii.Dialogs.Wpf"
 		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
 		xmlns:prism="http://prismlibrary.com/"
 		xmlns:rp="clr-namespace:Reactive.Bindings.Interactivity;assembly=ReactiveProperty.NET46"
 		xmlns:cmDlg="clr-namespace:PrismCommonDialog;assembly=PrismCommonDialogLib"
@@ -52,11 +53,11 @@
 					 VerticalContentAlignment="Center"
 					 MaxLength="3"
 					 Text="{Binding ItemCode.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="KeyDown">
+				<bh:Interaction.Triggers>
+					<bh:EventTrigger EventName="KeyDown">
 						<rp:EventToReactiveCommand Command="{Binding ItemCodeKeyDown}" />
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
+					</bh:EventTrigger>
+				</bh:Interaction.Triggers>
 			</TextBox>
 			<Button Content="検索"
 					Width="50"

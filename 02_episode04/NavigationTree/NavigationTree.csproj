@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF4D235B-7353-4807-9229-5257ADBF1BBC}</ProjectGuid>
+    <ProjectGuid>{23C83123-A45F-4141-8ABC-F099B04FFA3A}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfTestApp</RootNamespace>
     <AssemblyName>NavigationTree</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -82,22 +80,22 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WpfTestAppModels\WpfTestAppModels.csproj">
-      <Project>{8a43b926-af3f-4b85-a529-121935baac00}</Project>
-      <Name>WpfTestAppModels</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Views\NavigationTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
     <PackageReference Include="ReactiveProperty">
-      <Version>5.3.0</Version>
+      <Version>6.1.4</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WpfTestAppModels\WpfTestAppModels.csproj">
+      <Project>{a5c2de07-c6de-45b1-ba7d-5d9bbc620c08}</Project>
+      <Name>WpfTestAppModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

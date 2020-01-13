@@ -21,7 +21,7 @@ namespace WpfTestApp
         protected override void ConfigureModuleCatalog()
         {
             var moduleCatalog = (ModuleCatalog)ModuleCatalog;
-			moduleCatalog.AddModule(typeof(NavigationTreeModule));
-		}
+            moduleCatalog.AddModule(typeof(NavigationTreeModule));
+        }
     }
 }

@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Prism.Commands;
-using System;
+﻿using System;
 using Prism.Mvvm;
 using Prism.Regions;
-using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
 
 namespace WpfTestApp.ViewModels
 {

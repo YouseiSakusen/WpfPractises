@@ -1,6 +1,4 @@
-﻿using Prism.Commands;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Reactive.Linq;
 using Prism.Mvvm;

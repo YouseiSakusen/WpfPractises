@@ -1,7 +1,6 @@
-﻿using WpfTestApp.Views;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
+using WpfTestApp.Views;
 
 namespace WpfTestApp
 {

@@ -1,7 +1,4 @@
-﻿using Prism.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using Prism.Mvvm;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;

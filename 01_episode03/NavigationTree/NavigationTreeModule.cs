@@ -19,7 +19,7 @@ namespace WpfTestApp
 
         public void Initialize()
         {
-			this._regionManager.RegisterViewWithRegion("NaviTree", typeof(WpfTestApp.Views.NavigationTree));
-		}
+            this._regionManager.RegisterViewWithRegion("NaviTree", typeof(WpfTestApp.Views.NavigationTree));
+        }
     }
 }

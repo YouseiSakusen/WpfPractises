@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}</ProjectGuid>
+    <ProjectGuid>{0C142E37-08AE-4264-BAE6-3B578FE1F38B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfTestApp</RootNamespace>
     <AssemblyName>WpfTestApp71</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -94,11 +94,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NavigationTree\NavigationTree.csproj">
-      <Project>{bf4d235b-7353-4807-9229-5257adbf1bbc}</Project>
+      <Project>{9eb7f332-8598-4734-a83b-9d753a7d09e5}</Project>
       <Name>NavigationTree</Name>
     </ProjectReference>
   </ItemGroup>

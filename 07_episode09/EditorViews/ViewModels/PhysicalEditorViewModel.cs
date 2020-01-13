@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Prism.Mvvm;
 using Prism.Regions;

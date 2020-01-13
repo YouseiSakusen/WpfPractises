@@ -1,13 +1,6 @@
-﻿using Prism.Commands;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Windows;
 using Prism.Mvvm;
-using Prism.Ioc;
-using Prism.Regions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 

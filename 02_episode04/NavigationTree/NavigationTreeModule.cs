@@ -14,7 +14,7 @@ namespace WpfTestApp
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			
+
 		}
 	}
 }

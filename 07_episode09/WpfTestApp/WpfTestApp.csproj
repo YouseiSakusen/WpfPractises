@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DFC2BA02-B8C8-4B4D-8859-7076F8E87D4B}</ProjectGuid>
+    <ProjectGuid>{B0F2C71C-FBE1-4CBD-BB4C-BA46A75543A8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfTestApp</RootNamespace>
-    <AssemblyName>WpfTestApp71</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AssemblyName>WpfTestApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -94,23 +94,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EditorViews\EditorViews.csproj">
-      <Project>{50d3c1f3-200b-44cc-a764-36ed7cfe3b45}</Project>
+      <Project>{e4c4891f-e8d2-44cf-82fa-036465fe5f75}</Project>
       <Name>EditorViews</Name>
     </ProjectReference>
     <ProjectReference Include="..\NavigationTree\NavigationTree.csproj">
-      <Project>{bf4d235b-7353-4807-9229-5257adbf1bbc}</Project>
+      <Project>{23c83123-a45f-4141-8abc-f099b04ffa3a}</Project>
       <Name>NavigationTree</Name>
     </ProjectReference>
     <ProjectReference Include="..\WpfTestAppModels\WpfTestAppModels.csproj">
-      <Project>{8a43b926-af3f-4b85-a529-121935baac00}</Project>
+      <Project>{a5c2de07-c6de-45b1-ba7d-5d9bbc620c08}</Project>
       <Name>WpfTestAppModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\WpfTestAppServices\WpfTestAppServices.csproj">
-      <Project>{f5303402-67ca-488b-bb3b-9d4f9cee0285}</Project>
+      <Project>{5edf7b74-a1b0-4f15-8834-e2b7f04d858d}</Project>
       <Name>WpfTestAppServices</Name>
     </ProjectReference>
   </ItemGroup>

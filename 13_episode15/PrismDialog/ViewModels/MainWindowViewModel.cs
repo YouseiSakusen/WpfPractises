@@ -1,13 +1,13 @@
-﻿using Prism.Interactivity.InteractionRequest;
+﻿using System;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Windows.Input;
+using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using PrismCommonDialog;
 using PrismCommonDialog.Confirmations;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using System;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Windows.Input;
 
 namespace WpfTestApp.ViewModels
 {

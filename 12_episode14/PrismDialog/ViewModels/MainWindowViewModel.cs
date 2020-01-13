@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Prism.Mvvm;
-using System.Reactive.Linq;
 using System.Reactive.Disposables;
-using System.Windows;
+using System.Reactive.Linq;
+using System.Windows.Input;
 using Prism.Interactivity.InteractionRequest;
+using Prism.Mvvm;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 

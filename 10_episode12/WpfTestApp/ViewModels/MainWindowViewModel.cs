@@ -1,5 +1,5 @@
-﻿using Prism.Mvvm;
-using Prism.Interactivity.InteractionRequest;
+﻿using Prism.Interactivity.InteractionRequest;
+using Prism.Mvvm;
 
 namespace WpfTestApp.ViewModels
 {

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50D3C1F3-200B-44CC-A764-36ED7CFE3B45}</ProjectGuid>
+    <ProjectGuid>{E4C4891F-E8D2-44CF-82FA-036465FE5F75}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfTestApp</RootNamespace>
     <AssemblyName>EditorViews</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,34 +90,34 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WpfTestAppModels\WpfTestAppModels.csproj">
-      <Project>{8a43b926-af3f-4b85-a529-121935baac00}</Project>
-      <Name>WpfTestAppModels</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Views\CategoryPanel.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PersonalEditor.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PhysicalEditor.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\TestPointEditor.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
     <PackageReference Include="ReactiveProperty">
-      <Version>5.3.0</Version>
+      <Version>6.1.4</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WpfTestAppModels\WpfTestAppModels.csproj">
+      <Project>{a5c2de07-c6de-45b1-ba7d-5d9bbc620c08}</Project>
+      <Name>WpfTestAppModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

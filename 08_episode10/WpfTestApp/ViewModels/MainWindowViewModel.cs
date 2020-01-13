@@ -1,5 +1,4 @@
-﻿using System;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 
 namespace WpfTestApp.ViewModels
 {

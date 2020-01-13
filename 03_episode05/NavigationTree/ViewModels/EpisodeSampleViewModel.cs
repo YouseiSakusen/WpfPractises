@@ -1,7 +1,7 @@
-﻿using Prism.Mvvm;
+﻿using System.Collections.ObjectModel;
+using Prism.Mvvm;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using System.Collections.ObjectModel;
 
 namespace WpfTestApp.ViewModels
 {

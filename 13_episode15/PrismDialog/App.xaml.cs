@@ -1,6 +1,6 @@
-﻿using Prism.Ioc;
+﻿using System.Windows;
+using Prism.Ioc;
 using PrismCommonDialog;
-using System.Windows;
 using WpfTestApp.Views;
 
 namespace WpfTestApp

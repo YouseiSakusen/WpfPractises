@@ -22,14 +22,14 @@ namespace MvvmSample.ViewModels
 		{
 			return new Person()
 			{
-			Birthday = DateTime.Parse("1980/1/1"),
+				Birthday = DateTime.Parse("1980/1/1"),
 				Name = "沖田玲郎"
 			};
 		}
 
-	/// <summary>ユーザデータを保存する。</summary>
-	/// <param name="target">保存するユーザを表すPerson。</param>
-	public static void Save(Person target) { return; }
+		/// <summary>ユーザデータを保存する。</summary>
+		/// <param name="target">保存するユーザを表すPerson。</param>
+		public static void Save(Person target) { return; }
 	}
 
 	/// <summary>Prism Shell の VM。</summary>
@@ -74,7 +74,7 @@ namespace MvvmSample.ViewModels
 
 		private DelegateCommand saveCmd;
 		/// <summary>ユーザの保存コマンド。</summary>
-		public DelegateCommand SaveCommand => 
+		public DelegateCommand SaveCommand =>
 			saveCmd ?? (saveCmd = new DelegateCommand(ExecuteSaveCommand, CanExecuteSaveCommand));
 
 		/// <summary>ユーザの保存を実行します。</summary>

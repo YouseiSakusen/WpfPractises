@@ -1,5 +1,5 @@
-﻿using Prism.Interactivity.InteractionRequest;
-using System.Windows;
+﻿using System.Windows;
+using Prism.Interactivity.InteractionRequest;
 
 namespace PrismCommonDialog
 {
