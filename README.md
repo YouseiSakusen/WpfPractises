@@ -1,6 +1,6 @@
 # halation ghost WPF
 
-master ブランチの 02_episode03_Prism7.1 ～ 13_episode15 を全て以下の環境に更新しました。  
+master ブランチの **02_episode03_Prism7.1 ～ 13_episode15** を全て以下の環境に更新しました。  
 ※ 01_episode03 のみ Prism 6.3
 
 * Visual Studio 2019
